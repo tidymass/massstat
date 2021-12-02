@@ -1,0 +1,10 @@
+pandoc: 2.11.4
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  contact_us: contact_us.html
+last_built: 2021-12-02T07:09Z
+urls:
+  reference: https://tidymass.github.io/massstat//reference
+  article: https://tidymass.github.io/massstat//articles
+
