@@ -45,7 +45,8 @@ Imports:
     massdataset,
     Biobase,
     rstudioapi,
-    BiocGenerics
+    BiocGenerics,
+    demodata
 License: GPL-2 | file LICENSE
 URL: https://github.com/tidymass/massstat
 RoxygenNote: 7.1.1
@@ -59,5 +60,6 @@ Note:
 biocViews: Metabolomics, MassSpectrometry, Data processing
 Encoding: UTF-8
 Remotes: 
-    tidymass/tinytools
-    tidymass/massdataset
+    tidymass/tinytools,
+    tidymass/massdataset,
+    tidymass/demodata

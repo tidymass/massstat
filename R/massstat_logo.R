@@ -26,6 +26,8 @@
 #' @import patchwork
 #' @importFrom stats coefficients lm loess median predict 
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
+#' @importFrom methods new
+#' @importClassesFrom massdataset mass_dataset tidymass_parameter
 #' @export
 #' @examples 
 #' massstat_logo()
