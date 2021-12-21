@@ -6,10 +6,9 @@
 \usage{
 mutate_p_value(
   object,
-  by,
-  control_group,
-  case_group,
-  method = c("t", "wilcox"),
+  control_sample_id,
+  case_sample_id,
+  method = c("t.test", "wilcox.test"),
   p_adjust_methods = c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr",
     "none")
 )
@@ -17,11 +16,9 @@ mutate_p_value(
 \arguments{
 \item{object}{tidymass-class object.}
 
-\item{by}{one column of sample_info from object.}
+\item{control_sample_id}{A character vector.}
 
-\item{control_group}{A character vector, names from the by.}
-
-\item{case_group}{A character vector, names from the by.}
+\item{case_sample_id}{A character vector}
 
 \item{method}{t test or wilcox test.}
 
@@ -32,6 +29,55 @@ object with fold change in variable_info.
 }
 \description{
 Calculate p values for variables.
+}
+\examples{
+library(massdataset)
+library(tidyverse)
+library(demodata)
+
+data("liver_aging_pos", package = "demodata")
+liver_aging_pos
+
+w_78 =
+  liver_aging_pos \%>\%
+  activate_mass_dataset(what = "sample_info") \%>\%
+  dplyr::filter(group == "78W") \%>\%
+  dplyr::pull(sample_id)
+
+w_24 =
+  liver_aging_pos \%>\%
+  activate_mass_dataset(what = "sample_info") \%>\%
+  dplyr::filter(group == "24W") \%>\%
+  dplyr::pull(sample_id)
+
+control_sample_id = w_24
+case_sample_id = w_78
+
+liver_aging_pos =
+  mutate_p_value(
+    object = liver_aging_pos,
+    control_sample_id = control_sample_id,
+    case_sample_id = case_sample_id,
+    method = "t.test",
+    p_adjust_methods = "BH"
+  )
+
+head(extract_variable_info(liver_aging_pos))
+
+liver_aging_pos =
+  mutate_p_value(
+    object = liver_aging_pos,
+    control_sample_id = control_sample_id,
+    case_sample_id = case_sample_id,
+    method = "wilcox.test",
+    p_adjust_methods = "BH"
+  )
+
+head(extract_variable_info(liver_aging_pos))
+
+extract_variable_info(liver_aging_pos) \%>\%
+  ggplot(aes(-log(p_value_adjust, 10), -log(p_value_adjust.1, 10))) +
+  geom_point()
 }
 \author{
 Xiaotao Shen
