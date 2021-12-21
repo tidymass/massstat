@@ -34,13 +34,8 @@ navbar:
     articles:
       text: Help document
       menu:
-      - text: Raw MS data processing
-      - text: Instruction of massstat
-        href: articles/massstat_instruction.html
-      - text: -------
-      - text: "Other tools"
-      - text: Other tools in massstat
-        href: articles/other_tools.html
+      - text: Volcano plot
+        href: articles/volcano_plot.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990

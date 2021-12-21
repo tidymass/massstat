@@ -4,18 +4,24 @@
     <loc>https://tidymass.github.io/massstat//index.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/calculate_fc.html</loc>
-  </url>
-  <url>
-    <loc>https://tidymass.github.io/massstat//reference/calculate_p_value.html</loc>
-  </url>
-  <url>
     <loc>https://tidymass.github.io/massstat//reference/massstat_logo.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat//reference/massstat_packages.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat//reference/mutate_fc.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat//reference/mutate_p_value.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat//reference/volcano_plot.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat//articles/contact_us.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat//articles/volcano_plot.html</loc>
   </url>
 </urlset>

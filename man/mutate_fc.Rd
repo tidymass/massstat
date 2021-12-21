@@ -76,5 +76,5 @@ extract_variable_info(liver_aging_pos) \%>\%
 }
 \author{
 Xiaotao Shen
-\email{shenxt1990@163.com}
+\email{shenxt1990@outlook.com}
 }

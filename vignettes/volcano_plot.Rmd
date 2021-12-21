@@ -1,0 +1,122 @@
+---
+title: "PCA analysis shows the quality"
+author:
+- name: Xiaotao Shen (https://www.shenxt.info/)
+date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+    toc: no
+  pdf_document:
+    toc: no
+vignette: >
+  %\VignetteIndexEntry{massqc_pca}
+  %\VignettePackage{massqc}
+  % \VignetteEngine{knitr::rmarkdown}
+  % \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = TRUE,
+  out.width = "100%"
+)
+```
+
+# **Data preparation**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+library(massdataset)
+library(tidyverse)
+library(demodata)
+library(massstat)
+
+data("liver_aging_pos", package = "demodata")
+liver_aging_pos
+
+w_78 =
+  liver_aging_pos %>%
+  activate_mass_dataset(what = "sample_info") %>%
+  dplyr::filter(group == "78W") %>%
+  dplyr::pull(sample_id)
+
+w_24 =
+  liver_aging_pos %>%
+  activate_mass_dataset(what = "sample_info") %>%
+  dplyr::filter(group == "24W") %>%
+  dplyr::pull(sample_id)
+
+control_sample_id = w_24
+case_sample_id = w_78
+
+liver_aging_pos =
+  mutate_fc(
+    object = liver_aging_pos,
+    control_sample_id = control_sample_id,
+    case_sample_id = case_sample_id,
+    mean_median = "mean"
+  )
+
+liver_aging_pos =
+  mutate_p_value(
+    object = liver_aging_pos,
+    control_sample_id = control_sample_id,
+    case_sample_id = case_sample_id,
+    method = "t.test",
+    p_adjust_methods = "BH"
+  )
+
+object = liver_aging_pos
+```
+
+# **Volcano plot**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+volcano_plot(
+  object = object,
+  fc_column_name = "fc",
+  p_value_column_name = "p_value_adjust",
+  labs_x = "log2(Fold change)",
+  labs_y = "-log(p-adjust, 10)",
+  fc_up_cutoff = 2,
+  fc_down_cutoff = 0.5,
+  p_value_cutoff = 0.05,
+  add_text = TRUE
+)
+
+
+volcano_plot(
+  object = object,
+  fc_column_name = "fc",
+  p_value_column_name = "p_value",
+  labs_x = "log2(Fold change)",
+  labs_y = "-log(p-value, 10)",
+  fc_up_cutoff = 2,
+  fc_down_cutoff = 0.5,
+  p_value_cutoff = 0.05,
+  add_text = FALSE,
+  point_alpha = 0.5
+)
+
+volcano_plot(
+  object = object,
+  fc_column_name = "fc",
+  p_value_column_name = "p_value",
+  labs_x = "log2(Fold change)",
+  labs_y = "-log(p-value, 10)",
+  fc_up_cutoff = 2,
+  fc_down_cutoff = 0.5,
+  p_value_cutoff = 0.05,
+  add_text = FALSE,
+  point_alpha = 0.5,
+  point_size_scale = "p_value"
+) +
+  scale_size_continuous(range = c(0.5, 3))
+
+```
+
+

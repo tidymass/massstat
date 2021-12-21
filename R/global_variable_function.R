@@ -1,3 +1,5 @@
 globalVariables(names = c(
-  "silence.deprecated"
+  "log10_p",
+  "log2_fc",
+  "marker"
 ))

@@ -1,13 +1,12 @@
-#' @title mutate_p_value
-#' @description Calculate p values for variables.
+#' @title mutate_fc
+#' @description Calculate fold change.
 #' @author Xiaotao Shen
-#' \email{shenxt1990@@163.com}
+#' \email{shenxt1990@@outlook.com}
 #' @param object tidymass-class object.
 #' @param control_sample_id A character vector.
 #' @param case_sample_id A character vector
-#' @param method t test or wilcox test.
-#' @param p_adjust_methods see ?p.adjust
-#' @return object with fold change in variable_info.
+#' @param mean_median mean or median.
+#' @return object with fold change (fc) in variable_info.
 #' @export
 #' @examples
 #' library(massdataset)
@@ -29,49 +28,40 @@
 #'   dplyr::filter(group == "24W") %>%
 #'   dplyr::pull(sample_id)
 #' 
+#' 
 #' control_sample_id = w_24
 #' case_sample_id = w_78
 #' 
 #' liver_aging_pos =
-#'   mutate_p_value(
+#'   mutate_fc(
 #'     object = liver_aging_pos,
 #'     control_sample_id = control_sample_id,
 #'     case_sample_id = case_sample_id,
-#'     method = "t.test",
-#'     p_adjust_methods = "BH"
+#'     mean_median = "mean"
 #'   )
 #' 
 #' head(extract_variable_info(liver_aging_pos))
 #' 
 #' liver_aging_pos =
-#'   mutate_p_value(
+#'   mutate_fc(
 #'     object = liver_aging_pos,
 #'     control_sample_id = control_sample_id,
 #'     case_sample_id = case_sample_id,
-#'     method = "wilcox.test",
-#'     p_adjust_methods = "BH"
+#'     mean_median = "median"
 #'   )
 #' 
 #' head(extract_variable_info(liver_aging_pos))
 #' 
 #' extract_variable_info(liver_aging_pos) %>%
-#'   ggplot(aes(-log(p_value_adjust, 10), -log(p_value_adjust.1, 10))) +
+#'   ggplot(aes(fc, fc.1)) +
 #'   geom_point()
 
-mutate_p_value = function(object,
-                          control_sample_id,
-                          case_sample_id,
-                          method = c("t.test", "wilcox.test"),
-                          p_adjust_methods = c("holm",
-                                               "hochberg",
-                                               "hommel",
-                                               "bonferroni",
-                                               "BH",
-                                               "BY",
-                                               "fdr",
-                                               "none")) {
-  method = match.arg(method)
-  p_adjust_methods = match.arg(p_adjust_methods)
+mutate_fc = function(object,
+                     control_sample_id,
+                     case_sample_id,
+                     mean_median = c("mean", "median")) {
+  mean_median = match.arg(mean_median)
+  massdataset::check_object_class(object = object, class = "mass_dataset")
   
   if (missing(control_sample_id) | missing(case_sample_id)) {
     stop("control_sample_id and/or case_sample_id are not provided.\n")
@@ -111,76 +101,47 @@ mutate_p_value = function(object,
   expression_data =
     object@expression_data
   
-  if (method == "t.test") {
-    p_value =
+  if (mean_median == "mean") {
+    fc =
       apply(expression_data, 1, function(x) {
         x = as.numeric(x)
-        test =
-          tryCatch(
-            expr = t.test(x = x[control_index], y = x[case_index]),
-            error = function(e) {
-              NA
-            }
-          )
-        
-        if (class(test) == "htest") {
-          p = test$p.value
-        } else{
-          p = 1
-        }
+        mean(x[case_index], na.rm = TRUE) / mean(x[control_index], na.rm = TRUE)
       })
   } else{
-    p_value =
+    fc =
       apply(expression_data, 1, function(x) {
         x = as.numeric(x)
-        test =
-          tryCatch(
-            expr = wilcox.test(x = x[control_index], y = x[case_index]),
-            error = function(e) {
-              NA
-            }
-          )
-        
-        if (class(test) == "htest") {
-          p = test$p.value
-        } else{
-          p = 1
-        }
+        median(x[case_index], na.rm = TRUE) / median(x[control_index], na.rm = TRUE)
       })
   }
   
-  p_value_adjust = p.adjust(p_value, method = p_adjust_methods)
+  fc[is.na(fc)] = 1
+  fc[is.infinite(fc)] = max(fc[!is.infinite(fc)])
   
   object@variable_info =
-    data.frame(object@variable_info,
-               p_value,
-               p_value_adjust,
-               stringsAsFactors = FALSE)
+    data.frame(object@variable_info, fc, stringsAsFactors = FALSE)
   
   process_info = object@process_info
   
   parameter <- new(
     Class = "tidymass_parameter",
     pacakge_name = "massdataset",
-    function_name = "mutate_p_value()",
+    function_name = "mutate_fc()",
     parameter = list(
       "control_sample_id" = control_sample_id,
       case_sample_id = case_sample_id,
-      method = method,
-      p_adjust_methods = p_adjust_methods
+      mean_median = mean_median
     ),
     time = Sys.time()
   )
   
-  if (all(names(process_info) != "mutate_p_value")) {
-    process_info$mutate_p_value = parameter
+  if (all(names(process_info) != "mutate_fc")) {
+    process_info$mutate_fc = parameter
   } else{
-    process_info$mutate_p_value = c(process_info$mutate_p_value,
-                                    parameter)
+    process_info$mutate_fc = c(process_info$mutate_fc,
+                               parameter)
   }
   
   object@process_info = process_info
-  
   return(object)
-  
 }
