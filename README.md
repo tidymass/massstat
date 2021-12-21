@@ -7,6 +7,8 @@
 [![Dependencies](https://tinyverse.netlify.com/badge/massstat)](https://cran.r-project.org/package=massstat)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
+`massstat` is a part of [tidymass](https://tidymass.github.io/tidymass/).
+
 ------
 
 ## **About**

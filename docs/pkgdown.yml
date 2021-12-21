@@ -5,7 +5,7 @@ articles:
   contact_us: contact_us.html
   run_pca: run_pca.html
   volcano_plot: volcano_plot.html
-last_built: 2021-12-21T07:24Z
+last_built: 2021-12-21T07:28Z
 urls:
   reference: https://tidymass.github.io/massstat//reference
   article: https://tidymass.github.io/massstat//articles
