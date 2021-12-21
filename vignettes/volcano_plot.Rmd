@@ -1,5 +1,5 @@
 ---
-title: "PCA analysis shows the quality"
+title: "Volcona plot"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
@@ -10,7 +10,7 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{massqc_pca}
+  %\VignetteIndexEntry{volcano_plot}
   %\VignettePackage{massqc}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}

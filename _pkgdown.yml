@@ -36,6 +36,8 @@ navbar:
       menu:
       - text: Volcano plot
         href: articles/volcano_plot.html
+      - text: PCA analysis
+        href: articles/run_pca.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990
