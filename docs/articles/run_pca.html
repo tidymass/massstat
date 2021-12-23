@@ -132,7 +132,7 @@
       <h1 data-toc-skip>PCA analysis</h1>
                         <h4 class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 class="date">Created on 2021-12-04 and updated on 2021-12-20</h4>
+            <h4 class="date">Created on 2021-12-04 and updated on 2021-12-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massstat/blob/master/vignettes/run_pca.Rmd"><code>vignettes/run_pca.Rmd</code></a></small>
       <div class="hidden name"><code>run_pca.Rmd</code></div>
@@ -165,37 +165,45 @@
 <span class="co">#&gt; Processing information (extract_process_info())</span>
 <span class="co">#&gt; Creation ---------- </span>
 <span class="co">#&gt;       Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-20 20:30:37</span></code></pre></div>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:24:02</span></code></pre></div>
 </div>
 <div id="pca-analysis" class="section level1">
 <h1 class="hasAnchor">
 <a href="#pca-analysis" class="anchor"></a><strong>PCA analysis</strong>
 </h1>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset">massdataset</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">demodata</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span>, package <span class="op">=</span> <span class="st">"demodata"</span><span class="op">)</span>
+<span class="va">liver_aging_pos</span>
+<span class="co">#&gt; -------------------- </span>
+<span class="co">#&gt; massdataset version: 0.01 </span>
+<span class="co">#&gt; -------------------- </span>
+<span class="co">#&gt; 1.expression_data:[ 21607 x 24 data.frame]</span>
+<span class="co">#&gt; 2.sample_info:[ 24 x 4 data.frame]</span>
+<span class="co">#&gt; 3.variable_info:[ 21607 x 3 data.frame]</span>
+<span class="co">#&gt; 4.sample_info_note:[ 4 x 2 data.frame]</span>
+<span class="co">#&gt; 5.variable_info_note:[ 3 x 2 data.frame]</span>
+<span class="co">#&gt; 6.ms2_data:[ 0 variables x 0 MS2 spectra]</span>
+<span class="co">#&gt; -------------------- </span>
+<span class="co">#&gt; Processing information (extract_process_info())</span>
+<span class="co">#&gt; Creation ---------- </span>
+<span class="co">#&gt;       Package         Function.used                Time</span>
+<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:24:02</span>
+
+<span class="va">pca_object</span> <span class="op">=</span>
 <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/run_pca.html">run_pca</a></span><span class="op">(</span>frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="../reference/run_pca.html">run_pca</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu"><a href="../reference/pca_score_plot.html">pca_score_plot</a></span><span class="op">(</span><span class="va">liver_aging_pos</span>,
+               <span class="va">pca_object</span>,
+               color_by <span class="op">=</span> <span class="st">"group"</span>,
+               loadings <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="run_pca_files/figure-html/unnamed-chunk-3-1.png" width="100%"></p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/base/scale.html">scale</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/run_pca.html">run_pca</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"group"</span>,
-          loadings <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span> </code></pre></div>
-<p><img src="run_pca_files/figure-html/unnamed-chunk-3-2.png" width="100%"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">class</span> <span class="op">==</span> <span class="st">"Subject"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
-  <span class="va">scale</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/run_pca.html">run_pca</a></span><span class="op">(</span>color_by <span class="op">=</span> <span class="st">"group"</span>, frame <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_fill_lancet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggsci</span><span class="fu">::</span><span class="fu"><a href="https://nanx.me/ggsci/reference/scale_lancet.html">scale_color_lancet</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggrepel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">sample_id</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p><img src="run_pca_files/figure-html/unnamed-chunk-3-3.png" width="100%"></p>
 </div>
   </div>
 

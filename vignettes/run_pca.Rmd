@@ -41,25 +41,23 @@ liver_aging_pos
 # **PCA analysis**
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+library(massdataset)
+library(demodata)
+library(tidyverse)
+data("liver_aging_pos", package = "demodata")
+liver_aging_pos
 
+pca_object =
 liver_aging_pos %>%
-  run_pca(frame = TRUE)
+  scale() %>%
+  run_pca()
 
-liver_aging_pos %>%
-  scale() %>% 
-  run_pca(color_by = "group",
-          loadings = TRUE) +
+pca_score_plot(liver_aging_pos,
+               pca_object,
+               color_by = "group",
+               loadings = TRUE) +
   ggsci::scale_fill_lancet() +
-  ggsci::scale_color_lancet() 
-
-liver_aging_pos %>%
-  activate_mass_dataset(what = "sample_info") %>% 
-  dplyr::filter(class == "Subject") %>% 
-  scale %>%
-  run_pca(color_by = "group", frame = TRUE) +
-  ggsci::scale_fill_lancet() +
-  ggsci::scale_color_lancet() +
-  ggrepel::geom_text_repel(aes(label = sample_id))
+  ggsci::scale_color_lancet()
 ```
 
 

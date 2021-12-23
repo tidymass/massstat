@@ -4,6 +4,9 @@
     <loc>https://tidymass.github.io/massstat//index.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat//reference/massstat_conflicts.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat//reference/massstat_logo.html</loc>
   </url>
   <url>
@@ -14,6 +17,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat//reference/mutate_p_value.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat//reference/pca_score_plot.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat//reference/run_pca.html</loc>

@@ -4,33 +4,16 @@
 \alias{run_pca}
 \title{run_pca}
 \usage{
-run_pca(
-  object,
-  color_by,
-  point_alpha = 0.8,
-  frame = TRUE,
-  frame.type = "norm",
-  ...
-)
+run_pca(object)
 }
 \arguments{
 \item{object}{tidymass-class object.}
-
-\item{color_by}{which column (sample_info) is used to color samples}
-
-\item{point_alpha}{point_alpha}
-
-\item{frame}{?ggplot2::autoplot}
-
-\item{frame.type}{?ggplot2::autoplot}
-
-\item{...}{other paramters for ggplot2::autoplot}
 }
 \value{
-ggplot2 plot.
+prcomp object.
 }
 \description{
-Boxplot for each samples.
+run_pca
 }
 \examples{
 library(massdataset)
@@ -39,24 +22,10 @@ library(tidyverse)
 data("liver_aging_pos", package = "demodata")
 liver_aging_pos
 
+pca_object = 
 liver_aging_pos \%>\%
-  run_pca(frame = TRUE)
-
-liver_aging_pos \%>\%
-  scale() \%>\% 
-  run_pca(color_by = "group",
-          loadings = TRUE) +
-  ggsci::scale_fill_lancet() +
-  ggsci::scale_color_lancet() 
-
-liver_aging_pos \%>\%
-  activate_mass_dataset(what = "sample_info") \%>\% 
-  dplyr::filter(class == "Subject") \%>\% 
-  scale \%>\%
-  run_pca(color_by = "group", frame = TRUE) +
-  ggsci::scale_fill_lancet() +
-  ggsci::scale_color_lancet() +
-  ggrepel::geom_text_repel(aes(label = sample_id))
+  scale() \%>\%
+  run_pca()
 }
 \author{
 Xiaotao Shen

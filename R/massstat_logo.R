@@ -30,6 +30,7 @@
 #' @importFrom methods new
 #' @importFrom ggrepel geom_text_repel
 #' @importClassesFrom massdataset mass_dataset tidymass_parameter
+#' @import ggfortify
 #' @export
 #' @examples 
 #' massstat_logo()
