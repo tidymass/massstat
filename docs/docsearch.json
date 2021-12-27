@@ -2,21 +2,21 @@
   "index_name": "massstat",
   "start_urls": [
     {
-      "url": "https://tidymass.github.io/massstat//index.html",
+      "url": "https://tidymass.github.io/massstat/index.html",
       "selectors_key": "homepage",
       "tags": [
         "homepage"
       ]
     },
     {
-      "url": "https://tidymass.github.io/massstat//reference",
+      "url": "https://tidymass.github.io/massstat/reference",
       "selectors_key": "reference",
       "tags": [
         "reference"
       ]
     },
     {
-      "url": "https://tidymass.github.io/massstat//articles",
+      "url": "https://tidymass.github.io/massstat/articles",
       "selectors_key": "articles",
       "tags": [
         "articles"
@@ -30,7 +30,7 @@
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    "https://tidymass.github.io/massstat//sitemap.xml"
+    "https://tidymass.github.io/massstat/sitemap.xml"
   ],
   "selectors": {
     "homepage": {

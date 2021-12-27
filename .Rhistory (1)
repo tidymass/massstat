@@ -1,0 +1,512 @@
+frame.type = frame.type,
+...
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+}
+return(plot)
+}
+liver_aging_pos %>%
+run_pca()
+liver_aging_pos %>%
+run_pca(frame = FALSE)
+object %>%
+run_pca(color_by = "group")
+object@expression_data$QC01
+object %>%
+log(10)
+object %>%
+log(10) %>%
+scale()
+object %>%
+log(10) %>%
+scale() %>%
+run_pca(color_by = "group")
+object %>%
+scale() %>%
+run_pca(color_by = "group")
+object %>%
+scale() %>%
+run_pca(color_by = "group") +
+ggsci::scale_fill_lancet()
+liver_aging_pos %>%
+scale %>%
+run_pca(color_by = "class", frame = FALSE) +
+ggsci::scale_fill_lancet() +
+ggrepel::geom_text_repel(aes(label = sample_id))
+liver_aging_pos %>%
+scale %>%
+run_pca(color_by = "class", frame = TRUE) +
+ggsci::scale_fill_lancet() +
+ggrepel::geom_text_repel(aes(label = sample_id))
+liver_aging_pos %>%
+scale() %>%
+run_pca(color_by = "group") +
+ggsci::scale_fill_lancet()
+liver_aging_pos %>%
+run_pca(frame = FALSE)
+liver_aging_pos %>%
+run_pca(frame = TRUE)
+liver_aging_pos %>%
+scale() %>%
+run_pca(color_by = "group") +
+ggsci::scale_fill_lancet()
+liver_aging_pos %>%
+activate_mass_dataset(what = "sample_info") %>%
+dplyr::filter(class == "Subject") %>%
+scale %>%
+run_pca(color_by = "class", frame = TRUE) +
+ggsci::scale_fill_lancet() +
+ggrepel::geom_text_repel(aes(label = sample_id))
+object = liver_aging_pos %>%
+activate_mass_dataset(what = "sample_info") %>%
+dplyr::filter(class == "Subject") %>%
+scale
+color_by = "class"
+frame = TRUE
+point_alpha = 0.8
+frame.type = 'norm'
+massdataset::check_object_class(object = object, class = "mass_dataset")
+if (sum(is.na(object@expression_data)) > 0) {
+warning("MVs in you object,\nwill remove variables > 50% and imputate with zero.\n")
+object =
+object %>%
+massdataset::mutate_variable_na_freq()
+object =
+object %>%
+massdataset::activate_mass_dataset(what = "variable_info") %>%
+dplyr::filter(na_freq < 0.5)
+}
+sample_info = object@sample_info
+expression_data = object@expression_data
+expression_data =
+expression_data %>%
+apply(1, function(x) {
+x[is.na(x)] = min(x[!is.na(x)])
+x
+}) %>%
+t()
+color_by
+if (missing(color_by)) {
+color_by = "no"
+} else{
+if (all(colnames(object@sample_info) != color_by)) {
+stop("no ", color_by, " in sample_info, please check.\n")
+}
+}
+if (all(names(object@process_info) != "scale")) {
+warning("no scale for this dataset, try to scale() before pca.\n")
+}
+pca_object = prcomp(x = t(as.matrix(expression_data)),
+center = FALSE,
+scale. = FALSE)
+point_alpha
+frame
+frame.type
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type,
+...
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+color_by
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+color_by
+color_by = "group"
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = "group",
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = "group",
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = "group",
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = "group",color = "group",
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+autoplot(stats::prcomp(iris[-5]))
+autoplot(stats::prcomp(iris[-5]), data = iris)
+autoplot(stats::prcomp(iris[-5]), data = iris, colour = 'Species')
+autoplot(stats::prcomp(iris[-5]), frame = TRUE)
+autoplot(stats::prcomp(iris[-5]), data = iris, frame = TRUE,
+frame.colour = 'Species')
+autoplot(stats::prcomp(iris[-5]), data = iris, frame = TRUE,
+frame.fill = 'Species')
+autoplot(stats::prcomp(iris[-5]), data = iris, frame = TRUE,
+frame.type = 't', frame.colour = 'Species')
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.color = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type,
+...
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.color = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+color_by
+color_by
+frame.type
+frame.type = "t"
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.color = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+color_by
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.color = get(color_by),
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+)
+get(color_by)
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.color = "group",
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+)
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.colour = "group",
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+)
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.colour = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+)
+run_pca = function(object,
+color_by,
+point_alpha = 0.8,
+frame = TRUE,
+frame.type = 'norm',
+...) {
+massdataset::check_object_class(object = object, class = "mass_dataset")
+if (sum(is.na(object@expression_data)) > 0) {
+warning("MVs in you object,\nwill remove variables > 50% and imputate with zero.\n")
+object =
+object %>%
+massdataset::mutate_variable_na_freq()
+object =
+object %>%
+massdataset::activate_mass_dataset(what = "variable_info") %>%
+dplyr::filter(na_freq < 0.5)
+}
+sample_info = object@sample_info
+expression_data = object@expression_data
+expression_data =
+expression_data %>%
+apply(1, function(x) {
+x[is.na(x)] = min(x[!is.na(x)])
+x
+}) %>%
+t()
+if (missing(color_by)) {
+color_by = "no"
+} else{
+if (all(colnames(object@sample_info) != color_by)) {
+stop("no ", color_by, " in sample_info, please check.\n")
+}
+}
+if (all(names(object@process_info) != "scale")) {
+warning("no scale for this dataset, try to scale() before pca.\n")
+}
+pca_object = prcomp(x = t(as.matrix(expression_data)),
+center = FALSE,
+scale. = FALSE)
+if (color_by == "no") {
+plot =
+ggfortify:::autoplot.pca_common(
+object = pca_object,
+data = sample_info,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type,
+...
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+} else{
+plot =
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.colour = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type,
+...
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+}
+return(plot)
+}
+liver_aging_pos %>%
+scale() %>%
+run_pca(color_by = "group") +
+ggsci::scale_fill_lancet()
+liver_aging_pos %>%
+activate_mass_dataset(what = "sample_info") %>%
+dplyr::filter(class == "Subject") %>%
+scale %>%
+run_pca(color_by = "group", frame = TRUE) +
+ggsci::scale_fill_lancet() +
+ggrepel::geom_text_repel(aes(label = sample_id))
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.colour = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+)
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.colour = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+)
+liver_aging_pos %>%
+activate_mass_dataset(what = "sample_info") %>%
+dplyr::filter(class == "Subject") %>%
+scale %>%
+run_pca(color_by = "group", frame = TRUE) +
+ggsci::scale_fill_lancet() +
+ggsci::scale_color_lancet() +
+ggrepel::geom_text_repel(aes(label = sample_id))
+liver_aging_pos %>%
+scale() %>%
+run_pca(color_by = "group") +
+ggsci::scale_fill_lancet() +
+ggsci::scale_color_lancet() +
+liver_aging_pos %>%
+activate_mass_dataset(what = "sample_info") %>%
+dplyr::filter(class == "Subject") %>%
+scale %>%
+run_pca(color_by = "group", frame = TRUE) +
+ggsci::scale_fill_lancet() +
+ggsci::scale_color_lancet() +
+ggrepel::geom_text_repel(aes(label = sample_id))
+liver_aging_pos %>%
+scale() %>%
+run_pca(color_by = "group") +
+ggsci::scale_fill_lancet() +
+ggsci::scale_color_lancet()
+liver_aging_pos %>%
+activate_mass_dataset(what = "sample_info") %>%
+dplyr::filter(class == "Subject") %>%
+scale %>%
+run_pca(color_by = "group", frame = TRUE) +
+ggsci::scale_fill_lancet() +
+ggsci::scale_color_lancet() +
+ggrepel::geom_text_repel(aes(label = sample_id))
+liver_aging_pos %>%
+scale() %>%
+run_pca(color_by = "group",
+loadings = TRUE,
+loadings.label = TRUE) +
+ggsci::scale_fill_lancet() +
+ggsci::scale_color_lancet()
+autoplot(
+object = pca_object,
+data = sample_info,
+fill = color_by,
+frame.colour = color_by,
+size = 5,
+shape = 21,
+alpha = point_alpha,
+frame = frame,
+frame.type = frame.type
+) +
+geom_vline(xintercept = 0, linetype = 2) +
+geom_hline(yintercept = 0, linetype = 2) +
+theme_bw() +
+theme(panel.grid.minor = element_blank())
+liver_aging_pos %>%
+scale() %>%
+run_pca(color_by = "group",
+loadings = TRUE) +
+ggsci::scale_fill_lancet() +
+ggsci::scale_color_lancet()
+devtools::document()
+devtools::build()
+devtools::check()
+devtools::document()
+devtools::build()
+devtools::check()
+pkgdown::build_site()
+pkgdown::build_site()
+pkgdown::build_site()
+pkgdown::build_site()
+pkgdown::build_site()
+pkgdown::build_home()

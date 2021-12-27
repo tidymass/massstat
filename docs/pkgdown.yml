@@ -1,12 +1,12 @@
 pandoc: 2.11.4
-pkgdown: 1.6.1
+pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
   run_pca: run_pca.html
   volcano_plot: volcano_plot.html
-last_built: 2021-12-23T08:36Z
+last_built: 2021-12-27T20:09Z
 urls:
-  reference: https://tidymass.github.io/massstat//reference
-  article: https://tidymass.github.io/massstat//articles
+  reference: https://tidymass.github.io/massstat/reference
+  article: https://tidymass.github.io/massstat/articles
 

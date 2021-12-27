@@ -1,39 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tidymass.github.io/massstat//index.html</loc>
+    <loc>https://tidymass.github.io/massstat/404.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/massstat_conflicts.html</loc>
+    <loc>https://tidymass.github.io/massstat/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/massstat_logo.html</loc>
+    <loc>https://tidymass.github.io/massstat/articles/contact_us.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/massstat_packages.html</loc>
+    <loc>https://tidymass.github.io/massstat/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/mutate_fc.html</loc>
+    <loc>https://tidymass.github.io/massstat/articles/run_pca.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/mutate_p_value.html</loc>
+    <loc>https://tidymass.github.io/massstat/articles/volcano_plot.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/pca_score_plot.html</loc>
+    <loc>https://tidymass.github.io/massstat/authors.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/run_pca.html</loc>
+    <loc>https://tidymass.github.io/massstat/index.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//reference/volcano_plot.html</loc>
+    <loc>https://tidymass.github.io/massstat/news/index.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//articles/contact_us.html</loc>
+    <loc>https://tidymass.github.io/massstat/reference/calculate_fc.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//articles/run_pca.html</loc>
+    <loc>https://tidymass.github.io/massstat/reference/calculate_p_value.html</loc>
   </url>
   <url>
-    <loc>https://tidymass.github.io/massstat//articles/volcano_plot.html</loc>
+    <loc>https://tidymass.github.io/massstat/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/massqc_logo.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/massqc_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/massstat_conflicts.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/massstat_logo.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/massstat_packages.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/mutate_fc.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/mutate_p_value.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/pca_score_plot.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/run_pca.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/sample_boxplot.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/volcano_plot.html</loc>
   </url>
 </urlset>
