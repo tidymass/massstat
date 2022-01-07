@@ -3,9 +3,10 @@ pkgdown: 2.0.1
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
+  install: install.html
   run_pca: run_pca.html
   volcano_plot: volcano_plot.html
-last_built: 2021-12-27T20:09Z
+last_built: 2022-01-07T09:34Z
 urls:
   reference: https://tidymass.github.io/massstat/reference
   article: https://tidymass.github.io/massstat/articles

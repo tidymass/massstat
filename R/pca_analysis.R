@@ -102,7 +102,7 @@ pca_score_plot = function(object,
                           frame.type = 'norm',
                           ...) {
   massdataset::check_object_class(object = object, class = "mass_dataset")
-  if(class(pca_object)[1] != "prcomp"){
+  if(!is(pca_object, "prcomp")){
     stop("pca_object should be prcomp class from run_pca().\n")
   }
   

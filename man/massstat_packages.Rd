@@ -9,6 +9,9 @@ massstat_packages(include_self = TRUE)
 \arguments{
 \item{include_self}{Include massstat in the list?}
 }
+\value{
+massstat_packages
+}
 \description{
 List all packages in the massstat
 }

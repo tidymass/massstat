@@ -60,4 +60,9 @@ pca_score_plot(liver_aging_pos,
   ggsci::scale_color_lancet()
 ```
 
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```
 

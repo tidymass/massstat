@@ -6,6 +6,9 @@
 \usage{
 massstat_conflicts()
 }
+\value{
+massstat_conflicts
+}
 \description{
 This function lists all the conflicts between packages in the massstat
 and other packages that you have loaded.

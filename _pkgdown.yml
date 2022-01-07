@@ -34,6 +34,8 @@ navbar:
     articles:
       text: Help document
       menu:
+      - text: Install massstat
+        href: articles/install.html
       - text: Volcano plot
         href: articles/volcano_plot.html
       - text: PCA analysis

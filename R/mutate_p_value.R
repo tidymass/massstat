@@ -123,7 +123,7 @@ mutate_p_value = function(object,
             }
           )
         
-        if (class(test) == "htest") {
+        if (is(test, "htest")) {
           p = test$p.value
         } else{
           p = 1
@@ -141,7 +141,7 @@ mutate_p_value = function(object,
             }
           )
         
-        if (class(test) == "htest") {
+        if (is(test, "htest")) {
           p = test$p.value
         } else{
           p = 1

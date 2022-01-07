@@ -6,6 +6,9 @@
 \usage{
 massstat_logo()
 }
+\value{
+logo
+}
 \description{
 massstat_logo
 }

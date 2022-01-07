@@ -29,6 +29,7 @@ text_col <- function(x) {
 #'
 #' @param include_self Include massstat in the list?
 #' @export
+#' @return massstat_packages
 
 massstat_packages <- function(include_self = TRUE) {
   raw <- utils::packageDescription("massstat")$Imports

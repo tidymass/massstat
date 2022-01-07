@@ -9,6 +9,7 @@
 #' existing code.
 #'
 #' @export
+#' @return massstat_conflicts
 #' @examples
 #' massstat_conflicts()
 massstat_conflicts <- function() {

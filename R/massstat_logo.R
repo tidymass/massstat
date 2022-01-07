@@ -25,26 +25,39 @@
 #' @importFrom BiocGenerics basename
 #' @importFrom patchwork plot_layout
 #' @import patchwork
-#' @importFrom stats coefficients lm loess median predict 
+#' @import snow
+#' @importFrom stats coefficients lm loess median predict
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
-#' @importFrom methods new
+#' @importFrom methods new is
 #' @importFrom ggrepel geom_text_repel
 #' @importClassesFrom massdataset mass_dataset tidymass_parameter
 #' @import ggfortify
+#' @import tidyr
+#' @import graphics
 #' @export
-#' @examples 
+#' @return logo
+#' @examples
 #' massstat_logo()
 
-massstat_logo <- function(){
+massstat_logo <- function() {
   cat(crayon::green("Thank you for using massstat_logo!\n"))
   cat(crayon::green("Version 0.0.1 (2021-11-30)\n"))
   cat(crayon::green("Bug fixing\n"))
-  cat(crayon::green("More information can be found at https://tidymass.github.io/massstat_logo/\n"))
+  cat(
+    crayon::green(
+      "More information: google tidymass massstat.\n"
+    )
+  )
   cat(crayon::green(
-    c("                           _____ _        _   ", "                          / ____| |      | |  ", 
-      "  _ __ ___   __ _ ___ ___| (___ | |_ __ _| |_ ", " | '_ ` _ \\ / _` / __/ __|\\___ \\| __/ _` | __|", 
-      " | | | | | | (_| \\__ \\__ \\____) | || (_| | |_ ", " |_| |_| |_|\\__,_|___/___/_____/ \\__\\__,_|\\__|", 
-      "                                              ", "                                              "
+    c(
+      "                           _____ _        _   ",
+      "                          / ____| |      | |  ",
+      "  _ __ ___   __ _ ___ ___| (___ | |_ __ _| |_ ",
+      " | '_ ` _ \\ / _` / __/ __|\\___ \\| __/ _` | __|",
+      " | | | | | | (_| \\__ \\__ \\____) | || (_| | |_ ",
+      " |_| |_| |_|\\__,_|___/___/_____/ \\__\\__,_|\\__|",
+      "                                              ",
+      "                                              "
     )
     
   ), sep = "\n")
