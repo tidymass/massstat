@@ -18,7 +18,7 @@
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom readr read_csv cols
 #' @importFrom readxl read_excel
-#' @importFrom tinytools get_os mz_rt_match
+#' @importFrom masstools get_os mz_rt_match
 #' @importFrom BiocParallel MulticoreParam SnowParam bplapply
 #' @importFrom magrittr %>%
 #' @importFrom plotly ggplotly

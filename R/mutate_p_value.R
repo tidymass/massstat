@@ -7,6 +7,7 @@
 #' @param case_sample_id A character vector
 #' @param method t test or wilcox test.
 #' @param p_adjust_methods see ?p.adjust
+#' @param ... other parameters
 #' @return object with fold change in variable_info.
 #' @export
 #' @examples
@@ -69,7 +70,8 @@ mutate_p_value = function(object,
                                                "BH",
                                                "BY",
                                                "fdr",
-                                               "none")) {
+                                               "none"),
+                          ...) {
   method = match.arg(method)
   p_adjust_methods = match.arg(p_adjust_methods)
   
@@ -117,7 +119,8 @@ mutate_p_value = function(object,
         x = as.numeric(x)
         test =
           tryCatch(
-            expr = t.test(x = x[control_index], y = x[case_index]),
+            expr = t.test(x = x[control_index], y = x[case_index],
+                          ...),
             error = function(e) {
               NA
             }
@@ -135,7 +138,8 @@ mutate_p_value = function(object,
         x = as.numeric(x)
         test =
           tryCatch(
-            expr = wilcox.test(x = x[control_index], y = x[case_index]),
+            expr = wilcox.test(x = x[control_index], y = x[case_index],
+                               ...),
             error = function(e) {
               NA
             }

@@ -10,7 +10,8 @@ mutate_p_value(
   case_sample_id,
   method = c("t.test", "wilcox.test"),
   p_adjust_methods = c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr",
-    "none")
+    "none"),
+  ...
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ mutate_p_value(
 \item{method}{t test or wilcox test.}
 
 \item{p_adjust_methods}{see ?p.adjust}
+
+\item{...}{other parameters}
 }
 \value{
 object with fold change in variable_info.
