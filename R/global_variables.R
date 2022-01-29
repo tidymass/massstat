@@ -41,6 +41,8 @@ globalVariables(names = c(
   "rt_correction",
   "variable_id",
   "value",
-  "sample_id"
+  "sample_id",
+  "ms2_files_id",
+  "ms2_spectrum_id"
 ))
 

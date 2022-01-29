@@ -136,9 +136,26 @@ volcano_plot = function(object,
   if (all(colnames(object@variable_info) != p_value_column_name)) {
     stop(paste("no", p_value_column_name, "in variable_info.\n"))
   }
-  
+ 
   variable_info =
-    object@variable_info %>%
+    object@variable_info
+  
+  if (nrow(object@annotation_table) != 0) {
+    annotation_table =
+      object@annotation_table %>%
+      dplyr::group_by(variable_id) %>%
+      dplyr::slice_head(n = 1) %>%
+      dplyr::ungroup()
+    
+    variable_info =
+      variable_info %>%
+      dplyr::left_join(annotation_table %>%
+                         dplyr::select(-c(ms2_files_id:ms2_spectrum_id)),
+                       by = "variable_id")
+  }
+   
+  variable_info =
+    variable_info %>%
     dplyr::mutate(log2_fc = log(get(fc_column_name), 2)) %>%
     dplyr::mutate(log10_p = -log(get(p_value_column_name), 10)) %>%
     dplyr::mutate(
