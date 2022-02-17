@@ -1,4 +1,4 @@
-#' @title scale_data
+#' @title scale_data1
 #' @description Scale data.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
@@ -10,13 +10,13 @@
 #' @examples
 #' x <- as.data.frame(matrix(1:10, ncol = 5))
 #' colnames(x) = letters[1:5]
-#' scale_data(x, method = "auto")
+#' scale_data1(x, method = "auto")
 #' t(scale(t(x)))
-#' scale_data(x, method = "range")
-#' scale_data(x, method = "pareto")
-#' scale_data(x, method = "none")
+#' scale_data1(x, method = "range")
+#' scale_data1(x, method = "pareto")
+#' scale_data1(x, method = "none")
 
-scale_data <-
+scale_data1 <-
   function (x,
             center = TRUE,
             method = c("auto", "uv", "range", "pareto", "none")) {
@@ -99,15 +99,16 @@ scale_data <-
 
 
 #' @title scale_data
-#' @method scale_data mass_dataset
-#' @param x x
-#' @param center center
-#' @param method method for scaling.
+#' @description Scale data.
+#' @author Xiaotao Shen
+#' \email{shenxt1990@@outlook.com}
+#' @param x mass_dataset class.
+#' @param center center or not. TRUE or FALSE.
+#' @param method auto, uv, range, pareto or none.
+#' @return scaled data.frame.
 #' @export
-#' @rdname statistics-mass_dataset
-#' @return mass_dataset object
 
-scale_data.mass_dataset <- function(
+scale_data <- function(
   x,
   center = TRUE,
   method = c("auto", "uv", "range", "pareto", "none")
@@ -116,7 +117,7 @@ scale_data.mass_dataset <- function(
   expression_data <- x@expression_data
   
   expression_data <- 
-    scale_data(expression_data, center = center, method = method)
+    scale_data1(expression_data, center = center, method = method)
   
   x@expression_data = expression_data
   
