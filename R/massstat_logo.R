@@ -24,9 +24,10 @@
 #' @importFrom plotly ggplotly
 #' @importFrom BiocGenerics basename
 #' @importFrom patchwork plot_layout
+#' @importFrom mixOmics plotIndiv plotVar pls
 #' @import patchwork
 #' @import snow
-#' @importFrom stats coefficients lm loess median predict
+#' @importFrom stats coefficients lm loess median predict dist cor
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom methods new is
 #' @importFrom ggrepel geom_text_repel
@@ -34,6 +35,8 @@
 #' @import ggfortify
 #' @import tidyr
 #' @import graphics
+#' @importFrom fastDummies dummy_cols
+#' @importFrom tibble column_to_rownames
 #' @export
 #' @return logo
 #' @examples
