@@ -1,7 +1,6 @@
 #' @method pls mass_dataset
 #' @docType methods
 #' @importFrom mixOmics pls plotIndiv plotVar
-#' @importFrom dplyr arrange
 #' @export
 
 # data("liver_aging_pos")
@@ -16,7 +15,7 @@
 # Y = convert_dummy_variable(y = Y)
 # 
 # pls_object <-
-#   pls(X, Y = Y, ncomp = 2)
+#   mixOmics::pls(X, Y = Y, ncomp = 2)
 # 
 # plotIndiv(pls_object)
 # plotVar(pls_object)
