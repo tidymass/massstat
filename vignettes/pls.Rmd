@@ -52,7 +52,7 @@ Y <- X@sample_info$group
 Y = convert_dummy_variable(y = Y)
 
 pls_object <-
-  pls(X, Y = Y, ncomp = 2)
+  massstat::pls(X, Y = Y, ncomp = 2)
 library(mixOmics)
 plotIndiv(pls_object)
 plotVar(pls_object)
@@ -74,7 +74,7 @@ X <-
 Y <- X@sample_info$group
 
 plsda_object <-
-  plsda(X, Y = Y, ncomp = 2)
+  massstat::plsda(X, Y = Y, ncomp = 2)
 library(mixOmics)
 plotIndiv(plsda_object)
 plotVar(plsda_object)

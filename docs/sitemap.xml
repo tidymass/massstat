@@ -10,6 +10,9 @@
     <loc>https://tidymass.github.io/massstat/articles/contact_us.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat/articles/dist_cor.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat/articles/index.html</loc>
   </url>
   <url>
@@ -20,6 +23,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat/articles/run_pca.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/articles/scale_data.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat/articles/univariate_analysis.html</loc>
