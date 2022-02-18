@@ -9,7 +9,7 @@ articles:
   run_pca: run_pca.html
   scale_data: scale_data.html
   univariate_analysis: univariate_analysis.html
-last_built: 2022-02-18T19:38Z
+last_built: 2022-02-18T20:07Z
 urls:
   reference: https://tidymass.github.io/massstat/reference
   article: https://tidymass.github.io/massstat/articles
