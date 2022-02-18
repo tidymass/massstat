@@ -1,38 +1,8 @@
-#####PLS is from mixOmics
-#' @title pls
-#' @author Xiaotao Shen
-#' \email{shenxt1990@@outlook.com}
 #' @method pls mass_dataset
-#' @param X mass_dataset class
-#' @param Y numeric matrix of response(s) with the rows as individual 
-#' observations matching X. missing values (NAs) are allowed.
-#' @param ncomp Positive Integer. The number of components to include in
-#' the model. Default to 2.
-#' @param scale Logical. If scale = TRUE, each block is standardized to zero
-#' means and unit variances (default: TRUE)
-#' @param mode Character string indicating the type of PLS algorithm to use.
-#' One of "regression", "canonical", "invariant" or "classic". See Details.
-#' @param tol Positive numeric used as convergence criteria/tolerance during
-#' the iterative process. Default to 1e-06.
-#' @param max.iter Integer, the maximum number of iterations. Default to 100.
-#' @param near.zero.var Logical, see the internal nearZeroVar function
-#' (should be set to TRUE in particular for data with many zero values).
-#' Setting this argument to FALSE (when appropriate) will speed up the
-#' computations. Default value is FALSE.
-#' @param logratio Character, one of ('none','CLR') specifies the log ratio
-#' transformation to deal with compositional values that may arise from
-#' specific normalisation in sequencing data. Default to 'none'.
-#' See ?logratio.transfo for details.
-#' @param multilevel Numeric, design matrix for repeated measurement analysis,
-#' where multilevel decomposition is required. For a one factor decomposition,
-#' the repeated measures on each individual, i.e. the individuals ID is input
-#' as the first column. For a 2 level factor decomposition then 2nd AND 3rd
-#' columns indicate those factors. See examplesin ?spls.
-#' @param all.outputs Logical. Computation can be faster when some specific
-#' (and non-essential) outputs are not calculated. Default = TRUE.
+#' @docType methods
+#' @importFrom mixOmics pls plotIndiv plotVar
+#' @importFrom dplyr arrange
 #' @export
-#' @rdname pls-mass_dataset
-#' @return an object of class "pls"
 
 # data("liver_aging_pos")
 # 
@@ -82,7 +52,6 @@ pls.mass_dataset <-
     return(linn.pls)
   }
 
-
 #' @title convert_dummy_variable
 #' @description convert_dummy_variable
 #' @author Xiaotao Shen
@@ -109,8 +78,6 @@ convert_dummy_variable <- function(y) {
   
   return(dummy_variable)
 }
-
-
 
 #' @importFrom mixOmics pls
 #' @export
