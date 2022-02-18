@@ -17,9 +17,8 @@ run_pca
 }
 \examples{
 library(massdataset)
-library(demodata)
 library(tidyverse)
-data("liver_aging_pos", package = "demodata")
+data("liver_aging_pos")
 liver_aging_pos
 
 pca_object = 

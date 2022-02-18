@@ -44,13 +44,9 @@
 
 massstat_logo <- function() {
   cat(crayon::green("Thank you for using massstat_logo!\n"))
-  cat(crayon::green("Version 0.99.3 (2021-11-30)\n"))
+  message(crayon::green("Version", massstat_version, "(", update_date, ')\n'))
   cat(crayon::green("Bug fixing\n"))
-  cat(
-    crayon::green(
-      "More information: google tidymass massstat.\n"
-    )
-  )
+  cat(crayon::green("More information: google tidymass massstat.\n"))
   cat(crayon::green(
     c(
       "                           _____ _        _   ",
@@ -66,6 +62,8 @@ massstat_logo <- function() {
   ), sep = "\n")
 }
 
+massstat_version = "0.99.4"
+update_date = as.character(Sys.time())
 
 #' # library(cowsay)
 #' #https://onlineasciitools.com/convert-text-to-ascii-art

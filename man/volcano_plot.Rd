@@ -74,9 +74,8 @@ Draw volcano plot.
 \examples{
 library(massdataset)
 library(tidyverse)
-library(demodata)
 
-data("liver_aging_pos", package = "demodata")
+data("liver_aging_pos")
 liver_aging_pos
 
 w_78 =
