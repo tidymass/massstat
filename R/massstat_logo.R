@@ -44,7 +44,7 @@
 
 massstat_logo <- function() {
   cat(crayon::green("Thank you for using massstat_logo!\n"))
-  cat(crayon::green("Version 0.99.2 (2021-11-30)\n"))
+  cat(crayon::green("Version 0.99.3 (2021-11-30)\n"))
   cat(crayon::green("Bug fixing\n"))
   cat(
     crayon::green(
