@@ -1,5 +1,5 @@
 ---
-title: "Volcona plot"
+title: "Univariate analysis"
 author:
 - name: Xiaotao Shen (https://www.shenxt.info/)
 date: "Created on 2021-12-04 and updated on `r Sys.Date()`"
@@ -10,8 +10,8 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{volcano_plot}
-  %\VignettePackage{massqc}
+  %\VignetteIndexEntry{univariate_analysis}
+  %\VignettePackage{massstat}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}
   %\VignetteEncoding{UTF-8}
@@ -32,10 +32,9 @@ knitr::opts_chunk$set(
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
 library(tidyverse)
-library(demodata)
 library(massstat)
 
-data("liver_aging_pos", package = "demodata")
+data("liver_aging_pos")
 liver_aging_pos
 
 w_78 =

@@ -1,12 +1,13 @@
-pandoc: 2.11.4
-pkgdown: 2.0.1
+pandoc: 2.14.0.3
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
   install: install.html
+  pls: pls.html
   run_pca: run_pca.html
-  volcano_plot: volcano_plot.html
-last_built: 2022-01-07T09:34Z
+  univariate_analysis: univariate_analysis.html
+last_built: 2022-02-18T19:10Z
 urls:
   reference: https://tidymass.github.io/massstat/reference
   article: https://tidymass.github.io/massstat/articles

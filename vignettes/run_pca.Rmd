@@ -10,8 +10,8 @@ output:
   pdf_document:
     toc: no
 vignette: >
-  %\VignetteIndexEntry{pca_analysis}
-  %\VignettePackage{massqc}
+  %\VignetteIndexEntry{run_pca}
+  %\VignettePackage{massstat}
   % \VignetteEngine{knitr::rmarkdown}
   % \usepackage[utf8]{inputenc}
   %\VignetteEncoding{UTF-8}
@@ -31,10 +31,9 @@ knitr::opts_chunk$set(
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
-library(demodata)
 library(tidyverse)
 library(massstat)
-data("liver_aging_pos", package = "demodata")
+data("liver_aging_pos")
 liver_aging_pos
 ```
 
@@ -42,9 +41,7 @@ liver_aging_pos
 
 ```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
 library(massdataset)
-library(demodata)
 library(tidyverse)
-data("liver_aging_pos", package = "demodata")
 liver_aging_pos
 
 pca_object =

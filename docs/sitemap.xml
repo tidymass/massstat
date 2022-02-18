@@ -16,7 +16,13 @@
     <loc>https://tidymass.github.io/massstat/articles/install.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat/articles/pls.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat/articles/run_pca.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/articles/univariate_analysis.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat/articles/volcano_plot.html</loc>
@@ -37,7 +43,19 @@
     <loc>https://tidymass.github.io/massstat/reference/calculate_p_value.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat/reference/convert_dummy_variable.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/cor_mass_dataset.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/dist_mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/liver_aging_pos.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat/reference/massqc_logo.html</loc>
@@ -55,6 +73,9 @@
     <loc>https://tidymass.github.io/massstat/reference/massstat_packages.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat/reference/multivariate-mass_dataset.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat/reference/mutate_fc.html</loc>
   </url>
   <url>
@@ -64,10 +85,19 @@
     <loc>https://tidymass.github.io/massstat/reference/pca_score_plot.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat/reference/reexports.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat/reference/run_pca.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat/reference/sample_boxplot.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/scale_data.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/scale_data1.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat/reference/volcano_plot.html</loc>

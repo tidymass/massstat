@@ -1,0 +1,88 @@
+---
+title: "PLS/PLS-DA analysis"
+author:
+- name: Xiaotao Shen (https://www.shenxt.info/)
+date: "Created on 2022-02-18 and updated on `r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+    toc: no
+  pdf_document:
+    toc: no
+vignette: >
+  %\VignetteIndexEntry{pls}
+  %\VignettePackage{massstat}
+  % \VignetteEngine{knitr::rmarkdown}
+  % \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = TRUE,
+  out.width = "100%"
+)
+```
+
+# **Data preparation**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+library(massdataset)
+library(tidyverse)
+library(massstat)
+data("liver_aging_pos")
+liver_aging_pos
+```
+
+# **PLS analysis**
+
+PLS and PLS-DA analysis are performed by functions from `mixOmics` package.
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+X <- liver_aging_pos[1:100,]
+X <-
+  X %>%
+  activate_mass_dataset(what = "sample_info") %>%
+  dplyr::filter(group != "QC")
+
+Y <- X@sample_info$group
+Y = convert_dummy_variable(y = Y)
+
+pls_object <-
+  pls(X, Y = Y, ncomp = 2)
+library(mixOmics)
+plotIndiv(pls_object)
+plotVar(pls_object)
+```
+
+
+
+# **PLS-DA analysis**
+
+PLS and PLS-DA analysis are performed by functions from `mixOmics` package.
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+X <- liver_aging_pos[1:100,]
+X <-
+  X %>%
+  activate_mass_dataset(what = "sample_info") %>%
+  dplyr::filter(group != "QC")
+
+Y <- X@sample_info$group
+
+plsda_object <-
+  plsda(X, Y = Y, ncomp = 2)
+library(mixOmics)
+plotIndiv(plsda_object)
+plotVar(plsda_object)
+```
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```
+
