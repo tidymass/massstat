@@ -25,10 +25,10 @@ You can install `massstat` from
 
 ``` r
 # Install `massstat` from GitHub
-if(!require(devtools)){
-install.packages("devtools")
+if(!require(remotes)){
+install.packages("remotes")
 }
-devtools::install_github("tidymass/massstat")
+remotes::install_github("tidymass/massstat")
 ```
 
 -----
