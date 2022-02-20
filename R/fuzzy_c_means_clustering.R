@@ -1,154 +1,105 @@
-#' #' @title run_pca
-#' #' @description run_pca
+#' #' @title run_clustering
+#' #' @description run_clustering
 #' #' @author Xiaotao Shen
 #' #' \email{shenxt1990@@163.com}
 #' #' @param object tidymass-class object.
 #' #' @return prcomp object.
 #' #' @export
 #' #' @examples
-#' #' library(massdataset)
-#' #' library(tidyverse)
-#' #' data("liver_aging_pos")
-#' #' liver_aging_pos
-#' #'
-#' #' pca_object =
-#' #' liver_aging_pos %>%
-#' #'   scale() %>%
-#' #'   run_pca()
-#'
-#' run_pca = function(object) {
-#'   massdataset::check_object_class(object = object, class = "mass_dataset")
-#'
-#'   if (sum(is.na(object@expression_data)) > 0) {
-#'     warning("MVs in you object,\nwill remove variables > 50% and imputate with zero.\n")
-#'     object =
-#'       object %>%
-#'       massdataset::mutate_variable_na_freq()
-#'     object =
-#'       object %>%
-#'       massdataset::activate_mass_dataset(what = "variable_info") %>%
-#'       dplyr::filter(na_freq < 0.5)
+#' library(massdataset)
+#' library(tidyverse)
+#' data("liver_aging_pos")
+#' 
+#' qc_id <-
+#'   liver_aging_pos %>%
+#'   activate_mass_dataset(what = "sample_info") %>%
+#'   dplyr::filter(group == "QC") %>%
+#'   dplyr::pull(sample_id)
+#' object <-
+#'   mutate_rsd(liver_aging_pos, according_to_samples = qc_id)
+#' 
+#' ###only remain the features with rt > 100, mz > 150 and rsd < 30
+#' object <-
+#'   object %>%
+#'   activate_mass_dataset(what = "variable_info") %>%
+#'   dplyr::filter(rt > 100) %>%
+#'   dplyr::filter(mz > 150) %>%
+#'   dplyr::filter(rsd < 30)
+#' 
+#' ##only remain the week 24 samples
+#' object <-
+#'   object %>%
+#'   activate_mass_dataset(what = "sample_info") %>%
+#'   dplyr::filter(group == "24W")
+#' 
+#' dim(object)
+#' 
+#' object <-
+#'   object %>%
+#'   `+`(1) %>%
+#'   log(10) %>%
+#'   scale_data(method = "auto")
+#' 
+#' 
+#' 
+#' 
+#' 
+#' 
+#' run_clustering <-
+#'   function(object,
+#'            path = ".") {
+#'     dir.create(path, recursive = TRUE, showWarnings = FALSE)
+#'     
+#'     expression_data <-
+#'       object@expression_data
+#'     
+#'     time <- 1:ncol(expression_data)
+#'     
+#'     expression_data <- rbind(time, expression_data)
+#'     
+#'     row.names(expression_data)[1] <- "time"
+#'     
+#'     #save it to a temp file
+#'     dir.create("example")
+#'     tmp <- tempfile(tmpdir = "example")
+#'     
+#'     write.table(
+#'       expression_data,
+#'       file = tmp,
+#'       sep = '\t',
+#'       quote = F,
+#'       col.names = NA
+#'     )
+#'     
+#'     #read it back in as an expression set
+#'     data <- Mfuzz::table2eset(filename = tmp)
+#'     m1 <- Mfuzz::mestimate(eset = data)
+#'     
+#'     Dmin(
+#'       data,
+#'       m = m1,
+#'       crange = seq(2, 22, 1),
+#'       repeats = 3,
+#'       visu = TRUE
+#'     )
+#'     
+#'     cluster_number <- 5
+#'     c <- Mfuzz::mfuzz(eset = data, c = cluster_number, m = m1)
+#'     
+#'     centers <- c$centers
+#'     names(c$cluster) == rownames(c$membership)
+#'     
+#'     cluster_info <-
+#'       data.frame(
+#'         variable_id = names(c$cluster),
+#'         c$membership,
+#'         cluster = c$cluster,
+#'         stringsAsFactors = FALSE
+#'       ) %>%
+#'       dplyr::arrange(cluster)
+#'     
+#'     rownames(cluster_info) <- NULL
+#'     colnames(cluster_info) <-
+#'       colnames(cluster_info) %>%
+#'       stringr::str_replace(pattern = "^X", "membership_")
 #'   }
-#'
-#'   sample_info = object@sample_info
-#'   expression_data = object@expression_data
-#'
-#'   expression_data =
-#'     expression_data %>%
-#'     apply(1, function(x) {
-#'       x[is.na(x)] = min(x[!is.na(x)])
-#'       x
-#'     }) %>%
-#'     t()
-#'
-#'   if (all(names(object@process_info) != "scale")) {
-#'     warning("no scale for this dataset, try to scale() before pca.\n")
-#'   }
-#'
-#'   pca_object = prcomp(x = t(as.matrix(expression_data)),
-#'                       center = FALSE,
-#'                       scale. = FALSE)
-#'   return(pca_object)
-#' }
-#'
-#'
-#'
-#' #' @title pca_score_plot
-#' #' @description pca_score_plot
-#' #' @author Xiaotao Shen
-#' #' \email{shenxt1990@@163.com}
-#' #' @param object mass_dataset.
-#' #' @param pca_object pca_object from run_pca()
-#' #' @param color_by which column (sample_info) is used to color samples
-#' #' @param point_alpha point_alpha
-#' #' @param frame ?ggplot2::autoplot
-#' #' @param frame.type ?ggplot2::autoplot
-#' #' @param ... other paramters for ggplot2::autoplot
-#' #' @return ggplot2 plot.
-#' #' @export
-#' #' @examples
-#' #' library(massdataset)
-#' #' library(tidyverse)
-#' #' data("liver_aging_pos")
-#' #' liver_aging_pos
-#' #'
-#' #' pca_object =
-#' #' liver_aging_pos %>%
-#' #'   scale() %>%
-#' #'   run_pca()
-#' #'
-#' #' pca_score_plot(liver_aging_pos,
-#' #'                pca_object,
-#' #'                color_by = "group",
-#' #'                loadings = TRUE) +
-#' #'   ggsci::scale_fill_lancet() +
-#' #'   ggsci::scale_color_lancet()
-#' #'
-#' #' pca_score_plot(liver_aging_pos,
-#' #'                pca_object,
-#' #'                color_by = "group",
-#' #'                frame = TRUE) +
-#' #'   ggsci::scale_fill_lancet() +
-#' #'   ggsci::scale_color_lancet() +
-#' #'   ggrepel::geom_text_repel(aes(label = sample_id))
-#'
-#' pca_score_plot = function(object,
-#'                           pca_object,
-#'                           color_by,
-#'                           point_alpha = 0.8,
-#'                           frame = TRUE,
-#'                           frame.type = 'norm',
-#'                           ...) {
-#'   massdataset::check_object_class(object = object, class = "mass_dataset")
-#'   if(!is(pca_object, "prcomp")){
-#'     stop("pca_object should be prcomp class from run_pca().\n")
-#'   }
-#'
-#'   sample_info = object@sample_info
-#'
-#'   if (missing(color_by)) {
-#'     color_by = "no"
-#'   } else{
-#'     if (all(colnames(object@sample_info) != color_by)) {
-#'       stop("no ", color_by, " in sample_info, please check.\n")
-#'     }
-#'   }
-#'
-#'   if (color_by == "no") {
-#'     plot =
-#'       ggfortify:::autoplot.pca_common(
-#'         object = pca_object,
-#'         data = sample_info,
-#'         size = 5,
-#'         shape = 21,
-#'         alpha = point_alpha,
-#'         frame = frame,
-#'         frame.type = frame.type,
-#'         ...
-#'       ) +
-#'       geom_vline(xintercept = 0, linetype = 2) +
-#'       geom_hline(yintercept = 0, linetype = 2) +
-#'       theme_bw() +
-#'       theme(panel.grid.minor = element_blank())
-#'   } else{
-#'     plot =
-#'       autoplot(
-#'         object = pca_object,
-#'         data = sample_info,
-#'         fill = color_by,
-#'         frame.colour = color_by,
-#'         size = 5,
-#'         shape = 21,
-#'         alpha = point_alpha,
-#'         frame = frame,
-#'         frame.type = frame.type,
-#'         ...
-#'       ) +
-#'       geom_vline(xintercept = 0, linetype = 2) +
-#'       geom_hline(yintercept = 0, linetype = 2) +
-#'       theme_bw() +
-#'       theme(panel.grid.minor = element_blank())
-#'   }
-#'
-#'   return(plot)
-#' }
