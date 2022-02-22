@@ -31,6 +31,13 @@ install.packages("remotes")
 remotes::install_github("tidymass/massstat")
 ```
 
+or
+
+``` r
+# Install `massstat` from GitLab
+remotes::install_gitlab("jaspershen/massstat")
+```
+
 -----
 
 ## **Usage**
