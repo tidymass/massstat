@@ -27,7 +27,7 @@
 #' @importFrom mixOmics plotIndiv plotVar pls
 #' @import patchwork
 #' @import snow
-#' @importFrom stats coefficients lm loess median predict dist cor
+#' @importFrom stats coefficients lm loess median predict dist cor cor.test
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom methods new is
 #' @importFrom ggrepel geom_text_repel

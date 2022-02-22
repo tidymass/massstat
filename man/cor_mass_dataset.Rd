@@ -10,7 +10,10 @@ cor_mass_dataset(
   margin = c("variable", "sample"),
   use = c("everything", "all.obs", "complete.obs", "na.or.complete",
     "pairwise.complete.obs"),
-  method = c("pearson", "kendall", "spearman")
+  method = c("spearman", "pearson", "kendall"),
+  data_type = c("wider", "longer"),
+  p_adjust_method = c(c("BH", "holm", "hochberg", "hommel", "bonferroni", "BY", "fdr",
+    "none"))
 )
 }
 \arguments{
@@ -28,6 +31,10 @@ covariances in the presence of missing values. This must be
 \item{method}{a character string indicating which correlation coefficient
 (or covariance) is to be computed. One of "pearson" (default),
 "kendall", or "spearman": can be abbreviated.}
+
+\item{data_type}{wider or longer}
+
+\item{p_adjust_method}{see ?p.adjust}
 }
 \value{
 dist returns an object of class "dist".
@@ -37,32 +44,56 @@ cor_mass_dataset
 }
 \examples{
 library(massdataset)
-library(tidyverse)
-data("expression_data")
-data("sample_info")
-data("sample_info_note")
-data("variable_info")
-data("variable_info_note")
-object =
-  create_mass_dataset(
-    expression_data = expression_data,
-    sample_info = sample_info,
-    variable_info = variable_info,
-    sample_info_note = sample_info_note,
-    variable_info_note = variable_info_note
-  )
-object
-x =
-  object \%>\%
-  log(2) \%>\%
-  scale()
+library(magrittr)
+library(dplyr)
 
-variable_cor <-
-  cor_mass_dataset(x = x, margin = "variable")
-head(as.matrix(variable_cor)[, 1:5])
-sample_cor <-
-  cor_mass_dataset(x = x, margin = "sample")
-head(as.matrix(sample_cor)[, 1:5])
+data("liver_aging_pos")
+liver_aging_pos
+
+qc_id <-
+  liver_aging_pos \%>\%
+  activate_mass_dataset(what = "sample_info") \%>\%
+  dplyr::filter(group == "QC") \%>\%
+  dplyr::pull(sample_id)
+
+object <-
+  mutate_rsd(liver_aging_pos, according_to_samples = qc_id)
+
+###only remain the features with rt > 100, mz > 150 and rsd < 30
+object <-
+  object \%>\%
+  activate_mass_dataset(what = "variable_info") \%>\%
+  dplyr::filter(rt > 100) \%>\%
+  dplyr::filter(mz > 150) \%>\%
+  dplyr::filter(rsd < 30)
+
+##only remain the week 24 samples
+object <-
+  object \%>\%
+  activate_mass_dataset(what = "sample_info") \%>\%
+  dplyr::filter(group == "24W")
+
+dim(object)
+
+object <-
+  object \%>\%
+  `+`(1) \%>\%
+  log(10) \%>\%
+  scale_data(method = "auto")
+
+cor_data <-
+  object \%>\%
+  cor_mass_dataset(margin = "variable", data_type = "wider")
+
+head(cor_data$correlation[,1:5])
+head(cor_data$p_value[,1:5])
+head(cor_data$n[,1:5])
+
+cor_data <-
+  object \%>\%
+  cor_mass_dataset(margin = "variable", data_type = "longer")
+
+head(cor_data)
 }
 \author{
 Xiaotao Shen
