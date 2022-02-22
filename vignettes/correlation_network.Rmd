@@ -1,0 +1,113 @@
+---
+title: "Correlation network"
+author:
+- name: Xiaotao Shen (https://www.shenxt.info/)
+date: "Created on 2022-02-18 and updated on `r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+    toc: no
+  pdf_document:
+    toc: no
+vignette: >
+  %\VignetteIndexEntry{correlation_network}
+  %\VignettePackage{massstat}
+  % \VignetteEngine{knitr::rmarkdown}
+  % \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = TRUE,
+  out.width = "100%"
+)
+```
+
+# **Data preparation**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+library(massstat)
+library(magrittr)
+library(dplyr)
+
+data("liver_aging_pos")
+liver_aging_pos
+
+qc_id <-
+  liver_aging_pos %>%
+  activate_mass_dataset(what = "sample_info") %>%
+  dplyr::filter(group == "QC") %>%
+  dplyr::pull(sample_id)
+
+object <-
+  mutate_rsd(liver_aging_pos, according_to_samples = qc_id)
+
+###only remain the features with rt > 100, mz > 150 and rsd < 30
+object <-
+  object %>%
+  activate_mass_dataset(what = "variable_info") %>%
+  dplyr::filter(rt > 100) %>%
+  dplyr::filter(mz > 150) %>%
+  dplyr::filter(rsd < 30)
+
+##only remain the week 24 samples
+object <-
+  object %>%
+  activate_mass_dataset(what = "sample_info") %>%
+  dplyr::filter(group == "24W")
+
+dim(object)
+
+object <-
+  object %>%
+  `+`(1) %>%
+  log(10) %>%
+  scale_data(method = "auto")
+```
+
+# **Correlation network**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+graph_data <-
+  convert_mass_dataset2graph(
+    object = object,
+    margin = "variable",
+    cor_method = "spearman",
+    p_adjust_cutoff = 1,
+    p_value_cutoff = 0.0001,
+    pos_cor_cutoff = 0.7,
+    neg_cor_cutoff = -0.7
+  )
+
+graph_data
+```
+
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+library(ggraph)
+extrafont::loadfonts()
+ggraph(graph = graph_data, layout = "kk") +
+  geom_edge_fan(aes(color = correlation,
+                    width = -log(p_value, 10)),
+                show.legend = TRUE) +
+  geom_node_point(aes(size = mz)) +
+  theme_graph()
+
+ggraph(graph = graph_data, layout = "fr") +
+  geom_edge_fan(aes(color = correlation,
+                    width = -log(p_value, 10)),
+                show.legend = TRUE) +
+  geom_node_point(aes(size = mz)) +
+  theme_graph()
+```
+
+# **Session information**
+
+```{r,eval=TRUE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
+sessionInfo()
+```
+

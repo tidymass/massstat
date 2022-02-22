@@ -3,13 +3,15 @@ pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   contact_us: contact_us.html
+  cor_dist: cor_dist.html
+  correlation_network: correlation_network.html
   dist_cor: dist_cor.html
   install: install.html
   pls: pls.html
   run_pca: run_pca.html
   scale_data: scale_data.html
   univariate_analysis: univariate_analysis.html
-last_built: 2022-02-20T01:12Z
+last_built: 2022-02-22T09:32Z
 urls:
   reference: https://tidymass.github.io/massstat/reference
   article: https://tidymass.github.io/massstat/articles

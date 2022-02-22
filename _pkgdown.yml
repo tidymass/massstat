@@ -46,6 +46,10 @@ navbar:
         href: articles/run_pca.html
       - text: PLS/PLS-DA analysis
         href: articles/pls.html
+      - text: Correlation network analysis
+        href: articles/correlation_network.html
+      - text: Calculate correlation and distance
+        href: articles/cor_dist.html
     twitter:
       icon: "fab fa-twitter fa-lg"
       href: https://twitter.com/JasperShen1990
