@@ -1,10 +1,10 @@
 Package: massstat
 Type: Package
-Title: Statistical analysis for LC-MS based metabolomics data
+Title: Statistical analysis for LC-MS-based metabolomics data
 Version: 0.99.6
 Date: 2021-12-01
 Authors@R: c(
-    person("Xiaotao", "Shen", , "shenxt1990@163.com", role = c("aut", "cre"), 
+    person("Xiaotao", , "Shen", "shenxt1990@outlook.com", role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-9608-9964")
     )
     )
@@ -55,7 +55,7 @@ Imports:
     extrafont
 License: GPL-2 | file LICENSE
 URL: https://github.com/tidymass/massstat
-BugReports: https://github.com/massstat/metid/issues
+BugReports: https://github.com/tidymass/massstat/issues
 RoxygenNote: 7.1.2
 Suggests: 
     knitr,
