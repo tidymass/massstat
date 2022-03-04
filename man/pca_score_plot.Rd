@@ -7,8 +7,12 @@
 pca_score_plot(
   object,
   pca_object,
+  x = 1,
+  y = 2,
   color_by,
-  point_alpha = 0.8,
+  point_alpha = 1,
+  point_size = 5,
+  point_shape = 21,
   frame = TRUE,
   frame.type = "norm",
   ...
@@ -19,9 +23,17 @@ pca_score_plot(
 
 \item{pca_object}{pca_object from run_pca()}
 
+\item{x}{PC x for X axis, default is 1.}
+
+\item{y}{PC y for Y axis, default is 2.}
+
 \item{color_by}{which column (sample_info) is used to color samples}
 
-\item{point_alpha}{point_alpha}
+\item{point_alpha}{point_alpha default is 1.}
+
+\item{point_size}{point_size, default is 5.}
+
+\item{point_shape}{point_shape default is 21.}
 
 \item{frame}{?ggplot2::autoplot}
 
@@ -42,7 +54,7 @@ data("liver_aging_pos")
 liver_aging_pos
 
 pca_object =
-liver_aging_pos \%>\%
+  liver_aging_pos \%>\%
   scale() \%>\%
   run_pca()
 
@@ -55,6 +67,16 @@ pca_score_plot(liver_aging_pos,
 
 pca_score_plot(liver_aging_pos,
                pca_object,
+               color_by = "group",
+               frame = TRUE) +
+  ggsci::scale_fill_lancet() +
+  ggsci::scale_color_lancet() +
+  ggrepel::geom_text_repel(aes(label = sample_id))
+
+pca_score_plot(liver_aging_pos,
+               pca_object,
+               x = 1,
+               y = 3,
                color_by = "group",
                frame = TRUE) +
   ggsci::scale_fill_lancet() +

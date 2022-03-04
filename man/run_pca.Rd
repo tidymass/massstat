@@ -21,7 +21,7 @@ library(tidyverse)
 data("liver_aging_pos")
 liver_aging_pos
 
-pca_object = 
+pca_object =
 liver_aging_pos \%>\%
   scale() \%>\%
   run_pca()
