@@ -11,6 +11,7 @@ mutate_p_value(
   method = c("t.test", "wilcox.test"),
   p_adjust_methods = c("holm", "hochberg", "hommel", "bonferroni", "BH", "BY", "fdr",
     "none"),
+  return_mass_dataset = TRUE,
   ...
 )
 }
@@ -24,6 +25,8 @@ mutate_p_value(
 \item{method}{t test or wilcox test.}
 
 \item{p_adjust_methods}{see ?p.adjust}
+
+\item{return_mass_dataset}{logical default TRUE}
 
 \item{...}{other parameters}
 }

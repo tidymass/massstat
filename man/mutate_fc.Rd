@@ -8,7 +8,8 @@ mutate_fc(
   object,
   control_sample_id,
   case_sample_id,
-  mean_median = c("mean", "median")
+  mean_median = c("mean", "median"),
+  return_mass_dataset = TRUE
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ mutate_fc(
 \item{case_sample_id}{A character vector}
 
 \item{mean_median}{mean or median.}
+
+\item{return_mass_dataset}{logical default TRUE}
 }
 \value{
 object with fold change (fc) in variable_info.
