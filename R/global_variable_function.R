@@ -5,7 +5,6 @@ globalVariables(names = c(
   "na_freq",
   "correlation",
   "from",
-  "gpar",
   "ht_opt",
   "node",
   "p_adjust",
