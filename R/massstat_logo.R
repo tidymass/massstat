@@ -31,12 +31,14 @@
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom methods new is
 #' @importFrom ggrepel geom_text_repel
+#' @importFrom grid gpar
 #' @importClassesFrom massdataset mass_dataset tidymass_parameter
 #' @import ggfortify
 #' @import tidyr
 #' @import graphics
 #' @importFrom fastDummies dummy_cols
 #' @importFrom tibble column_to_rownames
+#' @import ComplexHeatmap
 #' @export
 #' @return logo
 #' @examples
