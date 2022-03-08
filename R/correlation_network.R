@@ -14,6 +14,7 @@
 #' @importFrom tidyr pivot_longer
 #' @importFrom tidygraph tbl_graph
 #' @importFrom extrafont loadfonts
+#' @importFrom massdataset extract_variable_info
 #' @return tbl_graph class object (from tidygraph)
 #' @export
 #' @examples
@@ -148,7 +149,7 @@ convert_mass_dataset2graph <-
     
     if (margin == "variable") {
       node_data <-
-        extract_variable_info(object) %>% 
+        massdataset::extract_variable_info(object) %>% 
         # object@variable_info %>%
         dplyr::rename(node = variable_id) %>%
         dplyr::filter(node %in% unique(c(edge_data$from, edge_data$to)))

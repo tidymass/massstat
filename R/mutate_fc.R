@@ -8,7 +8,7 @@
 #' @param mean_median mean or median.
 #' @param return_mass_dataset logical default TRUE
 #' @return object with fold change (fc) in variable_info.
-#' @importFrom massdataset check_column_name
+#' @importFrom massdataset check_column_name update_variable_info
 #' @export
 #' @examples
 #' library(massdataset)
@@ -121,7 +121,7 @@ mutate_fc <-
     fc[is.na(fc)] <- 1
     fc[is.infinite(fc)] <- max(fc[!is.infinite(fc)])
     
-    if(!return_mass_dataset){
+    if (!return_mass_dataset) {
       names(fc) <- object@variable_info$variable_id
       return(fc)
     }
@@ -137,6 +137,9 @@ mutate_fc <-
     
     colnames(object@variable_info)[ncol(object@variable_info)] <-
       new_column_name
+    
+    object <-
+      massdataset::update_variable_info(object = object)
     
     process_info <- object@process_info
     

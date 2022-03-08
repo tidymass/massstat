@@ -192,6 +192,9 @@ mutate_p_value <-
     colnames(object@variable_info)[ncol(object@variable_info)] <-
       new_column_name
     
+    object <-
+      massdataset::update_variable_info(object = object)
+    
     process_info <- object@process_info
     
     parameter <- new(
