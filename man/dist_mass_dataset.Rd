@@ -39,7 +39,7 @@ dist_mass_dataset
 }
 \examples{
 library(massdataset)
-library(tidyverse)
+library(magrittr)
 data("expression_data")
 data("sample_info")
 data("sample_info_note")

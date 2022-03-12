@@ -17,7 +17,8 @@ run_pca
 }
 \examples{
 library(massdataset)
-library(tidyverse)
+library(magrittr)
+library(dplyr)
 data("liver_aging_pos")
 liver_aging_pos
 

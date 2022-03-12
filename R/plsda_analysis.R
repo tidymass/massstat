@@ -1,3 +1,14 @@
+#' @title plsda from mixOmics, credit to mixOmics team
+#' @param X mass_dataset or matrix
+#' @param ... Other parameters
+#' @export
+
+setGeneric(
+  name = "plsda",
+  def = function(X, ...)
+    standardGeneric("plsda")
+)
+
 #' @title plsda
 #' @method plsda mass_dataset
 #' @param X mass_dataset
@@ -44,8 +55,3 @@ setMethod(f = "plsda",
               )
             return(linn.pls)
           })
-
-
-#' @importFrom mixOmics plsda
-#' @export
-mixOmics::plsda

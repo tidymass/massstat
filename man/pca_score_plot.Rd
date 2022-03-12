@@ -49,7 +49,8 @@ pca_score_plot
 }
 \examples{
 library(massdataset)
-library(tidyverse)
+library(magrittr)
+library(dplyr)
 data("liver_aging_pos")
 liver_aging_pos
 
@@ -61,16 +62,12 @@ pca_object =
 pca_score_plot(liver_aging_pos,
                pca_object,
                color_by = "group",
-               loadings = TRUE) +
-  ggsci::scale_fill_lancet() +
-  ggsci::scale_color_lancet()
+               loadings = TRUE)
 
 pca_score_plot(liver_aging_pos,
                pca_object,
                color_by = "group",
                frame = TRUE) +
-  ggsci::scale_fill_lancet() +
-  ggsci::scale_color_lancet() +
   ggrepel::geom_text_repel(aes(label = sample_id))
 
 pca_score_plot(liver_aging_pos,
@@ -79,8 +76,6 @@ pca_score_plot(liver_aging_pos,
                y = 3,
                color_by = "group",
                frame = TRUE) +
-  ggsci::scale_fill_lancet() +
-  ggsci::scale_color_lancet() +
   ggrepel::geom_text_repel(aes(label = sample_id))
 }
 \author{

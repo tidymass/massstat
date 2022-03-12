@@ -12,7 +12,7 @@
 #' @importFrom tibble as_tibble enframe tibble rownames_to_column
 #' @importFrom clisymbols symbol
 #' @importFrom cli rule col_cyan tree
-#' @importFrom utils packageVersion object.size write.csv tail
+#' @importFrom utils packageVersion object.size write.csv tail 
 #' @importFrom purrr map map2
 #' @importFrom plyr dlply .
 #' @importFrom RColorBrewer brewer.pal
@@ -64,7 +64,7 @@ massstat_logo <- function() {
   ), sep = "\n")
 }
 
-massstat_version = "0.99.14"
+massstat_version <- packageVersion(pkg = "massstat")
 update_date = as.character(Sys.time())
 
 #' # library(cowsay)
