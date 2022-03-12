@@ -49,6 +49,9 @@
     <loc>https://tidymass.github.io/massstat/news/index.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat/reference/Heatmap.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat/reference/calculate_fc.html</loc>
   </url>
   <url>
@@ -100,6 +103,12 @@
     <loc>https://tidymass.github.io/massstat/reference/pca_score_plot.html</loc>
   </url>
   <url>
+    <loc>https://tidymass.github.io/massstat/reference/pls.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/plsda.html</loc>
+  </url>
+  <url>
     <loc>https://tidymass.github.io/massstat/reference/reexports.html</loc>
   </url>
   <url>
@@ -113,6 +122,9 @@
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat/reference/scale_data1.html</loc>
+  </url>
+  <url>
+    <loc>https://tidymass.github.io/massstat/reference/scale_data2.html</loc>
   </url>
   <url>
     <loc>https://tidymass.github.io/massstat/reference/volcano_plot.html</loc>
