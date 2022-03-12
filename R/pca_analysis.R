@@ -85,16 +85,12 @@ run_pca <-
 #' pca_score_plot(liver_aging_pos,
 #'                pca_object,
 #'                color_by = "group",
-#'                loadings = TRUE) +
-#'   ggsci::scale_fill_lancet() +
-#'   ggsci::scale_color_lancet()
+#'                loadings = TRUE)
 #' 
 #' pca_score_plot(liver_aging_pos,
 #'                pca_object,
 #'                color_by = "group",
 #'                frame = TRUE) +
-#'   ggsci::scale_fill_lancet() +
-#'   ggsci::scale_color_lancet() +
 #'   ggrepel::geom_text_repel(aes(label = sample_id))
 #' 
 #' pca_score_plot(liver_aging_pos,
@@ -103,8 +99,6 @@ run_pca <-
 #'                y = 3,
 #'                color_by = "group",
 #'                frame = TRUE) +
-#'   ggsci::scale_fill_lancet() +
-#'   ggsci::scale_color_lancet() +
 #'   ggrepel::geom_text_repel(aes(label = sample_id))
 
 pca_score_plot <-

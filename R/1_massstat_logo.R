@@ -64,7 +64,7 @@ massstat_logo <- function() {
   ), sep = "\n")
 }
 
-massstat_version = "0.99.13"
+massstat_version = "0.99.14"
 update_date = as.character(Sys.time())
 
 #' # library(cowsay)
