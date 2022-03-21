@@ -18,35 +18,29 @@ statistical analysis.
 
 -----
 
-## **Installation**
+# **Installation**
 
 You can install `massstat` from
-[Github](https://github.com/tidymass/massstat).
+[GitLab](https://gitlab.com/jaspershen/massstat).
 
 ``` r
-# Install `massstat` from GitHub
 if(!require(remotes)){
 install.packages("remotes")
 }
-remotes::install_github("tidymass/massstat")
-```
-
-or
-
-``` r
-# Install `massstat` from GitLab
 remotes::install_gitlab("jaspershen/massstat")
 ```
 
------
+or [GitHub](https://github.com/tidymass/massstat).
 
-## **Usage**
+``` r
+remotes::install_github("tidymass/massstat")
+```
+
+# **Usage**
 
 Please see the `Help document` page to get the instruction of `massstat`.
 
------
-
-## **Need help?**
+# **Need help?**
 
 If you have any quesitions about `massstat`, please don’t hesitate to
 email me (<shenxt@stanford.edu>).
@@ -63,16 +57,15 @@ email me (<shenxt@stanford.edu>).
 Palo Alto,
 CA 94304](https://www.google.com/maps/place/Alway+Building/@37.4322345,-122.1770883,17z/data=!3m1!4b1!4m5!3m4!1s0x808fa4d335c3be37:0x9057931f3b312c29!8m2!3d37.4322345!4d-122.1748996)
 
------
 
-## **Citation**
+# **Citation**
 
-If you use `massstat` in you publication, please cite this publication:
+If you use `masscleaner` in you publication, please cite this publication:
 
-X Shen, ZJ Zhu - Bioinformatics (Oxford, England), 2019, MetFlow: An
-interactive and integrated workflow for metabolomics data cleaning and
-differential metabolite discovery.  
-[Web
-Link](https://www.researchgate.net/profile/Xiaotao_Shen/publication/330410794_MetFlow_An_Interactive_and_Integrated_Workflow_for_Metabolomics_Data_Cleaning_and_Differential_Metabolite_Discovery/links/5cb3ca7892851c8d22ec3a89/MetFlow-An-Interactive-and-Integrated-Workflow-for-Metabolomics-Data-Cleaning-and-Differential-Metabolite-Discovery.pdf).
+TidyMass: An Object-oriented Reproducible Analysis Framework for LC-MS Data.
 
-Thanks very much\!
+Xiaotao Shen, Hong Yan, Chuchu Wang, Peng Gao, Caroline H. Johnson, Michael P. Snyder.
+
+[Web Link](https://www.biorxiv.org/content/10.1101/2022.03.15.484499v1).
+
+Thanks very much!
