@@ -60,7 +60,7 @@ CA 94304](https://www.google.com/maps/place/Alway+Building/@37.4322345,-122.1770
 
 # **Citation**
 
-If you use `masscleaner` in you publication, please cite this publication:
+If you use `massstat` in you publication, please cite this publication:
 
 TidyMass: An Object-oriented Reproducible Analysis Framework for LC-MS Data.
 
