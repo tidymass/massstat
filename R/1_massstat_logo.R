@@ -2,36 +2,26 @@
 #' @description massstat_logo
 #' @author Xiaotao Shen
 #' \email{shenxt@@stanford.edu}
-#' @importFrom Biobase featureData
 #' @importFrom crayon yellow red green bold bgRed
 #' @import ggplot2
-#' @importFrom pbapply pblapply pboptions
 #' @importFrom stringr str_split str_replace_all str_trim str_detect str_extract
 #' @importFrom dplyr filter select pull everything distinct one_of left_join mutate bind_cols arrange
 #' @importFrom dplyr case_when
 #' @importFrom tibble as_tibble enframe tibble rownames_to_column
-#' @importFrom clisymbols symbol
 #' @importFrom cli rule col_cyan tree
 #' @importFrom utils packageVersion object.size write.csv tail 
 #' @importFrom purrr map map2
 #' @importFrom plyr dlply .
-#' @importFrom RColorBrewer brewer.pal
-#' @importFrom readr read_csv cols
-#' @importFrom readxl read_excel
 #' @importFrom masstools get_os mz_rt_match
 #' @importFrom BiocParallel MulticoreParam SnowParam bplapply
 #' @importFrom magrittr %>%
-#' @importFrom plotly ggplotly
-#' @importFrom BiocGenerics basename
-#' @importFrom patchwork plot_layout
 #' @importFrom mixOmics plotIndiv plotVar pls
-#' @import patchwork
-#' @import snow
 #' @importFrom stats coefficients lm loess median predict dist cor cor.test
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom methods new is
 #' @importFrom ggrepel geom_text_repel
 #' @importFrom grid gpar
+#' @importFrom ggraph ggraph
 #' @importClassesFrom massdataset mass_dataset tidymass_parameter
 #' @import ggfortify
 #' @import tidyr
