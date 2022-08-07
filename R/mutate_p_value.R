@@ -98,13 +98,9 @@ mutate_p_value <-
       stop("control or case group have less than 3 samples.\n")
     }
     
-    cat(crayon::green(paste(
-      length(control_sample_id), "control samples.\n"
-    )))
+    message(paste(length(control_sample_id), "control samples."))
     
-    cat(crayon::green(paste(
-      length(case_sample_id), "case samples.\n"
-    )))
+    message(paste(length(case_sample_id), "case samples."))
     
     control_index <-
       match(control_sample_id, colnames(object@expression_data))

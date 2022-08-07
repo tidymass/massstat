@@ -9,7 +9,7 @@
 #' @importFrom dplyr case_when
 #' @importFrom tibble as_tibble enframe tibble rownames_to_column
 #' @importFrom cli rule col_cyan tree
-#' @importFrom utils packageVersion object.size write.csv tail 
+#' @importFrom utils packageVersion object.size write.csv tail
 #' @importFrom purrr map map2
 #' @importFrom plyr dlply .
 #' @importFrom masstools get_os mz_rt_match
@@ -35,11 +35,10 @@
 #' massstat_logo()
 
 massstat_logo <- function() {
-  cat(crayon::green("Thank you for using massstat_logo!\n"))
-  message(crayon::green("Version", massstat_version, "(", update_date, ')\n'))
-  cat(crayon::green("Bug fixing\n"))
-  cat(crayon::green("More information: google tidymass massstat.\n"))
-  cat(crayon::green(
+  message("Thank you for using massstat_logo!")
+  message("Version ", massstat_version, " (", update_date, ')')
+  message("More information: massstat.tidymass.org")
+  cat(
     c(
       "                           _____ _        _   ",
       "                          / ____| |      | |  ",
@@ -49,13 +48,15 @@ massstat_logo <- function() {
       " |_| |_| |_|\\__,_|___/___/_____/ \\__\\__,_|\\__|",
       "                                              ",
       "                                              "
-    )
-    
-  ), sep = "\n")
+    ),
+    sep = "\n"
+  )
 }
 
-massstat_version <- packageVersion(pkg = "massstat")
-update_date = as.character(Sys.time())
+massstat_version <-
+  as.character(packageVersion(pkg = "massstat"))
+update_date <-
+  as.character(Sys.time())
 
 #' # library(cowsay)
 #' #https://onlineasciitools.com/convert-text-to-ascii-art
