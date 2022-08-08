@@ -23,13 +23,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massstat</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.15</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help document
      
     <span class="caret"></span>
@@ -60,7 +60,7 @@
     </li>
   </ul></li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -87,7 +87,7 @@
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990" class="external-link">
+  <a href="https://twitter.com/xiaotaoshen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -116,41 +116,58 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">convert_mass_dataset2graph</span><span class="op">(</span>
-  <span class="va">object</span>,
-  margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"variable"</span>, <span class="st">"sample"</span><span class="op">)</span>,
-  cor_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"spearman"</span>, <span class="st">"pearson"</span>, <span class="st">"kendall"</span><span class="op">)</span>,
-  p_adjust_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BH"</span>, <span class="st">"holm"</span>, <span class="st">"hochberg"</span>, <span class="st">"hommel"</span>, <span class="st">"bonferroni"</span>, <span class="st">"BY"</span>, <span class="st">"fdr"</span>,
-    <span class="st">"none"</span><span class="op">)</span><span class="op">)</span>,
-  p_adjust_cutoff <span class="op">=</span> <span class="fl">0.05</span>,
-  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,
-  pos_cor_cutoff <span class="op">=</span> <span class="fl">0</span>,
-  neg_cor_cutoff <span class="op">=</span> <span class="fl">0</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">convert_mass_dataset2graph</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"variable"</span>, <span class="st">"sample"</span><span class="op">)</span>,</span>
+<span>  cor_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"spearman"</span>, <span class="st">"pearson"</span>, <span class="st">"kendall"</span><span class="op">)</span>,</span>
+<span>  p_adjust_method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BH"</span>, <span class="st">"holm"</span>, <span class="st">"hochberg"</span>, <span class="st">"hommel"</span>, <span class="st">"bonferroni"</span>, <span class="st">"BY"</span>, <span class="st">"fdr"</span>,</span>
+<span>    <span class="st">"none"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  p_adjust_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>  pos_cor_cutoff <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  neg_cor_cutoff <span class="op">=</span> <span class="fl">0</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>tidymass-class object.</p></dd>
+
+
 <dt>margin</dt>
 <dd><p>variable or sample</p></dd>
+
+
 <dt>cor_method</dt>
 <dd><p>spearman, pearson or kendall</p></dd>
+
+
 <dt>p_adjust_method</dt>
 <dd><p>see ?p.adjust</p></dd>
+
+
 <dt>p_adjust_cutoff</dt>
 <dd><p>between 0 to 1</p></dd>
+
+
 <dt>p_value_cutoff</dt>
 <dd><p>between 0 to 1</p></dd>
+
+
 <dt>pos_cor_cutoff</dt>
 <dd><p>between 0 to 1</p></dd>
+
+
 <dt>neg_cor_cutoff</dt>
 <dd><p>between -1 to 0</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>tbl_graph class object (from tidygraph)</p>
+    
+
+<p>tbl_graph class object (from tidygraph)</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -160,9 +177,15 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Version 1.0.12 (2022-08-07 01:01:35)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘massdataset’</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:stats’:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     filter</span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dplyr’</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:massdataset’:</span>
@@ -174,9 +197,9 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following objects are masked from ‘package:base’:</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">liver_aging_pos</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">liver_aging_pos</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.01 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
@@ -188,208 +211,348 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Creation ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-23 00:24:02</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">qc_id</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"QC"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/add_new_column-mass_dataset.html" class="external-link">mutate_rsd</a></span><span class="op">(</span><span class="va">liver_aging_pos</span>, according_to_samples <span class="op">=</span> <span class="va">qc_id</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">###only remain the features with rt &gt; 100, mz &gt; 150 and rsd &lt; 30</span></span>
-<span class="r-in"><span class="va">object</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">rt</span> <span class="op">&gt;</span> <span class="fl">100</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">mz</span> <span class="op">&gt;</span> <span class="fl">150</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">rsd</span> <span class="op">&lt;</span> <span class="fl">30</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">##only remain the week 24 samples</span></span>
-<span class="r-in"><span class="va">object</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"24W"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 751  10</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">`+`</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="scale_data.html">scale_data</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"auto"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">graph_data</span> <span class="op">&lt;-</span></span>
-<span class="r-in">  <span class="fu">convert_mass_dataset2graph</span><span class="op">(</span></span>
-<span class="r-in">    object <span class="op">=</span> <span class="va">object</span>,</span>
-<span class="r-in">    margin <span class="op">=</span> <span class="st">"variable"</span>,</span>
-<span class="r-in">    cor_method <span class="op">=</span> <span class="st">"spearman"</span>,</span>
-<span class="r-in">    p_adjust_cutoff <span class="op">=</span> <span class="fl">1</span>,</span>
-<span class="r-in">    p_value_cutoff <span class="op">=</span> <span class="fl">0.0001</span>,</span>
-<span class="r-in">    pos_cor_cutoff <span class="op">=</span> <span class="fl">0.7</span>,</span>
-<span class="r-in">    neg_cor_cutoff <span class="op">=</span> <span class="op">-</span><span class="fl">0.7</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggraph.data-imaginist.com" class="external-link">ggraph</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">extrafont</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/extrafont/man/loadfonts.html" class="external-link">loadfonts</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): .SF Compact Rounded</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): .Keyboard</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): .New York</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): .SF Compact</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): System Font</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): .SF NS Mono</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): .SF NS Rounded</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Academy Engraved LET</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Andale Mono</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">qc_id</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"QC"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/add_new_column-mass_dataset.html" class="external-link">mutate_rsd</a></span><span class="op">(</span><span class="va">liver_aging_pos</span>, according_to_samples <span class="op">=</span> <span class="va">qc_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">###only remain the features with rt &gt; 100, mz &gt; 150 and rsd &lt; 30</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"variable_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">rt</span> <span class="op">&gt;</span> <span class="fl">100</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">mz</span> <span class="op">&gt;</span> <span class="fl">150</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">rsd</span> <span class="op">&lt;</span> <span class="fl">30</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">##only remain the week 24 samples</span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"24W"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> variables   samples </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       751        10 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">`+`</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="scale_data.html">scale_data</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"auto"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">graph_data</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu">convert_mass_dataset2graph</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    object <span class="op">=</span> <span class="va">object</span>,</span></span>
+<span class="r-in"><span>    margin <span class="op">=</span> <span class="st">"variable"</span>,</span></span>
+<span class="r-in"><span>    cor_method <span class="op">=</span> <span class="st">"spearman"</span>,</span></span>
+<span class="r-in"><span>    p_adjust_cutoff <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>    p_value_cutoff <span class="op">=</span> <span class="fl">0.0001</span>,</span></span>
+<span class="r-in"><span>    pos_cor_cutoff <span class="op">=</span> <span class="fl">0.7</span>,</span></span>
+<span class="r-in"><span>    neg_cor_cutoff <span class="op">=</span> <span class="op">-</span><span class="fl">0.7</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggraph.data-imaginist.com" class="external-link">ggraph</a></span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: ggplot2</span>
+<span class="r-in"><span><span class="fu">extrafont</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/extrafont/man/loadfonts.html" class="external-link">loadfonts</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): .Keyboard</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): .New York</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): .SF Compact</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): .SF Compact Rounded</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): .SF NS Mono</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): .SF NS Rounded</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Academy Engraved LET</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Andale Mono</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> More than one version of regular/bold/italic found for Apple Braille. Skipping setup for this font.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): AppleMyungjo</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Arial Black</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Arial</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Arial Narrow</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Arial Rounded MT Bold</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Arial Unicode MS</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Bodoni Ornaments</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Bodoni 72 Smallcaps</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of . Skipping setup for this font.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): AppleMyungjo</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Arial</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Arial Black</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Arial Narrow</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Arial Rounded MT Bold</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Arial Unicode MS</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Bodoni 72 Smallcaps</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Bodoni Ornaments</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of Brush Script MT. Skipping setup for this font.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Comic Sans MS</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Courier New</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Comic Sans MS</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Courier New</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of DIN Alternate. Skipping setup for this font.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of DIN Condensed. Skipping setup for this font.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Georgia</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Impact</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Khmer Sangam MN</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Lao Sangam MN</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Luminari</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Microsoft Sans Serif</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Adlam</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Avestan</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Bamum</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Bassa Vah</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Batak</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Bhaiksuki</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Brahmi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Buginese</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Buhid</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Carian</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans CaucAlban</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Chakma</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Cham</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Coptic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Cuneiform</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Cypriot</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Duployan</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans EgyptHiero</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Elbasan</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Glagolitic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Gothic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans HanifiRohg</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Hanunoo</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Hatran</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans ImpAramaic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans InsPahlavi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans InsParthi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Kaithi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Kayah Li</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Kharoshthi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Khojki</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Khudawadi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Lepcha</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Limbu</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Linear A</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Linear B</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Lisu</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Lycian</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Lydian</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Mahajani</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Mandaic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Manichaean</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Marchen</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans MeeteiMayek</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Mende Kikakui</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Meroitic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Miao</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Modi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Mongolian</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Mro</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Multani</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Nabataean</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Newa</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans NewTaiLue</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans N'Ko</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Ogham</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Ol Chiki</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans OldHung</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Georgia</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Impact</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Khmer Sangam MN</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Lao Sangam MN</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Luminari</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Microsoft Sans Serif</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Adlam</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Avestan</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Bamum</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Bassa Vah</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Batak</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Bhaiksuki</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Brahmi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Buginese</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Buhid</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Carian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans CaucAlban</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Chakma</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Cham</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Coptic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Cuneiform</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Cypriot</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Duployan</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans EgyptHiero</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Elbasan</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Glagolitic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Gothic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans HanifiRohg</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Hanunoo</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Hatran</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans ImpAramaic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans InsPahlavi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans InsParthi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Kaithi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Kayah Li</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Kharoshthi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Khojki</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Khudawadi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Lepcha</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Limbu</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Linear A</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Linear B</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Lisu</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Lycian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Lydian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Mahajani</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Mandaic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Manichaean</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Marchen</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans MeeteiMayek</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Mende Kikakui</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Meroitic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Miao</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Modi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Mongolian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Mro</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Multani</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans N'Ko</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Nabataean</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans NewTaiLue</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Newa</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Ogham</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Ol Chiki</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of Noto Sans Old Italic. Skipping setup for this font.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans OldNorArab</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Old Permic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans OldPersian</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans OldSouArab</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Old Turkic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Osage</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Osmanya</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Pahawh Hmong</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Palmyrene</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans PauCinHau</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans PhagsPa</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Phoenician</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans PsaPahlavi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Rejang</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Runic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Samaritan</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Saurashtra</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Sharada</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Shavian</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Siddham</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans SoraSomp</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Sundanese</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Syloti Nagri</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Syriac</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Tagalog</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Tagbanwa</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Tai Le</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Tai Tham</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Tai Viet</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Takri</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Thaana</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Tifinagh</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Tirhuta</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Ugaritic</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Vai</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Wancho</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans WarangCiti</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Sans Yi</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Serif Ahom</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Noto Serif Balinese</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Party LET</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Tahoma</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Times New Roman</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Trattatello</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Trebuchet MS</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Verdana</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Webdings</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Wingdings</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Wingdings 2</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFonts(): Wingdings 3</span>
-<span class="r-in"><span class="fu"><a href="https://ggraph.data-imaginist.com/reference/ggraph.html" class="external-link">ggraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">graph_data</span>, layout <span class="op">=</span> <span class="st">"kk"</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_edge_fan.html" class="external-link">geom_edge_fan</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">correlation</span>,</span>
-<span class="r-in">                    width <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">p_value</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">                show.legend <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_node_point.html" class="external-link">geom_node_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">mz</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/theme_graph.html" class="external-link">theme_graph</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Old Permic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Old Turkic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans OldHung</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans OldNorArab</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans OldPersian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans OldSouArab</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Osage</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Osmanya</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Pahawh Hmong</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Palmyrene</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans PauCinHau</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans PhagsPa</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Phoenician</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans PsaPahlavi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Rejang</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Runic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Samaritan</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Saurashtra</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Sharada</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Shavian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Siddham</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans SoraSomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Sundanese</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Syloti Nagri</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Syriac</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Tagalog</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Tagbanwa</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Tai Le</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Tai Tham</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Tai Viet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Takri</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Thaana</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Tifinagh</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Tirhuta</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Ugaritic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Vai</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Wancho</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans WarangCiti</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Sans Yi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Serif Ahom</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Noto Serif Balinese</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Party LET</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): System Font</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Tahoma</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Times New Roman</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Trattatello</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Trebuchet MS</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Verdana</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Webdings</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Wingdings</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Wingdings 2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using pdfFont(): Wingdings 3</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): .Keyboard</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): .New York</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): .SF Compact</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): .SF Compact Rounded</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): .SF NS Mono</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): .SF NS Rounded</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Academy Engraved LET</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Andale Mono</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> More than one version of regular/bold/italic found for Apple Braille. Skipping setup for this font.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): AppleMyungjo</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Arial</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Arial Black</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Arial Narrow</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Arial Rounded MT Bold</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Arial Unicode MS</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Bodoni 72 Smallcaps</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Bodoni Ornaments</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of Brush Script MT. Skipping setup for this font.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Comic Sans MS</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Courier New</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of DIN Alternate. Skipping setup for this font.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of DIN Condensed. Skipping setup for this font.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Georgia</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Impact</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Khmer Sangam MN</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Lao Sangam MN</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Luminari</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Microsoft Sans Serif</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Adlam</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Avestan</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Bamum</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Bassa Vah</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Batak</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Bhaiksuki</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Brahmi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Buginese</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Buhid</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Carian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans CaucAlban</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Chakma</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Cham</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Coptic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Cuneiform</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Cypriot</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Duployan</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans EgyptHiero</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Elbasan</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Glagolitic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Gothic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans HanifiRohg</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Hanunoo</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Hatran</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans ImpAramaic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans InsPahlavi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans InsParthi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Kaithi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Kayah Li</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Kharoshthi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Khojki</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Khudawadi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Lepcha</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Limbu</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Linear A</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Linear B</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Lisu</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Lycian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Lydian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Mahajani</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Mandaic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Manichaean</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Marchen</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans MeeteiMayek</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Mende Kikakui</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Meroitic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Miao</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Modi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Mongolian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Mro</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Multani</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans N'Ko</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Nabataean</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans NewTaiLue</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Newa</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Ogham</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Ol Chiki</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> No regular (non-bold, non-italic) version of Noto Sans Old Italic. Skipping setup for this font.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Old Permic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Old Turkic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans OldHung</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans OldNorArab</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans OldPersian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans OldSouArab</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Osage</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Osmanya</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Pahawh Hmong</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Palmyrene</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans PauCinHau</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans PhagsPa</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Phoenician</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans PsaPahlavi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Rejang</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Runic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Samaritan</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Saurashtra</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Sharada</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Shavian</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Siddham</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans SoraSomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Sundanese</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Syloti Nagri</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Syriac</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Tagalog</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Tagbanwa</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Tai Le</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Tai Tham</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Tai Viet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Takri</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Thaana</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Tifinagh</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Tirhuta</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Ugaritic</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Vai</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Wancho</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans WarangCiti</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Sans Yi</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Serif Ahom</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Noto Serif Balinese</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Party LET</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): System Font</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Tahoma</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Times New Roman</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Trattatello</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Trebuchet MS</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Verdana</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Webdings</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Wingdings</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Wingdings 2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Registering font with R using postscriptFont(): Wingdings 3</span>
+<span class="r-in"><span><span class="fu"><a href="https://ggraph.data-imaginist.com/reference/ggraph.html" class="external-link">ggraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">graph_data</span>, layout <span class="op">=</span> <span class="st">"kk"</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_edge_fan.html" class="external-link">geom_edge_fan</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">correlation</span>,</span></span>
+<span class="r-in"><span>                    width <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">p_value</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                show.legend <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_node_point.html" class="external-link">geom_node_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">mz</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/theme_graph.html" class="external-link">theme_graph</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="convert_mass_dataset2graph-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://ggraph.data-imaginist.com/reference/ggraph.html" class="external-link">ggraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">graph_data</span>, layout <span class="op">=</span> <span class="st">"fr"</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_edge_fan.html" class="external-link">geom_edge_fan</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">correlation</span>,</span>
-<span class="r-in">                    width <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">p_value</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">                show.legend <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_node_point.html" class="external-link">geom_node_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">mz</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/theme_graph.html" class="external-link">theme_graph</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://ggraph.data-imaginist.com/reference/ggraph.html" class="external-link">ggraph</a></span><span class="op">(</span>graph <span class="op">=</span> <span class="va">graph_data</span>, layout <span class="op">=</span> <span class="st">"fr"</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_edge_fan.html" class="external-link">geom_edge_fan</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>color <span class="op">=</span> <span class="va">correlation</span>,</span></span>
+<span class="r-in"><span>                    width <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">p_value</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                show.legend <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/geom_node_point.html" class="external-link">geom_node_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">mz</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggraph.data-imaginist.com/reference/theme_graph.html" class="external-link">theme_graph</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="convert_mass_dataset2graph-2.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

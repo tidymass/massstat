@@ -23,13 +23,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massstat</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.15</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help document
      
     <span class="caret"></span>
@@ -60,7 +60,7 @@
     </li>
   </ul></li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -87,7 +87,7 @@
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990" class="external-link">
+  <a href="https://twitter.com/xiaotaoshen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -116,266 +116,433 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">Heatmap</span><span class="op">(</span>
-  <span class="va">matrix</span>,
-  <span class="va">col</span>,
-  name <span class="op">=</span> <span class="st">"value"</span>,
-  na_col <span class="op">=</span> <span class="st">"grey"</span>,
-  color_space <span class="op">=</span> <span class="st">"LAB"</span>,
-  rect_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>col <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,
-  border <span class="op">=</span> <span class="cn">NA</span>,
-  border_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,
-  cell_fun <span class="op">=</span> <span class="cn">NULL</span>,
-  layer_fun <span class="op">=</span> <span class="cn">NULL</span>,
-  jitter <span class="op">=</span> <span class="cn">FALSE</span>,
-  row_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,
-  row_title_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"right"</span><span class="op">)</span>,
-  row_title_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">13.2</span><span class="op">)</span>,
-  row_title_rot <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/switch.html" class="external-link">switch</a></span><span class="op">(</span><span class="va">row_title_side</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, left <span class="op">=</span> <span class="fl">90</span>, right <span class="op">=</span> <span class="fl">270</span><span class="op">)</span>,
-  column_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,
-  column_title_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"top"</span>, <span class="st">"bottom"</span><span class="op">)</span>,
-  column_title_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">13.2</span><span class="op">)</span>,
-  column_title_rot <span class="op">=</span> <span class="fl">0</span>,
-  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,
-  cluster_row_slices <span class="op">=</span> <span class="cn">TRUE</span>,
-  clustering_distance_rows <span class="op">=</span> <span class="st">"euclidean"</span>,
-  clustering_method_rows <span class="op">=</span> <span class="st">"complete"</span>,
-  row_dend_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"right"</span><span class="op">)</span>,
-  row_dend_width <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">10</span>, <span class="st">"mm"</span><span class="op">)</span>,
-  show_row_dend <span class="op">=</span> <span class="cn">TRUE</span>,
-  row_dend_reorder <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html" class="external-link">is.logical</a></span><span class="op">(</span><span class="va">cluster_rows</span><span class="op">)</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/is.function.html" class="external-link">is.function</a></span><span class="op">(</span><span class="va">cluster_rows</span><span class="op">)</span>,
-  row_dend_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span><span class="op">)</span>,
-  cluster_columns <span class="op">=</span> <span class="cn">TRUE</span>,
-  cluster_column_slices <span class="op">=</span> <span class="cn">TRUE</span>,
-  clustering_distance_columns <span class="op">=</span> <span class="st">"euclidean"</span>,
-  clustering_method_columns <span class="op">=</span> <span class="st">"complete"</span>,
-  column_dend_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"top"</span>, <span class="st">"bottom"</span><span class="op">)</span>,
-  column_dend_height <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">10</span>, <span class="st">"mm"</span><span class="op">)</span>,
-  show_column_dend <span class="op">=</span> <span class="cn">TRUE</span>,
-  column_dend_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span><span class="op">)</span>,
-  column_dend_reorder <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html" class="external-link">is.logical</a></span><span class="op">(</span><span class="va">cluster_columns</span><span class="op">)</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/is.function.html" class="external-link">is.function</a></span><span class="op">(</span><span class="va">cluster_columns</span><span class="op">)</span>,
-  row_order <span class="op">=</span> <span class="cn">NULL</span>,
-  column_order <span class="op">=</span> <span class="cn">NULL</span>,
-  row_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">matrix</span><span class="op">)</span>,
-  row_names_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"right"</span>, <span class="st">"left"</span><span class="op">)</span>,
-  show_row_names <span class="op">=</span> <span class="cn">TRUE</span>,
-  row_names_max_width <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">6</span>, <span class="st">"cm"</span><span class="op">)</span>,
-  row_names_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-  row_names_rot <span class="op">=</span> <span class="fl">0</span>,
-  row_names_centered <span class="op">=</span> <span class="cn">FALSE</span>,
-  column_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">matrix</span><span class="op">)</span>,
-  column_names_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bottom"</span>, <span class="st">"top"</span><span class="op">)</span>,
-  show_column_names <span class="op">=</span> <span class="cn">TRUE</span>,
-  column_names_max_height <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">6</span>, <span class="st">"cm"</span><span class="op">)</span>,
-  column_names_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,
-  column_names_rot <span class="op">=</span> <span class="fl">90</span>,
-  column_names_centered <span class="op">=</span> <span class="cn">FALSE</span>,
-  top_annotation <span class="op">=</span> <span class="cn">NULL</span>,
-  bottom_annotation <span class="op">=</span> <span class="cn">NULL</span>,
-  left_annotation <span class="op">=</span> <span class="cn">NULL</span>,
-  right_annotation <span class="op">=</span> <span class="cn">NULL</span>,
-  km <span class="op">=</span> <span class="fl">1</span>,
-  split <span class="op">=</span> <span class="cn">NULL</span>,
-  row_km <span class="op">=</span> <span class="va">km</span>,
-  row_km_repeats <span class="op">=</span> <span class="fl">1</span>,
-  row_split <span class="op">=</span> <span class="va">split</span>,
-  column_km <span class="op">=</span> <span class="fl">1</span>,
-  column_km_repeats <span class="op">=</span> <span class="fl">1</span>,
-  column_split <span class="op">=</span> <span class="cn">NULL</span>,
-  gap <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"mm"</span><span class="op">)</span>,
-  row_gap <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"mm"</span><span class="op">)</span>,
-  column_gap <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"mm"</span><span class="op">)</span>,
-  show_parent_dend_line <span class="op">=</span> <span class="fu">ComplexHeatmap</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/ht_opt.html" class="external-link">ht_opt</a></span><span class="op">$</span><span class="va">show_parent_dend_line</span>,
-  heatmap_width <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"npc"</span><span class="op">)</span>,
-  width <span class="op">=</span> <span class="cn">NULL</span>,
-  heatmap_height <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"npc"</span><span class="op">)</span>,
-  height <span class="op">=</span> <span class="cn">NULL</span>,
-  show_heatmap_legend <span class="op">=</span> <span class="cn">TRUE</span>,
-  heatmap_legend_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="va">name</span><span class="op">)</span>,
-  use_raster <span class="op">=</span> <span class="cn">NULL</span>,
-  raster_device <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"png"</span>, <span class="st">"jpeg"</span>, <span class="st">"tiff"</span>, <span class="st">"CairoPNG"</span>, <span class="st">"CairoJPEG"</span>, <span class="st">"CairoTIFF"</span>,
-    <span class="st">"agg_png"</span><span class="op">)</span>,
-  raster_quality <span class="op">=</span> <span class="fl">1</span>,
-  raster_device_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  raster_resize_mat <span class="op">=</span> <span class="cn">FALSE</span>,
-  raster_by_magick <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"magick"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
-  raster_magick_filter <span class="op">=</span> <span class="cn">NULL</span>,
-  post_fun <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">Heatmap</span><span class="op">(</span></span>
+<span>  <span class="va">matrix</span>,</span>
+<span>  <span class="va">col</span>,</span>
+<span>  name <span class="op">=</span> <span class="st">"value"</span>,</span>
+<span>  na_col <span class="op">=</span> <span class="st">"grey"</span>,</span>
+<span>  color_space <span class="op">=</span> <span class="st">"LAB"</span>,</span>
+<span>  rect_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>col <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span>,</span>
+<span>  border <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  border_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>col <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>  cell_fun <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  layer_fun <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  jitter <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  row_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,</span>
+<span>  row_title_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"right"</span><span class="op">)</span>,</span>
+<span>  row_title_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">13.2</span><span class="op">)</span>,</span>
+<span>  row_title_rot <span class="op">=</span> <span class="kw"><a href="https://rdrr.io/r/base/switch.html" class="external-link">switch</a></span><span class="op">(</span><span class="va">row_title_side</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, left <span class="op">=</span> <span class="fl">90</span>, right <span class="op">=</span> <span class="fl">270</span><span class="op">)</span>,</span>
+<span>  column_title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">character</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,</span>
+<span>  column_title_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"top"</span>, <span class="st">"bottom"</span><span class="op">)</span>,</span>
+<span>  column_title_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">13.2</span><span class="op">)</span>,</span>
+<span>  column_title_rot <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  cluster_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  cluster_row_slices <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  clustering_distance_rows <span class="op">=</span> <span class="st">"euclidean"</span>,</span>
+<span>  clustering_method_rows <span class="op">=</span> <span class="st">"complete"</span>,</span>
+<span>  row_dend_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"left"</span>, <span class="st">"right"</span><span class="op">)</span>,</span>
+<span>  row_dend_width <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">10</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>  show_row_dend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  row_dend_reorder <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html" class="external-link">is.logical</a></span><span class="op">(</span><span class="va">cluster_rows</span><span class="op">)</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/is.function.html" class="external-link">is.function</a></span><span class="op">(</span><span class="va">cluster_rows</span><span class="op">)</span>,</span>
+<span>  row_dend_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  cluster_columns <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  cluster_column_slices <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  clustering_distance_columns <span class="op">=</span> <span class="st">"euclidean"</span>,</span>
+<span>  clustering_method_columns <span class="op">=</span> <span class="st">"complete"</span>,</span>
+<span>  column_dend_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"top"</span>, <span class="st">"bottom"</span><span class="op">)</span>,</span>
+<span>  column_dend_height <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">10</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>  show_column_dend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  column_dend_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  column_dend_reorder <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html" class="external-link">is.logical</a></span><span class="op">(</span><span class="va">cluster_columns</span><span class="op">)</span> <span class="op">||</span> <span class="fu"><a href="https://rdrr.io/r/base/is.function.html" class="external-link">is.function</a></span><span class="op">(</span><span class="va">cluster_columns</span><span class="op">)</span>,</span>
+<span>  row_order <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  column_order <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  row_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">matrix</span><span class="op">)</span>,</span>
+<span>  row_names_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"right"</span>, <span class="st">"left"</span><span class="op">)</span>,</span>
+<span>  show_row_names <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  row_names_max_width <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">6</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>  row_names_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>  row_names_rot <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  row_names_centered <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  column_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">matrix</span><span class="op">)</span>,</span>
+<span>  column_names_side <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bottom"</span>, <span class="st">"top"</span><span class="op">)</span>,</span>
+<span>  show_column_names <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  column_names_max_height <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">6</span>, <span class="st">"cm"</span><span class="op">)</span>,</span>
+<span>  column_names_gp <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span>fontsize <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>,</span>
+<span>  column_names_rot <span class="op">=</span> <span class="fl">90</span>,</span>
+<span>  column_names_centered <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  top_annotation <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  bottom_annotation <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  left_annotation <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  right_annotation <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  km <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  split <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  row_km <span class="op">=</span> <span class="va">km</span>,</span>
+<span>  row_km_repeats <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  row_split <span class="op">=</span> <span class="va">split</span>,</span>
+<span>  column_km <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  column_km_repeats <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  column_split <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  gap <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>  row_gap <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>  column_gap <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
+<span>  show_parent_dend_line <span class="op">=</span> <span class="fu">ComplexHeatmap</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/ComplexHeatmap/man/ht_opt.html" class="external-link">ht_opt</a></span><span class="op">$</span><span class="va">show_parent_dend_line</span>,</span>
+<span>  heatmap_width <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
+<span>  width <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  heatmap_height <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">1</span>, <span class="st">"npc"</span><span class="op">)</span>,</span>
+<span>  height <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  show_heatmap_legend <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  heatmap_legend_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>title <span class="op">=</span> <span class="va">name</span><span class="op">)</span>,</span>
+<span>  use_raster <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  raster_device <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"png"</span>, <span class="st">"jpeg"</span>, <span class="st">"tiff"</span>, <span class="st">"CairoPNG"</span>, <span class="st">"CairoJPEG"</span>, <span class="st">"CairoTIFF"</span>,</span>
+<span>    <span class="st">"agg_png"</span><span class="op">)</span>,</span>
+<span>  raster_quality <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  raster_device_param <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  raster_resize_mat <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  raster_by_magick <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"magick"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  raster_magick_filter <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  post_fun <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>matrix</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>col</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>name</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>na_col</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>color_space</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>rect_gp</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>border</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>border_gp</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>cell_fun</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>layer_fun</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>jitter</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_title</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_title_side</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_title_gp</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_title_rot</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_title</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_title_side</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_title_gp</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_title_rot</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>cluster_rows</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>cluster_row_slices</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>clustering_distance_rows</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>clustering_method_rows</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_dend_side</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_dend_width</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>show_row_dend</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_dend_reorder</dt>
 <dd><p>ee ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_dend_gp</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>cluster_columns</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>cluster_column_slices</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>clustering_distance_columns</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>clustering_method_columns</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_dend_side</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_dend_height</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>show_column_dend</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_dend_gp</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_dend_reorder</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_order</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_order</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_labels</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_names_side</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>show_row_names</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_names_max_width</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_names_gp</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_names_rot</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_names_centered</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_labels</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_names_side</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>show_column_names</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_names_max_height</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_names_gp</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_names_rot</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_names_centered</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>top_annotation</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>bottom_annotation</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>left_annotation</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>right_annotation</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>km</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>split</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_km</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_km_repeats</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_split</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_km</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_km_repeats</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_split</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>gap</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>row_gap</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>column_gap</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>show_parent_dend_line</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>heatmap_width</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>width</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>heatmap_height</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>height</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>show_heatmap_legend</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>heatmap_legend_param</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>use_raster</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>raster_device</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>raster_quality</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>raster_device_param</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>raster_resize_mat</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>raster_by_magick</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>raster_magick_filter</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
+
 <dt>post_fun</dt>
 <dd><p>see ?ComplexHeatmap::Heatmap</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A Heatmap-class object.</p>
+    
+
+<p>A Heatmap-class object.</p>
     </div>
     <div id="author">
     <h2>Author</h2>

@@ -23,13 +23,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massstat</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.15</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help document
      
     <span class="caret"></span>
@@ -60,7 +60,7 @@
     </li>
   </ul></li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -87,7 +87,7 @@
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990" class="external-link">
+  <a href="https://twitter.com/xiaotaoshen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -116,31 +116,42 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mutate_fc</span><span class="op">(</span>
-  <span class="va">object</span>,
-  <span class="va">control_sample_id</span>,
-  <span class="va">case_sample_id</span>,
-  mean_median <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="st">"median"</span><span class="op">)</span>,
-  return_mass_dataset <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mutate_fc</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  <span class="va">control_sample_id</span>,</span>
+<span>  <span class="va">case_sample_id</span>,</span>
+<span>  mean_median <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="st">"median"</span><span class="op">)</span>,</span>
+<span>  return_mass_dataset <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>tidymass-class object.</p></dd>
+
+
 <dt>control_sample_id</dt>
 <dd><p>A character vector.</p></dd>
+
+
 <dt>case_sample_id</dt>
 <dd><p>A character vector</p></dd>
+
+
 <dt>mean_median</dt>
 <dd><p>mean or median.</p></dd>
+
+
 <dt>return_mass_dataset</dt>
 <dd><p>logical default TRUE</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>object with fold change (fc) in variable_info.</p>
+    
+
+<p>object with fold change (fc) in variable_info.</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -150,12 +161,12 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">liver_aging_pos</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">liver_aging_pos</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.01 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
@@ -167,38 +178,38 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Creation ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-23 00:24:02</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">w_78</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"78W"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">w_24</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"24W"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">control_sample_id</span> <span class="op">=</span> <span class="va">w_24</span></span>
-<span class="r-in"><span class="va">case_sample_id</span> <span class="op">=</span> <span class="va">w_78</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">liver_aging_pos</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="fu">mutate_fc</span><span class="op">(</span></span>
-<span class="r-in">    object <span class="op">=</span> <span class="va">liver_aging_pos</span>,</span>
-<span class="r-in">    control_sample_id <span class="op">=</span> <span class="va">control_sample_id</span>,</span>
-<span class="r-in">    case_sample_id <span class="op">=</span> <span class="va">case_sample_id</span>,</span>
-<span class="r-in">    mean_median <span class="op">=</span> <span class="st">"mean"</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">10 control samples.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">10 case samples.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/extract-mass_dataset.html" class="external-link">extract_variable_info</a></span><span class="op">(</span><span class="va">liver_aging_pos</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">w_78</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"78W"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">w_24</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"24W"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">control_sample_id</span> <span class="op">=</span> <span class="va">w_24</span></span></span>
+<span class="r-in"><span><span class="va">case_sample_id</span> <span class="op">=</span> <span class="va">w_78</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">liver_aging_pos</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_fc</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    object <span class="op">=</span> <span class="va">liver_aging_pos</span>,</span></span>
+<span class="r-in"><span>    control_sample_id <span class="op">=</span> <span class="va">control_sample_id</span>,</span></span>
+<span class="r-in"><span>    case_sample_id <span class="op">=</span> <span class="va">case_sample_id</span>,</span></span>
+<span class="r-in"><span>    mean_median <span class="op">=</span> <span class="st">"mean"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 10 control samples.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 10 case samples.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/extract-mass_dataset.html" class="external-link">extract_variable_info</a></span><span class="op">(</span><span class="va">liver_aging_pos</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          variable_id       mz       rt        fc</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1209    M60T1209 60.04340 1209.340 1.1733118</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1182    M60T1182 60.04341 1181.850 1.2331847</span>
@@ -206,19 +217,18 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1310    M60T1310 60.04335 1310.170 0.8301097</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1240    M60T1240 60.04339 1239.900 0.9963933</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1254    M60T1254 60.04340 1254.240 1.1172962</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">liver_aging_pos</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="fu">mutate_fc</span><span class="op">(</span></span>
-<span class="r-in">    object <span class="op">=</span> <span class="va">liver_aging_pos</span>,</span>
-<span class="r-in">    control_sample_id <span class="op">=</span> <span class="va">control_sample_id</span>,</span>
-<span class="r-in">    case_sample_id <span class="op">=</span> <span class="va">case_sample_id</span>,</span>
-<span class="r-in">    mean_median <span class="op">=</span> <span class="st">"median"</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">10 control samples.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">10 case samples.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/extract-mass_dataset.html" class="external-link">extract_variable_info</a></span><span class="op">(</span><span class="va">liver_aging_pos</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">liver_aging_pos</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu">mutate_fc</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    object <span class="op">=</span> <span class="va">liver_aging_pos</span>,</span></span>
+<span class="r-in"><span>    control_sample_id <span class="op">=</span> <span class="va">control_sample_id</span>,</span></span>
+<span class="r-in"><span>    case_sample_id <span class="op">=</span> <span class="va">case_sample_id</span>,</span></span>
+<span class="r-in"><span>    mean_median <span class="op">=</span> <span class="st">"median"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 10 control samples.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 10 case samples.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/extract-mass_dataset.html" class="external-link">extract_variable_info</a></span><span class="op">(</span><span class="va">liver_aging_pos</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          variable_id       mz       rt        fc      fc.1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1209    M60T1209 60.04340 1209.340 1.1733118 1.3044047</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1182    M60T1182 60.04341 1181.850 1.2331847 1.3044817</span>
@@ -226,10 +236,10 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1310    M60T1310 60.04335 1310.170 0.8301097 1.2033256</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1240    M60T1240 60.04339 1239.900 0.9963933 0.8143669</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> M60T1254    M60T1254 60.04340 1254.240 1.1172962 1.0093612</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/extract-mass_dataset.html" class="external-link">extract_variable_info</a></span><span class="op">(</span><span class="va">liver_aging_pos</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">fc</span>, <span class="va">fc.1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/extract-mass_dataset.html" class="external-link">extract_variable_info</a></span><span class="op">(</span><span class="va">liver_aging_pos</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">fc</span>, <span class="va">fc.1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="mutate_fc-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

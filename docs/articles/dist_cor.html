@@ -48,14 +48,14 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massstat</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.15</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help document
      
     <span class="caret"></span>
@@ -88,7 +88,7 @@
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -120,7 +120,7 @@
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990" class="external-link">
+  <a href="https://twitter.com/xiaotaoshen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -145,9 +145,11 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Distance and correlation</h1>
-                        <h4 data-toc-skip class="author">Xiaotao Shen (<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
+                        <h4 data-toc-skip class="author">Xiaotao Shen
+(<a href="https://www.shenxt.info/" class="external-link uri">https://www.shenxt.info/</a>)</h4>
                         
-            <h4 data-toc-skip class="date">Created on 2022-02-18 and updated on 2022-03-21</h4>
+            <h4 data-toc-skip class="date">Created on 2022-02-18 and
+updated on 2022-08-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/tidymass/massstat/blob/HEAD/vignettes/dist_cor.Rmd" class="external-link"><code>vignettes/dist_cor.Rmd</code></a></small>
       <div class="hidden name"><code>dist_cor.Rmd</code></div>
@@ -161,87 +163,87 @@
 <strong>Data preparation</strong><a class="anchor" aria-label="anchor" href="#data-preparation"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massstat" class="external-link">massstat</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span>
-<span class="va">liver_aging_pos</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 21607 x 24 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 24 x 4 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 21607 x 3 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:24:02</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massstat" class="external-link">massstat</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span></span>
+<span><span class="va">liver_aging_pos</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.01 </span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 21607 x 24 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 24 x 4 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 21607 x 3 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; Creation ---------- </span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span></span>
+<span><span class="co">#&gt; 1 massdataset create_mass_dataset() 2021-12-23 00:24:02</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="distance">
 <strong>Distance</strong><a class="anchor" aria-label="anchor" href="#distance"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span>
-<span class="va">object</span> <span class="op">=</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/create_mass_dataset.html" class="external-link">create_mass_dataset</a></span><span class="op">(</span>
-    expression_data <span class="op">=</span> <span class="va">expression_data</span>,
-    sample_info <span class="op">=</span> <span class="va">sample_info</span>,
-    variable_info <span class="op">=</span> <span class="va">variable_info</span>,
-    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,
-    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span>
-  <span class="op">)</span>
-<span class="va">object</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.6 </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span>
-<span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
-<span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span>
-<span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span>
-<span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span>
-<span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-02-18 12:46:21</span>
-<span class="va">x</span> <span class="op">=</span>
-  <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">variable_distance</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/dist_mass_dataset.html">dist_mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, margin <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">variable_distance</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;               M136T55_2_POS M79T35_POS M307T548_POS M183T224_POS M349T47_POS</span>
-<span class="co">#&gt; M136T55_2_POS      0.000000   2.595449     4.743621     4.708308    1.940902</span>
-<span class="co">#&gt; M79T35_POS         2.595449   0.000000     4.219588     3.106812    1.620770</span>
-<span class="co">#&gt; M307T548_POS       4.743621   4.219588     0.000000     2.568996    3.986112</span>
-<span class="co">#&gt; M183T224_POS       4.708308   3.106812     2.568996     0.000000    3.082528</span>
-<span class="co">#&gt; M349T47_POS        1.940902   1.620770     3.986112     3.082528    0.000000</span>
-<span class="co">#&gt; M182T828_POS       3.010099   2.743352     3.139591     2.175595    2.895630</span>
-<span class="va">sample_distance</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/dist_mass_dataset.html">dist_mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, margin <span class="op">=</span> <span class="st">"sample"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">sample_distance</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;          Blank_3  Blank_4     QC_1     QC_2    PS4P1</span>
-<span class="co">#&gt; Blank_3  0.00000 46.24363 46.22024 54.26607 47.31000</span>
-<span class="co">#&gt; Blank_4 46.24363  0.00000 53.89434 60.88273 55.83349</span>
-<span class="co">#&gt; QC_1    46.22024 53.89434  0.00000 40.44652 39.65971</span>
-<span class="co">#&gt; QC_2    54.26607 60.88273 40.44652  0.00000 46.26019</span>
-<span class="co">#&gt; PS4P1   47.31000 55.83349 39.65971 46.26019  0.00000</span>
-<span class="co">#&gt; PS4P2   47.06702 55.78646 38.33452 49.76545 39.14705</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"expression_data"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"sample_info_note"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"variable_info_note"</span><span class="op">)</span></span>
+<span><span class="va">object</span> <span class="op">=</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/create_mass_dataset.html" class="external-link">create_mass_dataset</a></span><span class="op">(</span></span>
+<span>    expression_data <span class="op">=</span> <span class="va">expression_data</span>,</span>
+<span>    sample_info <span class="op">=</span> <span class="va">sample_info</span>,</span>
+<span>    variable_info <span class="op">=</span> <span class="va">variable_info</span>,</span>
+<span>    sample_info_note <span class="op">=</span> <span class="va">sample_info_note</span>,</span>
+<span>    variable_info_note <span class="op">=</span> <span class="va">variable_info_note</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="va">object</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">massdataset version: 0.99.6 </span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; </span><span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">1.expression_data:</span>[ 1000 x 8 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">2.sample_info:</span>[ 8 x 4 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">3.variable_info:</span>[ 1000 x 3 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">4.sample_info_note:</span>[ 4 x 2 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">5.variable_info_note:</span>[ 3 x 2 data.frame]</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span></span>
+<span><span class="co">#&gt; <span style="color: #BBBB00;">-------------------- </span></span></span>
+<span><span class="co"><span style="color: #BBBB00;">#&gt; </span><span style="color: #00BB00;">Processing information (extract_process_info())</span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; create_mass_dataset ---------- </span></span></span>
+<span><span class="co"><span style="color: #00BB00;">#&gt; </span>      Package         Function.used                Time</span></span>
+<span><span class="co">#&gt; 1 massdataset create_mass_dataset() 2022-02-18 12:46:21</span></span>
+<span><span class="va">x</span> <span class="op">=</span></span>
+<span>  <span class="va">object</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">variable_distance</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="../reference/dist_mass_dataset.html">dist_mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, margin <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">variable_distance</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;               M136T55_2_POS M79T35_POS M307T548_POS M183T224_POS M349T47_POS</span></span>
+<span><span class="co">#&gt; M136T55_2_POS      0.000000   2.595449     4.743621     4.708308    1.940902</span></span>
+<span><span class="co">#&gt; M79T35_POS         2.595449   0.000000     4.219588     3.106812    1.620770</span></span>
+<span><span class="co">#&gt; M307T548_POS       4.743621   4.219588     0.000000     2.568996    3.986112</span></span>
+<span><span class="co">#&gt; M183T224_POS       4.708308   3.106812     2.568996     0.000000    3.082528</span></span>
+<span><span class="co">#&gt; M349T47_POS        1.940902   1.620770     3.986112     3.082528    0.000000</span></span>
+<span><span class="co">#&gt; M182T828_POS       3.010099   2.743352     3.139591     2.175595    2.895630</span></span>
+<span><span class="va">sample_distance</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="../reference/dist_mass_dataset.html">dist_mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, margin <span class="op">=</span> <span class="st">"sample"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">sample_distance</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;          Blank_3  Blank_4     QC_1     QC_2    PS4P1</span></span>
+<span><span class="co">#&gt; Blank_3  0.00000 46.24363 46.22024 54.26607 47.31000</span></span>
+<span><span class="co">#&gt; Blank_4 46.24363  0.00000 53.89434 60.88273 55.83349</span></span>
+<span><span class="co">#&gt; QC_1    46.22024 53.89434  0.00000 40.44652 39.65971</span></span>
+<span><span class="co">#&gt; QC_2    54.26607 60.88273 40.44652  0.00000 46.26019</span></span>
+<span><span class="co">#&gt; PS4P1   47.31000 55.83349 39.65971 46.26019  0.00000</span></span>
+<span><span class="co">#&gt; PS4P2   47.06702 55.78646 38.33452 49.76545 39.14705</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span>d <span class="op">=</span> <span class="va">sample_distance</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span>d <span class="op">=</span> <span class="va">sample_distance</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dist_cor_files/figure-html/unnamed-chunk-4-1.png" width="100%"></p>
 </div>
 <div class="section level2">
@@ -249,38 +251,38 @@
 <strong>Correlation</strong><a class="anchor" aria-label="anchor" href="#correlation"></a>
 </h2>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span>
-<span class="va">x</span> <span class="op">=</span>
-  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu">`+`</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">variable_cor</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/cor_mass_dataset.html">cor_mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span>,<span class="op">]</span>, margin <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">variable_cor</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;             M60T1209     M60T1182     M60T1163    M60T1310    M60T1240</span>
-<span class="co">#&gt; M60T1209  1.00000000 -0.279569382 -0.131480430  0.04905720  0.04196437</span>
-<span class="co">#&gt; M60T1182 -0.27956938  1.000000000  0.001388209 -0.28540425 -0.16890419</span>
-<span class="co">#&gt; M60T1163 -0.13148043  0.001388209  1.000000000 -0.08866161  0.07438262</span>
-<span class="co">#&gt; M60T1310  0.04905720 -0.285404246 -0.088661609  1.00000000 -0.21471600</span>
-<span class="co">#&gt; M60T1240  0.04196437 -0.168904192  0.074382619 -0.21471600  1.00000000</span>
-<span class="co">#&gt; M60T1254  0.03039983 -0.300416254  0.246969867 -0.02536577  0.53425798</span>
-<span class="va">sample_cor</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="../reference/cor_mass_dataset.html">cor_mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, margin <span class="op">=</span> <span class="st">"sample"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">sample_cor</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span>
-<span class="co">#&gt;                    QC01       QC02        QC03       QC04   liver24_10</span>
-<span class="co">#&gt; QC01        1.000000000 -0.2111021 -0.20233982 -0.2335868 -0.003668197</span>
-<span class="co">#&gt; QC02       -0.211102150  1.0000000  0.74699358  0.7539063 -0.248487135</span>
-<span class="co">#&gt; QC03       -0.202339821  0.7469936  1.00000000  0.7680612 -0.263692199</span>
-<span class="co">#&gt; QC04       -0.233586820  0.7539063  0.76806121  1.0000000 -0.254396152</span>
-<span class="co">#&gt; liver24_10 -0.003668197 -0.2484871 -0.26369220 -0.2543962  1.000000000</span>
-<span class="co">#&gt; liver24_1   0.003550632 -0.1169218 -0.07114657 -0.1150889 -0.222070187</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span></span>
+<span><span class="va">x</span> <span class="op">=</span></span>
+<span>  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">`+`</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/scale.html" class="external-link">scale</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">variable_cor</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="../reference/cor_mass_dataset.html">cor_mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span>,<span class="op">]</span>, margin <span class="op">=</span> <span class="st">"variable"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">variable_cor</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             M60T1209     M60T1182     M60T1163    M60T1310    M60T1240</span></span>
+<span><span class="co">#&gt; M60T1209  1.00000000 -0.279569382 -0.131480430  0.04905720  0.04196437</span></span>
+<span><span class="co">#&gt; M60T1182 -0.27956938  1.000000000  0.001388209 -0.28540425 -0.16890419</span></span>
+<span><span class="co">#&gt; M60T1163 -0.13148043  0.001388209  1.000000000 -0.08866161  0.07438262</span></span>
+<span><span class="co">#&gt; M60T1310  0.04905720 -0.285404246 -0.088661609  1.00000000 -0.21471600</span></span>
+<span><span class="co">#&gt; M60T1240  0.04196437 -0.168904192  0.074382619 -0.21471600  1.00000000</span></span>
+<span><span class="co">#&gt; M60T1254  0.03039983 -0.300416254  0.246969867 -0.02536577  0.53425798</span></span>
+<span><span class="va">sample_cor</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="../reference/cor_mass_dataset.html">cor_mass_dataset</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, margin <span class="op">=</span> <span class="st">"sample"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">sample_cor</span><span class="op">)</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                    QC01       QC02        QC03       QC04   liver24_10</span></span>
+<span><span class="co">#&gt; QC01        1.000000000 -0.2111021 -0.20233982 -0.2335868 -0.003668197</span></span>
+<span><span class="co">#&gt; QC02       -0.211102150  1.0000000  0.74699358  0.7539063 -0.248487135</span></span>
+<span><span class="co">#&gt; QC03       -0.202339821  0.7469936  1.00000000  0.7680612 -0.263692199</span></span>
+<span><span class="co">#&gt; QC04       -0.233586820  0.7539063  0.76806121  1.0000000 -0.254396152</span></span>
+<span><span class="co">#&gt; liver24_10 -0.003668197 -0.2484871 -0.26369220 -0.2543962  1.000000000</span></span>
+<span><span class="co">#&gt; liver24_1   0.003550632 -0.1169218 -0.07114657 -0.1150889 -0.222070187</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/taiyun/corrplot" class="external-link">corrplot</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/pkg/corrplot/man/corrplot.html" class="external-link">corrplot</a></span><span class="op">(</span><span class="va">sample_cor</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/taiyun/corrplot" class="external-link">corrplot</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/corrplot/man/corrplot.html" class="external-link">corrplot</a></span><span class="op">(</span><span class="va">sample_cor</span><span class="op">)</span></span></code></pre></div>
 <p><img src="dist_cor_files/figure-html/unnamed-chunk-6-1.png" width="100%"></p>
 </div>
 <div class="section level2">
@@ -288,73 +290,73 @@
 <strong>Session information</strong><a class="anchor" aria-label="anchor" href="#session-information"></a>
 </h2>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; R version 4.1.2 (2021-11-01)</span>
-<span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span>
-<span class="co">#&gt; Running under: macOS Big Sur 10.16</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Matrix products: default</span>
-<span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib</span>
-<span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; locale:</span>
-<span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attached base packages:</span>
-<span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; other attached packages:</span>
-<span class="co">#&gt;  [1] corrplot_0.92      ggfortify_0.4.14   massstat_0.99.4    forcats_0.5.1     </span>
-<span class="co">#&gt;  [5] stringr_1.4.0      dplyr_1.0.7        purrr_0.3.4        readr_2.1.1       </span>
-<span class="co">#&gt;  [9] tidyr_1.1.4        tibble_3.1.6       ggplot2_3.3.5      tidyverse_1.3.1   </span>
-<span class="co">#&gt; [13] magrittr_2.0.2     masstools_0.99.3   massdataset_0.99.6</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; loaded via a namespace (and not attached):</span>
-<span class="co">#&gt;   [1] readxl_1.3.1          snow_0.4-4            backports_1.4.1      </span>
-<span class="co">#&gt;   [4] circlize_0.4.14       systemfonts_1.0.3     igraph_1.2.11        </span>
-<span class="co">#&gt;   [7] plyr_1.8.6            lazyeval_0.2.2        BiocParallel_1.28.3  </span>
-<span class="co">#&gt;  [10] crosstalk_1.2.0       leaflet_2.0.4.1       digest_0.6.29        </span>
-<span class="co">#&gt;  [13] foreach_1.5.1         yulab.utils_0.0.4     htmltools_0.5.2      </span>
-<span class="co">#&gt;  [16] fansi_1.0.2           memoise_2.0.1         cluster_2.1.2        </span>
-<span class="co">#&gt;  [19] doParallel_1.0.16     tzdb_0.2.0            openxlsx_4.2.5       </span>
-<span class="co">#&gt;  [22] limma_3.50.0          ComplexHeatmap_2.10.0 modelr_0.1.8         </span>
-<span class="co">#&gt;  [25] matrixStats_0.61.0    rARPACK_0.11-0        pkgdown_2.0.2        </span>
-<span class="co">#&gt;  [28] colorspace_2.0-2      rvest_1.0.2           ggrepel_0.9.1        </span>
-<span class="co">#&gt;  [31] textshaping_0.3.6     haven_2.4.3           xfun_0.29            </span>
-<span class="co">#&gt;  [34] crayon_1.4.2          jsonlite_1.7.3        impute_1.68.0        </span>
-<span class="co">#&gt;  [37] iterators_1.0.13      glue_1.6.1            gtable_0.3.0         </span>
-<span class="co">#&gt;  [40] zlibbioc_1.40.0       GetoptLong_1.0.5      shape_1.4.6          </span>
-<span class="co">#&gt;  [43] BiocGenerics_0.40.0   scales_1.1.1          vsn_3.62.0           </span>
-<span class="co">#&gt;  [46] DBI_1.1.2             Rcpp_1.0.8            mzR_2.28.0           </span>
-<span class="co">#&gt;  [49] viridisLite_0.4.0     clue_0.3-60           gridGraphics_0.5-1   </span>
-<span class="co">#&gt;  [52] preprocessCore_1.56.0 clisymbols_1.2.0      stats4_4.1.2         </span>
-<span class="co">#&gt;  [55] MsCoreUtils_1.6.0     htmlwidgets_1.5.4     httr_1.4.2           </span>
-<span class="co">#&gt;  [58] RColorBrewer_1.1-2    ellipsis_0.3.2        pkgconfig_2.0.3      </span>
-<span class="co">#&gt;  [61] XML_3.99-0.8          sass_0.4.0            dbplyr_2.1.1         </span>
-<span class="co">#&gt;  [64] utf8_1.2.2            reshape2_1.4.4        ggplotify_0.1.0      </span>
-<span class="co">#&gt;  [67] tidyselect_1.1.1      rlang_1.0.0           munsell_0.5.0        </span>
-<span class="co">#&gt;  [70] cellranger_1.1.0      tools_4.1.2           cachem_1.0.6         </span>
-<span class="co">#&gt;  [73] cli_3.1.1             generics_0.1.1        broom_0.7.12         </span>
-<span class="co">#&gt;  [76] evaluate_0.14         fastmap_1.1.0         mzID_1.32.0          </span>
-<span class="co">#&gt;  [79] yaml_2.2.2            ragg_1.2.1            knitr_1.37           </span>
-<span class="co">#&gt;  [82] fs_1.5.2              zip_2.2.0             ncdf4_1.19           </span>
-<span class="co">#&gt;  [85] pbapply_1.5-0         xml2_1.3.3            compiler_4.1.2       </span>
-<span class="co">#&gt;  [88] rstudioapi_0.13       plotly_4.10.0         png_0.1-7            </span>
-<span class="co">#&gt;  [91] affyio_1.64.0         reprex_2.0.1          bslib_0.3.1          </span>
-<span class="co">#&gt;  [94] stringi_1.7.6         highr_0.9             RSpectra_0.16-0      </span>
-<span class="co">#&gt;  [97] desc_1.4.0            MSnbase_2.20.4        lattice_0.20-45      </span>
-<span class="co">#&gt; [100] Matrix_1.4-0          ProtGenerics_1.26.0   ggsci_2.9            </span>
-<span class="co">#&gt; [103] vctrs_0.3.8           pillar_1.6.5          lifecycle_1.0.1      </span>
-<span class="co">#&gt; [106] BiocManager_1.30.16   jquerylib_0.1.4       MALDIquant_1.21      </span>
-<span class="co">#&gt; [109] GlobalOptions_0.1.2   data.table_1.14.2     corpcor_1.6.10       </span>
-<span class="co">#&gt; [112] patchwork_1.1.1       R6_2.5.1              pcaMethods_1.86.0    </span>
-<span class="co">#&gt; [115] affy_1.72.0           gridExtra_2.3         IRanges_2.28.0       </span>
-<span class="co">#&gt; [118] codetools_0.2-18      fastDummies_1.6.3     MASS_7.3-55          </span>
-<span class="co">#&gt; [121] assertthat_0.2.1      rprojroot_2.0.2       rjson_0.2.21         </span>
-<span class="co">#&gt; [124] withr_2.4.3           S4Vectors_0.32.3      parallel_4.1.2       </span>
-<span class="co">#&gt; [127] hms_1.1.1             mixOmics_6.18.1       grid_4.1.2           </span>
-<span class="co">#&gt; [130] rmarkdown_2.11        Biobase_2.54.0        lubridate_1.8.0      </span>
-<span class="co">#&gt; [133] ellipse_0.4.2</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; R version 4.1.2 (2021-11-01)</span></span>
+<span><span class="co">#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)</span></span>
+<span><span class="co">#&gt; Running under: macOS Big Sur 10.16</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Matrix products: default</span></span>
+<span><span class="co">#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib</span></span>
+<span><span class="co">#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; locale:</span></span>
+<span><span class="co">#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; attached base packages:</span></span>
+<span><span class="co">#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; other attached packages:</span></span>
+<span><span class="co">#&gt;  [1] corrplot_0.92      ggfortify_0.4.14   massstat_0.99.4    forcats_0.5.1     </span></span>
+<span><span class="co">#&gt;  [5] stringr_1.4.0      dplyr_1.0.7        purrr_0.3.4        readr_2.1.1       </span></span>
+<span><span class="co">#&gt;  [9] tidyr_1.1.4        tibble_3.1.6       ggplot2_3.3.5      tidyverse_1.3.1   </span></span>
+<span><span class="co">#&gt; [13] magrittr_2.0.2     masstools_0.99.3   massdataset_0.99.6</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; loaded via a namespace (and not attached):</span></span>
+<span><span class="co">#&gt;   [1] readxl_1.3.1          snow_0.4-4            backports_1.4.1      </span></span>
+<span><span class="co">#&gt;   [4] circlize_0.4.14       systemfonts_1.0.3     igraph_1.2.11        </span></span>
+<span><span class="co">#&gt;   [7] plyr_1.8.6            lazyeval_0.2.2        BiocParallel_1.28.3  </span></span>
+<span><span class="co">#&gt;  [10] crosstalk_1.2.0       leaflet_2.0.4.1       digest_0.6.29        </span></span>
+<span><span class="co">#&gt;  [13] foreach_1.5.1         yulab.utils_0.0.4     htmltools_0.5.2      </span></span>
+<span><span class="co">#&gt;  [16] fansi_1.0.2           memoise_2.0.1         cluster_2.1.2        </span></span>
+<span><span class="co">#&gt;  [19] doParallel_1.0.16     tzdb_0.2.0            openxlsx_4.2.5       </span></span>
+<span><span class="co">#&gt;  [22] limma_3.50.0          ComplexHeatmap_2.10.0 modelr_0.1.8         </span></span>
+<span><span class="co">#&gt;  [25] matrixStats_0.61.0    rARPACK_0.11-0        pkgdown_2.0.2        </span></span>
+<span><span class="co">#&gt;  [28] colorspace_2.0-2      rvest_1.0.2           ggrepel_0.9.1        </span></span>
+<span><span class="co">#&gt;  [31] textshaping_0.3.6     haven_2.4.3           xfun_0.29            </span></span>
+<span><span class="co">#&gt;  [34] crayon_1.4.2          jsonlite_1.7.3        impute_1.68.0        </span></span>
+<span><span class="co">#&gt;  [37] iterators_1.0.13      glue_1.6.1            gtable_0.3.0         </span></span>
+<span><span class="co">#&gt;  [40] zlibbioc_1.40.0       GetoptLong_1.0.5      shape_1.4.6          </span></span>
+<span><span class="co">#&gt;  [43] BiocGenerics_0.40.0   scales_1.1.1          vsn_3.62.0           </span></span>
+<span><span class="co">#&gt;  [46] DBI_1.1.2             Rcpp_1.0.8            mzR_2.28.0           </span></span>
+<span><span class="co">#&gt;  [49] viridisLite_0.4.0     clue_0.3-60           gridGraphics_0.5-1   </span></span>
+<span><span class="co">#&gt;  [52] preprocessCore_1.56.0 clisymbols_1.2.0      stats4_4.1.2         </span></span>
+<span><span class="co">#&gt;  [55] MsCoreUtils_1.6.0     htmlwidgets_1.5.4     httr_1.4.2           </span></span>
+<span><span class="co">#&gt;  [58] RColorBrewer_1.1-2    ellipsis_0.3.2        pkgconfig_2.0.3      </span></span>
+<span><span class="co">#&gt;  [61] XML_3.99-0.8          sass_0.4.0            dbplyr_2.1.1         </span></span>
+<span><span class="co">#&gt;  [64] utf8_1.2.2            reshape2_1.4.4        ggplotify_0.1.0      </span></span>
+<span><span class="co">#&gt;  [67] tidyselect_1.1.1      rlang_1.0.0           munsell_0.5.0        </span></span>
+<span><span class="co">#&gt;  [70] cellranger_1.1.0      tools_4.1.2           cachem_1.0.6         </span></span>
+<span><span class="co">#&gt;  [73] cli_3.1.1             generics_0.1.1        broom_0.7.12         </span></span>
+<span><span class="co">#&gt;  [76] evaluate_0.14         fastmap_1.1.0         mzID_1.32.0          </span></span>
+<span><span class="co">#&gt;  [79] yaml_2.2.2            ragg_1.2.1            knitr_1.37           </span></span>
+<span><span class="co">#&gt;  [82] fs_1.5.2              zip_2.2.0             ncdf4_1.19           </span></span>
+<span><span class="co">#&gt;  [85] pbapply_1.5-0         xml2_1.3.3            compiler_4.1.2       </span></span>
+<span><span class="co">#&gt;  [88] rstudioapi_0.13       plotly_4.10.0         png_0.1-7            </span></span>
+<span><span class="co">#&gt;  [91] affyio_1.64.0         reprex_2.0.1          bslib_0.3.1          </span></span>
+<span><span class="co">#&gt;  [94] stringi_1.7.6         highr_0.9             RSpectra_0.16-0      </span></span>
+<span><span class="co">#&gt;  [97] desc_1.4.0            MSnbase_2.20.4        lattice_0.20-45      </span></span>
+<span><span class="co">#&gt; [100] Matrix_1.4-0          ProtGenerics_1.26.0   ggsci_2.9            </span></span>
+<span><span class="co">#&gt; [103] vctrs_0.3.8           pillar_1.6.5          lifecycle_1.0.1      </span></span>
+<span><span class="co">#&gt; [106] BiocManager_1.30.16   jquerylib_0.1.4       MALDIquant_1.21      </span></span>
+<span><span class="co">#&gt; [109] GlobalOptions_0.1.2   data.table_1.14.2     corpcor_1.6.10       </span></span>
+<span><span class="co">#&gt; [112] patchwork_1.1.1       R6_2.5.1              pcaMethods_1.86.0    </span></span>
+<span><span class="co">#&gt; [115] affy_1.72.0           gridExtra_2.3         IRanges_2.28.0       </span></span>
+<span><span class="co">#&gt; [118] codetools_0.2-18      fastDummies_1.6.3     MASS_7.3-55          </span></span>
+<span><span class="co">#&gt; [121] assertthat_0.2.1      rprojroot_2.0.2       rjson_0.2.21         </span></span>
+<span><span class="co">#&gt; [124] withr_2.4.3           S4Vectors_0.32.3      parallel_4.1.2       </span></span>
+<span><span class="co">#&gt; [127] hms_1.1.1             mixOmics_6.18.1       grid_4.1.2           </span></span>
+<span><span class="co">#&gt; [130] rmarkdown_2.11        Biobase_2.54.0        lubridate_1.8.0      </span></span>
+<span><span class="co">#&gt; [133] ellipse_0.4.2</span></span></code></pre></div>
 </div>
   </div>
 

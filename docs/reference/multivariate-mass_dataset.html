@@ -23,13 +23,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massstat</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.15</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help document
      
     <span class="caret"></span>
@@ -60,7 +60,7 @@
     </li>
   </ul></li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -87,7 +87,7 @@
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990" class="external-link">
+  <a href="https://twitter.com/xiaotaoshen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -116,47 +116,68 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S4 method for mass_dataset</span>
-<span class="fu"><a href="plsda.html">plsda</a></span><span class="op">(</span>
-  <span class="va">X</span>,
-  Y <span class="op">=</span> <span class="cn">NULL</span>,
-  ncomp <span class="op">=</span> <span class="fl">2</span>,
-  scale <span class="op">=</span> <span class="cn">FALSE</span>,
-  tol <span class="op">=</span> <span class="fl">1e-06</span>,
-  max.iter <span class="op">=</span> <span class="fl">100</span>,
-  near.zero.var <span class="op">=</span> <span class="cn">FALSE</span>,
-  logratio <span class="op">=</span> <span class="st">"none"</span>,
-  multilevel <span class="op">=</span> <span class="cn">NULL</span>,
-  all.outputs <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S4 method for mass_dataset</span></span>
+<span><span class="fu"><a href="plsda.html">plsda</a></span><span class="op">(</span></span>
+<span>  <span class="va">X</span>,</span>
+<span>  Y <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  ncomp <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  scale <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  tol <span class="op">=</span> <span class="fl">1e-06</span>,</span>
+<span>  max.iter <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  near.zero.var <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  logratio <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>  multilevel <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  all.outputs <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>X</dt>
 <dd><p>mass_dataset</p></dd>
+
+
 <dt>Y</dt>
 <dd><p>a factor or a class vector for the discrete outcome.</p></dd>
+
+
 <dt>ncomp</dt>
 <dd><p>ncomp</p></dd>
+
+
 <dt>scale</dt>
 <dd><p>scale</p></dd>
+
+
 <dt>tol</dt>
 <dd><p>tol</p></dd>
+
+
 <dt>max.iter</dt>
 <dd><p>max.iter</p></dd>
+
+
 <dt>near.zero.var</dt>
 <dd><p>near.zero.var</p></dd>
+
+
 <dt>logratio</dt>
 <dd><p>logratio</p></dd>
+
+
 <dt>multilevel</dt>
 <dd><p>multilevel</p></dd>
+
+
 <dt>all.outputs</dt>
 <dd><p>all.outputs</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A plsda class</p>
+    
+
+<p>A plsda class</p>
     </div>
 
   </div>

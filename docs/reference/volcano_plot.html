@@ -23,13 +23,13 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massstat</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">0.99.15</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Help document
      
     <span class="caret"></span>
@@ -60,7 +60,7 @@
     </li>
   </ul></li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     News
      
     <span class="caret"></span>
@@ -87,7 +87,7 @@
   </a>
 </li>
 <li>
-  <a href="https://twitter.com/JasperShen1990" class="external-link">
+  <a href="https://twitter.com/xiaotaoshen1990" class="external-link">
     <span class="fab fa-twitter fa-lg"></span>
      
   </a>
@@ -116,73 +116,112 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">volcano_plot</span><span class="op">(</span>
-  <span class="va">object</span>,
-  fc_column_name <span class="op">=</span> <span class="st">"fc"</span>,
-  p_value_column_name <span class="op">=</span> <span class="st">"p_value_adjust"</span>,
-  labs_x <span class="op">=</span> <span class="st">"log2(Fold change)"</span>,
-  labs_y <span class="op">=</span> <span class="st">"-log(p-adjust, 10)"</span>,
-  fc_up_cutoff <span class="op">=</span> <span class="fl">2</span>,
-  fc_down_cutoff <span class="op">=</span> <span class="fl">0.5</span>,
-  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,
-  line_color <span class="op">=</span> <span class="st">"red"</span>,
-  up_color <span class="op">=</span> <span class="st">"#EE0000FF"</span>,
-  down_color <span class="op">=</span> <span class="st">"#3B4992FF"</span>,
-  no_color <span class="op">=</span> <span class="st">"#808180FF"</span>,
-  point_size <span class="op">=</span> <span class="fl">2</span>,
-  point_alpha <span class="op">=</span> <span class="fl">1</span>,
-  <span class="va">point_size_scale</span>,
-  line_type <span class="op">=</span> <span class="fl">1</span>,
-  add_text <span class="op">=</span> <span class="cn">FALSE</span>,
-  text_for <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"marker"</span>, <span class="st">"UP"</span>, <span class="st">"DOWM"</span><span class="op">)</span>,
-  text_from <span class="op">=</span> <span class="st">"variable_id"</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">volcano_plot</span><span class="op">(</span></span>
+<span>  <span class="va">object</span>,</span>
+<span>  fc_column_name <span class="op">=</span> <span class="st">"fc"</span>,</span>
+<span>  p_value_column_name <span class="op">=</span> <span class="st">"p_value_adjust"</span>,</span>
+<span>  labs_x <span class="op">=</span> <span class="st">"log2(Fold change)"</span>,</span>
+<span>  labs_y <span class="op">=</span> <span class="st">"-log(p-adjust, 10)"</span>,</span>
+<span>  fc_up_cutoff <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  fc_down_cutoff <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span>
+<span>  line_color <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>  up_color <span class="op">=</span> <span class="st">"#EE0000FF"</span>,</span>
+<span>  down_color <span class="op">=</span> <span class="st">"#3B4992FF"</span>,</span>
+<span>  no_color <span class="op">=</span> <span class="st">"#808180FF"</span>,</span>
+<span>  point_size <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  point_alpha <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  <span class="va">point_size_scale</span>,</span>
+<span>  line_type <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  add_text <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  text_for <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"marker"</span>, <span class="st">"UP"</span>, <span class="st">"DOWM"</span><span class="op">)</span>,</span>
+<span>  text_from <span class="op">=</span> <span class="st">"variable_id"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>object</dt>
 <dd><p>tidymass-class object.</p></dd>
+
+
 <dt>fc_column_name</dt>
 <dd><p>fc_column_name</p></dd>
+
+
 <dt>p_value_column_name</dt>
 <dd><p>p_value_column_name</p></dd>
+
+
 <dt>labs_x</dt>
 <dd><p>labs_x</p></dd>
+
+
 <dt>labs_y</dt>
 <dd><p>labs_y</p></dd>
+
+
 <dt>fc_up_cutoff</dt>
 <dd><p>fc_up_cutoff</p></dd>
+
+
 <dt>fc_down_cutoff</dt>
 <dd><p>fc_down_cutoff</p></dd>
+
+
 <dt>p_value_cutoff</dt>
 <dd><p>p_value_cutoff</p></dd>
+
+
 <dt>line_color</dt>
 <dd><p>line_color</p></dd>
+
+
 <dt>up_color</dt>
 <dd><p>up_color</p></dd>
+
+
 <dt>down_color</dt>
 <dd><p>down_color</p></dd>
+
+
 <dt>no_color</dt>
 <dd><p>no_color</p></dd>
+
+
 <dt>point_size</dt>
 <dd><p>point_size</p></dd>
+
+
 <dt>point_alpha</dt>
 <dd><p>point_alpha</p></dd>
+
+
 <dt>point_size_scale</dt>
 <dd><p>point_size_scale</p></dd>
+
+
 <dt>line_type</dt>
 <dd><p>line_type</p></dd>
+
+
 <dt>add_text</dt>
 <dd><p>add_text</p></dd>
+
+
 <dt>text_for</dt>
 <dd><p>text_for</p></dd>
+
+
 <dt>text_from</dt>
 <dd><p>text_from</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>ggplot2 object</p>
+    
+
+<p>ggplot2 object</p>
     </div>
     <div id="author">
     <h2>Author</h2>
@@ -192,12 +231,12 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">liver_aging_pos</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidymass/massdataset" class="external-link">massdataset</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"liver_aging_pos"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">liver_aging_pos</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">massdataset version: 0.01 </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
@@ -209,94 +248,93 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">6.ms2_data:</span>[ 0 variables x 0 MS2 spectra]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">-------------------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Processing information (extract_process_info())</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">1 processings in total</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">Creation ---------- </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       Package         Function.used                Time</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 massdataset create_mass_dataset() 2021-12-23 00:24:02</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">w_78</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"78W"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">w_24</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"24W"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">control_sample_id</span> <span class="op">=</span> <span class="va">w_24</span></span>
-<span class="r-in"><span class="va">case_sample_id</span> <span class="op">=</span> <span class="va">w_78</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">liver_aging_pos</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="fu"><a href="mutate_fc.html">mutate_fc</a></span><span class="op">(</span></span>
-<span class="r-in">    object <span class="op">=</span> <span class="va">liver_aging_pos</span>,</span>
-<span class="r-in">    control_sample_id <span class="op">=</span> <span class="va">control_sample_id</span>,</span>
-<span class="r-in">    case_sample_id <span class="op">=</span> <span class="va">case_sample_id</span>,</span>
-<span class="r-in">    mean_median <span class="op">=</span> <span class="st">"mean"</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">10 control samples.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">10 case samples.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">liver_aging_pos</span> <span class="op">=</span></span>
-<span class="r-in">  <span class="fu"><a href="mutate_p_value.html">mutate_p_value</a></span><span class="op">(</span></span>
-<span class="r-in">    object <span class="op">=</span> <span class="va">liver_aging_pos</span>,</span>
-<span class="r-in">    control_sample_id <span class="op">=</span> <span class="va">control_sample_id</span>,</span>
-<span class="r-in">    case_sample_id <span class="op">=</span> <span class="va">case_sample_id</span>,</span>
-<span class="r-in">    method <span class="op">=</span> <span class="st">"t.test"</span>,</span>
-<span class="r-in">    p_adjust_methods <span class="op">=</span> <span class="st">"BH"</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">10 control samples.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">10 case samples.</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">object</span> <span class="op">=</span> <span class="va">liver_aging_pos</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">volcano_plot</span><span class="op">(</span></span>
-<span class="r-in">  object <span class="op">=</span> <span class="va">object</span>,</span>
-<span class="r-in">  fc_column_name <span class="op">=</span> <span class="st">"fc"</span>,</span>
-<span class="r-in">  p_value_column_name <span class="op">=</span> <span class="st">"p_value_adjust"</span>,</span>
-<span class="r-in">  labs_x <span class="op">=</span> <span class="st">"log2(Fold change)"</span>,</span>
-<span class="r-in">  labs_y <span class="op">=</span> <span class="st">"-log(p-adjust, 10)"</span>,</span>
-<span class="r-in">  fc_up_cutoff <span class="op">=</span> <span class="fl">2</span>,</span>
-<span class="r-in">  fc_down_cutoff <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span class="r-in">  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span>
-<span class="r-in">  add_text <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">w_78</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"78W"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">w_24</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="va">liver_aging_pos</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/massdataset/man/activate_mass_dataset.html" class="external-link">activate_mass_dataset</a></span><span class="op">(</span>what <span class="op">=</span> <span class="st">"sample_info"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">group</span> <span class="op">==</span> <span class="st">"24W"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">sample_id</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">control_sample_id</span> <span class="op">=</span> <span class="va">w_24</span></span></span>
+<span class="r-in"><span><span class="va">case_sample_id</span> <span class="op">=</span> <span class="va">w_78</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">liver_aging_pos</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="mutate_fc.html">mutate_fc</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    object <span class="op">=</span> <span class="va">liver_aging_pos</span>,</span></span>
+<span class="r-in"><span>    control_sample_id <span class="op">=</span> <span class="va">control_sample_id</span>,</span></span>
+<span class="r-in"><span>    case_sample_id <span class="op">=</span> <span class="va">case_sample_id</span>,</span></span>
+<span class="r-in"><span>    mean_median <span class="op">=</span> <span class="st">"mean"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 10 control samples.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 10 case samples.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">liver_aging_pos</span> <span class="op">=</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="mutate_p_value.html">mutate_p_value</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    object <span class="op">=</span> <span class="va">liver_aging_pos</span>,</span></span>
+<span class="r-in"><span>    control_sample_id <span class="op">=</span> <span class="va">control_sample_id</span>,</span></span>
+<span class="r-in"><span>    case_sample_id <span class="op">=</span> <span class="va">case_sample_id</span>,</span></span>
+<span class="r-in"><span>    method <span class="op">=</span> <span class="st">"t.test"</span>,</span></span>
+<span class="r-in"><span>    p_adjust_methods <span class="op">=</span> <span class="st">"BH"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 10 control samples.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 10 case samples.</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">object</span> <span class="op">=</span> <span class="va">liver_aging_pos</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">volcano_plot</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  object <span class="op">=</span> <span class="va">object</span>,</span></span>
+<span class="r-in"><span>  fc_column_name <span class="op">=</span> <span class="st">"fc"</span>,</span></span>
+<span class="r-in"><span>  p_value_column_name <span class="op">=</span> <span class="st">"p_value_adjust"</span>,</span></span>
+<span class="r-in"><span>  labs_x <span class="op">=</span> <span class="st">"log2(Fold change)"</span>,</span></span>
+<span class="r-in"><span>  labs_y <span class="op">=</span> <span class="st">"-log(p-adjust, 10)"</span>,</span></span>
+<span class="r-in"><span>  fc_up_cutoff <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span>  fc_down_cutoff <span class="op">=</span> <span class="fl">0.5</span>,</span></span>
+<span class="r-in"><span>  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span></span>
+<span class="r-in"><span>  add_text <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 10 rows containing missing values (geom_point).</span>
 <span class="r-plt img"><img src="volcano_plot-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">volcano_plot</span><span class="op">(</span></span>
-<span class="r-in">  object <span class="op">=</span> <span class="va">object</span>,</span>
-<span class="r-in">  fc_column_name <span class="op">=</span> <span class="st">"fc"</span>,</span>
-<span class="r-in">  p_value_column_name <span class="op">=</span> <span class="st">"p_value"</span>,</span>
-<span class="r-in">  labs_x <span class="op">=</span> <span class="st">"log2(Fold change)"</span>,</span>
-<span class="r-in">  labs_y <span class="op">=</span> <span class="st">"-log(p-value, 10)"</span>,</span>
-<span class="r-in">  fc_up_cutoff <span class="op">=</span> <span class="fl">2</span>,</span>
-<span class="r-in">  fc_down_cutoff <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span class="r-in">  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span>
-<span class="r-in">  add_text <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">  point_alpha <span class="op">=</span> <span class="fl">0.5</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">volcano_plot</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  object <span class="op">=</span> <span class="va">object</span>,</span></span>
+<span class="r-in"><span>  fc_column_name <span class="op">=</span> <span class="st">"fc"</span>,</span></span>
+<span class="r-in"><span>  p_value_column_name <span class="op">=</span> <span class="st">"p_value"</span>,</span></span>
+<span class="r-in"><span>  labs_x <span class="op">=</span> <span class="st">"log2(Fold change)"</span>,</span></span>
+<span class="r-in"><span>  labs_y <span class="op">=</span> <span class="st">"-log(p-value, 10)"</span>,</span></span>
+<span class="r-in"><span>  fc_up_cutoff <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span>  fc_down_cutoff <span class="op">=</span> <span class="fl">0.5</span>,</span></span>
+<span class="r-in"><span>  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span></span>
+<span class="r-in"><span>  add_text <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>  point_alpha <span class="op">=</span> <span class="fl">0.5</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 10 rows containing missing values (geom_point).</span>
 <span class="r-plt img"><img src="volcano_plot-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">volcano_plot</span><span class="op">(</span></span>
-<span class="r-in">  object <span class="op">=</span> <span class="va">object</span>,</span>
-<span class="r-in">  fc_column_name <span class="op">=</span> <span class="st">"fc"</span>,</span>
-<span class="r-in">  p_value_column_name <span class="op">=</span> <span class="st">"p_value"</span>,</span>
-<span class="r-in">  labs_x <span class="op">=</span> <span class="st">"log2(Fold change)"</span>,</span>
-<span class="r-in">  labs_y <span class="op">=</span> <span class="st">"-log(p-value, 10)"</span>,</span>
-<span class="r-in">  fc_up_cutoff <span class="op">=</span> <span class="fl">2</span>,</span>
-<span class="r-in">  fc_down_cutoff <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span class="r-in">  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span>
-<span class="r-in">  add_text <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span class="r-in">  point_alpha <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span class="r-in">  point_size_scale <span class="op">=</span> <span class="st">"p_value"</span></span>
-<span class="r-in"><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html" class="external-link">scale_size_continuous</a></span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">volcano_plot</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  object <span class="op">=</span> <span class="va">object</span>,</span></span>
+<span class="r-in"><span>  fc_column_name <span class="op">=</span> <span class="st">"fc"</span>,</span></span>
+<span class="r-in"><span>  p_value_column_name <span class="op">=</span> <span class="st">"p_value"</span>,</span></span>
+<span class="r-in"><span>  labs_x <span class="op">=</span> <span class="st">"log2(Fold change)"</span>,</span></span>
+<span class="r-in"><span>  labs_y <span class="op">=</span> <span class="st">"-log(p-value, 10)"</span>,</span></span>
+<span class="r-in"><span>  fc_up_cutoff <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span>  fc_down_cutoff <span class="op">=</span> <span class="fl">0.5</span>,</span></span>
+<span class="r-in"><span>  p_value_cutoff <span class="op">=</span> <span class="fl">0.05</span>,</span></span>
+<span class="r-in"><span>  add_text <span class="op">=</span> <span class="cn">FALSE</span>,</span></span>
+<span class="r-in"><span>  point_alpha <span class="op">=</span> <span class="fl">0.5</span>,</span></span>
+<span class="r-in"><span>  point_size_scale <span class="op">=</span> <span class="st">"p_value"</span></span></span>
+<span class="r-in"><span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_size.html" class="external-link">scale_size_continuous</a></span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 10 rows containing missing values (geom_point).</span>
 <span class="r-plt img"><img src="volcano_plot-3.png" alt="" width="700" height="433"></span>
 </code></pre></div>
