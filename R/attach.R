@@ -1,4 +1,6 @@
-core <- c("massdataset", "masstools", "ggfortify")
+core <- c("massdataset", "masstools", "ggfortify", "ggplot2", 
+          "dplyr", "magrittr", "mixOmics", "ComplexHeatmap", "tidygraph",
+          "ggraph")
 
 core_unloaded <- function() {
   search <- paste0("package:", core)
@@ -39,7 +41,7 @@ massstat_attach <- function() {
   col1 <- seq_len(length(packages) / 2)
   info <- paste0(packages[col1], "     ", packages[-col1])
   
-  msg(paste(info, collapse = "\n"), startup = TRUE)
+  # msg(paste(info, collapse = "\n"), startup = TRUE)
   
   suppressPackageStartupMessages(
     lapply(to_load, same_library)

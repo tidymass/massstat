@@ -9,3 +9,7 @@
 # massqc 1.0.2 (20220806)
 
 * Fixed bugs.
+
+# massqc 1.0.3
+
+* Fixed bugs.
