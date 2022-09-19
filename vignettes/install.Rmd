@@ -33,7 +33,7 @@ You can just use the `remotes` to install `massstat`.
 
 
 ```{r,eval=FALSE,warning=FALSE, R.options="", message=FALSE, cache=TRUE}
-remotes::install_gitlab("jaspershen/massstat", dependencies = TRUE)
+remotes::install_gitlab("tidymass/massstat", dependencies = TRUE)
 ```
 
 # **Install `massstat` from GitHub**

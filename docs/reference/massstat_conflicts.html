@@ -24,7 +24,7 @@ and other packages that you have loaded."><meta property="og:image" content="htt
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">massstat</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
       </span>
     </div>
 
@@ -139,16 +139,20 @@ existing code.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">massstat_conflicts</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ── <span style="font-weight: bold;">Conflicts</span> ─────────────────────────────────────────── massstat_conflicts() ──</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">apply()</span>     masks <span style="color: #0000BB;">base</span>::apply()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">methods</span>::<span style="color: #00BB00;">body&lt;-()</span>        masks <span style="color: #0000BB;">base</span>::body&lt;-()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">colMeans()</span>  masks <span style="color: #0000BB;">base</span>::colMeans()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">colSums()</span>   masks <span style="color: #0000BB;">base</span>::colSums()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">filter()</span>          masks <span style="color: #0000BB;">massdataset</span>::filter(), <span style="color: #0000BB;">stats</span>::filter()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">intersect()</span> masks <span style="color: #0000BB;">base</span>::intersect()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">methods</span>::<span style="color: #00BB00;">kronecker()</span>     masks <span style="color: #0000BB;">base</span>::kronecker()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>             masks <span style="color: #0000BB;">stats</span>::lag()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">rowMeans()</span>  masks <span style="color: #0000BB;">base</span>::rowMeans()</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">rowSums()</span>   masks <span style="color: #0000BB;">base</span>::rowSums()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">ComplexHeatmap</span>::<span style="color: #00BB00;">Heatmap()</span> masks <span style="color: #0000BB;">massstat</span>::Heatmap()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">apply()</span>      masks <span style="color: #0000BB;">base</span>::apply()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">methods</span>::<span style="color: #00BB00;">body&lt;-()</span>         masks <span style="color: #0000BB;">base</span>::body&lt;-()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">colMeans()</span>   masks <span style="color: #0000BB;">base</span>::colMeans()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">colSums()</span>    masks <span style="color: #0000BB;">base</span>::colSums()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">tidygraph</span>::<span style="color: #00BB00;">filter()</span>       masks <span style="color: #0000BB;">dplyr</span>::filter(), <span style="color: #0000BB;">massdataset</span>::filter(), <span style="color: #0000BB;">stats</span>::filter()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">intersect()</span>  masks <span style="color: #0000BB;">base</span>::intersect()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">methods</span>::<span style="color: #00BB00;">kronecker()</span>      masks <span style="color: #0000BB;">base</span>::kronecker()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">dplyr</span>::<span style="color: #00BB00;">lag()</span>              masks <span style="color: #0000BB;">stats</span>::lag()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">mixOmics</span>::<span style="color: #00BB00;">pls()</span>           masks <span style="color: #0000BB;">massstat</span>::pls()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">mixOmics</span>::<span style="color: #00BB00;">plsda()</span>         masks <span style="color: #0000BB;">massstat</span>::plsda()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">rowMeans()</span>   masks <span style="color: #0000BB;">base</span>::rowMeans()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">massdataset</span>::<span style="color: #00BB00;">rowSums()</span>    masks <span style="color: #0000BB;">base</span>::rowSums()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> <span style="color: #0000BB;">tidygraph</span>::<span style="color: #00BB00;">select()</span>       masks <span style="color: #0000BB;">MASS</span>::select(), <span style="color: #0000BB;">dplyr</span>::select(), <span style="color: #0000BB;">massdataset</span>::select()</span>
 </code></pre></div>
     </div>
   </div>

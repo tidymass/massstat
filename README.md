@@ -21,13 +21,13 @@ statistical analysis.
 # **Installation**
 
 You can install `massstat` from
-[GitLab](https://gitlab.com/jaspershen/massstat).
+[GitLab](https://gitlab.com/tidymass/massstat).
 
 ``` r
 if(!require(remotes)){
 install.packages("remotes")
 }
-remotes::install_gitlab("jaspershen/massstat")
+remotes::install_gitlab("tidymass/massstat")
 ```
 
 or [GitHub](https://github.com/tidymass/massstat).
