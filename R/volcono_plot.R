@@ -27,25 +27,25 @@
 #' library(massdataset)
 #' library(magrittr)
 #' library(dplyr)
-#' 
+#'
 #' data("liver_aging_pos")
 #' liver_aging_pos
-#' 
+#'
 #' w_78 =
 #'   liver_aging_pos %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   dplyr::filter(group == "78W") %>%
 #'   dplyr::pull(sample_id)
-#' 
+#'
 #' w_24 =
 #'   liver_aging_pos %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   dplyr::filter(group == "24W") %>%
 #'   dplyr::pull(sample_id)
-#' 
+#'
 #' control_sample_id = w_24
 #' case_sample_id = w_78
-#' 
+#'
 #' liver_aging_pos =
 #'   mutate_fc(
 #'     object = liver_aging_pos,
@@ -53,7 +53,7 @@
 #'     case_sample_id = case_sample_id,
 #'     mean_median = "mean"
 #'   )
-#' 
+#'
 #' liver_aging_pos =
 #'   mutate_p_value(
 #'     object = liver_aging_pos,
@@ -62,9 +62,9 @@
 #'     method = "t.test",
 #'     p_adjust_methods = "BH"
 #'   )
-#' 
+#'
 #' object = liver_aging_pos
-#' 
+#'
 #' volcano_plot(
 #'   object = object,
 #'   fc_column_name = "fc",
@@ -76,8 +76,8 @@
 #'   p_value_cutoff = 0.05,
 #'   add_text = TRUE
 #' )
-#' 
-#' 
+#'
+#'
 #' volcano_plot(
 #'   object = object,
 #'   fc_column_name = "fc",
@@ -90,7 +90,7 @@
 #'   add_text = FALSE,
 #'   point_alpha = 0.5
 #' )
-#' 
+#'
 #' volcano_plot(
 #'   object = object,
 #'   fc_column_name = "fc",
@@ -124,8 +124,7 @@ volcano_plot = function(object,
                         line_type = 1,
                         add_text = FALSE,
                         text_for = c("marker", "UP", "DOWM"),
-                        text_from = "variable_id"
-                        ) {
+                        text_from = "variable_id") {
   text_for = match.arg(text_for)
   massdataset::check_object_class(object = object, class = "mass_dataset")
   
@@ -136,7 +135,7 @@ volcano_plot = function(object,
   if (all(colnames(object@variable_info) != p_value_column_name)) {
     stop(paste("no", p_value_column_name, "in variable_info.\n"))
   }
- 
+  
   variable_info =
     object@variable_info
   
@@ -153,7 +152,7 @@ volcano_plot = function(object,
                          dplyr::select(-c(ms2_files_id:ms2_spectrum_id)),
                        by = "variable_id")
   }
-   
+  
   variable_info =
     variable_info %>%
     dplyr::mutate(log2_fc = log(get(fc_column_name), 2)) %>%
@@ -188,58 +187,68 @@ volcano_plot = function(object,
       yintercept = -log(p_value_cutoff, 10),
       color = line_color,
       linetype = line_type
-    ) 
+    )
   
   
-  if(!missing(point_size_scale)){
+  if (!missing(point_size_scale)) {
     if (all(colnames(object@variable_info) != point_size_scale)) {
       stop(paste("no", point_size_scale, "in variable_info.\n"))
-    }else{
-      if(length(grep("p_value", point_size_scale)) > 0){
+    } else{
+      if (length(grep("p_value", point_size_scale)) > 0) {
         point_size_scale = "log10_p"
       }
-      plot = 
-      plot +
+      plot =
+        plot +
         geom_point(aes(color = marker,
                        size = get(point_size_scale)),
                    alpha = point_alpha) +
-        scale_color_manual(values = c("UP" = up_color,
-                                      "DOWN" = down_color,
-                                      "NO" = no_color)) +
+        scale_color_manual(values = c(
+          "UP" = up_color,
+          "DOWN" = down_color,
+          "NO" = no_color
+        )) +
         guides(size = guide_legend(title = point_size_scale))
     }
-  }else{
-    plot = 
+  } else{
+    plot =
       plot +
       geom_point(aes(color = marker),
                  size = point_size,
                  alpha = point_alpha) +
-      scale_color_manual(values = c("UP" = up_color,
-                                    "DOWN" = down_color,
-                                    "NO" = no_color))
+      scale_color_manual(values = c(
+        "UP" = up_color,
+        "DOWN" = down_color,
+        "NO" = no_color
+      ))
   }
   
   
-  if(add_text){
-    if(all(colnames(variable_info) != text_from)){
+  if (add_text) {
+    if (all(colnames(variable_info) != text_from)) {
       stop(paste("no", text_from, "in variable_info.\n"))
     }
     
-    if(text_for == "marker"){
+    if (text_for == "marker") {
       text_data =
-        variable_info %>% 
+        variable_info %>%
         dplyr::filter(marker %in% c("UP", "DOWN"))
-    }else{
+    } else{
       text_data =
-        variable_info %>% 
+        variable_info %>%
         dplyr::filter(marker %in% text_for)
     }
-  
-    plot =   
-    plot +
-      ggrepel::geom_text_repel(aes(log2_fc, log10_p,
-                                   label = get(text_from)),
-                               data = text_data)
+    
+    
+    if(requireNamespace("ggrepel", quietly = TRUE)){
+      plot =
+        plot +
+        ggrepel::geom_text_repel(aes(log2_fc, log10_p,
+                                     label = get(text_from)),
+                                 data = text_data)  
+    }else{
+      message("Please install ggrepel package first.")
+    }
+    
   }
   
   return(plot)

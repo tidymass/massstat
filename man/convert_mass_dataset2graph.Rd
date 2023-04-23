@@ -92,15 +92,13 @@ graph_data <-
 library(ggraph)
 extrafont::loadfonts()
 ggraph(graph = graph_data, layout = "kk") +
-  geom_edge_fan(aes(color = correlation,
-                    width = -log(p_value, 10)),
+  geom_edge_fan(aes(width = -log(p_value, 10)),
                 show.legend = TRUE) +
   geom_node_point(aes(size = mz)) +
   theme_graph()
 
 ggraph(graph = graph_data, layout = "fr") +
-  geom_edge_fan(aes(color = correlation,
-                    width = -log(p_value, 10)),
+  geom_edge_fan(aes(width = -log(p_value, 10)),
                 show.legend = TRUE) +
   geom_node_point(aes(size = mz)) +
   theme_graph()

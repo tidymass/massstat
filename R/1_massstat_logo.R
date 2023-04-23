@@ -12,16 +12,13 @@
 #' @importFrom utils packageVersion object.size write.csv tail
 #' @importFrom purrr map map2
 #' @importFrom plyr dlply .
-#' @importFrom masstools get_os mz_rt_match
 #' @importFrom BiocParallel MulticoreParam SnowParam bplapply
 #' @importFrom magrittr %>%
 #' @importFrom mixOmics plotIndiv plotVar pls
 #' @importFrom stats coefficients lm loess median predict dist cor cor.test
 #' @importFrom stats rgamma rt sd cor p.adjust prcomp t.test wilcox.test
 #' @importFrom methods new is
-#' @importFrom ggrepel geom_text_repel
 #' @importFrom grid gpar
-#' @importFrom ggraph ggraph
 #' @importClassesFrom massdataset mass_dataset tidymass_parameter
 #' @import ggfortify
 #' @import tidyr

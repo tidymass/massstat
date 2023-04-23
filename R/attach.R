@@ -1,6 +1,5 @@
-core <- c("massdataset", "masstools", "ggfortify", "ggplot2", 
-          "dplyr", "magrittr", "mixOmics", "ComplexHeatmap", "tidygraph",
-          "ggraph")
+core <- c("massdataset", "ggfortify", "ggplot2", 
+          "dplyr", "magrittr", "mixOmics", "ComplexHeatmap")
 
 core_unloaded <- function() {
   search <- paste0("package:", core)

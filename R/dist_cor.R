@@ -108,19 +108,19 @@ dist_mass_dataset <-
 #' library(massdataset)
 #' library(magrittr)
 #' library(dplyr)
-#' 
+#'
 #' data("liver_aging_pos")
 #' liver_aging_pos
-#' 
+#'
 #' qc_id <-
 #'   liver_aging_pos %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   dplyr::filter(group == "QC") %>%
 #'   dplyr::pull(sample_id)
-#' 
+#'
 #' object <-
 #'   mutate_rsd(liver_aging_pos, according_to_samples = qc_id)
-#' 
+#'
 #' ###only remain the features with rt > 100, mz > 150 and rsd < 30
 #' object <-
 #'   object %>%
@@ -128,33 +128,33 @@ dist_mass_dataset <-
 #'   dplyr::filter(rt > 100) %>%
 #'   dplyr::filter(mz > 150) %>%
 #'   dplyr::filter(rsd < 30)
-#' 
+#'
 #' ##only remain the week 24 samples
 #' object <-
 #'   object %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   dplyr::filter(group == "24W")
-#' 
+#'
 #' dim(object)
-#' 
+#'
 #' object <-
 #'   object %>%
 #'   `+`(1) %>%
 #'   log(10) %>%
 #'   scale_data(method = "auto")
-#' 
+#'
 #' cor_data <-
 #'   object %>%
 #'   cor_mass_dataset(margin = "variable", data_type = "wider")
-#' 
+#'
 #' head(cor_data$correlation[,1:5])
 #' head(cor_data$p_value[,1:5])
 #' head(cor_data$n[,1:5])
-#' 
+#'
 #' cor_data <-
 #'   object %>%
 #'   cor_mass_dataset(margin = "variable", data_type = "longer")
-#' 
+#'
 #' head(cor_data)
 
 cor_mass_dataset <-

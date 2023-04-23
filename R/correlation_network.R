@@ -12,8 +12,6 @@
 #' @param neg_cor_cutoff between -1 to 0
 #' @importFrom tibble rownames_to_column
 #' @importFrom tidyr pivot_longer
-#' @importFrom tidygraph tbl_graph
-#' @importFrom extrafont loadfonts
 #' @importFrom massdataset extract_variable_info
 #' @return tbl_graph class object (from tidygraph)
 #' @export
@@ -70,15 +68,13 @@
 #' library(ggraph)
 #' extrafont::loadfonts()
 #' ggraph(graph = graph_data, layout = "kk") +
-#'   geom_edge_fan(aes(color = correlation,
-#'                     width = -log(p_value, 10)),
+#'   geom_edge_fan(aes(width = -log(p_value, 10)),
 #'                 show.legend = TRUE) +
 #'   geom_node_point(aes(size = mz)) +
 #'   theme_graph()
-#' 
+#'
 #' ggraph(graph = graph_data, layout = "fr") +
-#'   geom_edge_fan(aes(color = correlation,
-#'                     width = -log(p_value, 10)),
+#'   geom_edge_fan(aes(width = -log(p_value, 10)),
 #'                 show.legend = TRUE) +
 #'   geom_node_point(aes(size = mz)) +
 #'   theme_graph()
@@ -101,6 +97,11 @@ convert_mass_dataset2graph <-
            p_value_cutoff = 0.05,
            pos_cor_cutoff = 0,
            neg_cor_cutoff = 0) {
+    
+    if(!requireNamespace("tidygraph", quietly = TRUE)){
+      stop("Please install tidygraph pacakge first.")
+    }
+    
     margin <-
       match.arg(margin)
     cor_method <-
@@ -149,7 +150,7 @@ convert_mass_dataset2graph <-
     
     if (margin == "variable") {
       node_data <-
-        massdataset::extract_variable_info(object) %>% 
+        massdataset::extract_variable_info(object) %>%
         # object@variable_info %>%
         dplyr::rename(node = variable_id) %>%
         dplyr::filter(node %in% unique(c(edge_data$from, edge_data$to)))
