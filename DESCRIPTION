@@ -1,8 +1,8 @@
 Package: massstat
 Type: Package
 Title: Statistical analysis for LC-MS-based metabolomics data
-Version: 1.0.4
-Date: 2023-04-22
+Version: 1.0.5
+Date: 2023-07-13
 Authors@R: c(
     person(given = "Xiaotao",
            family = "Shen",
@@ -43,7 +43,7 @@ Imports:
 License: GPL-2 | file LICENSE
 URL: https://github.com/tidymass/massstat
 BugReports: https://github.com/tidymass/massstat/issues
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Suggests: 
     knitr,
     rmarkdown,

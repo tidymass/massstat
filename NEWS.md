@@ -13,3 +13,7 @@
 # massqc 1.0.3
 
 * Fixed bugs.
+
+# massqc 1.0.5
+
+* volcano_plot support data.frame
