@@ -4,11 +4,12 @@
 \alias{volcano_plot}
 \alias{volcano_plot.mass_dataset}
 \alias{volcano_plot.data.frame}
-\title{volcano_plot}
+\title{Volcano Plot Creation}
 \usage{
 volcano_plot(
   object,
   fc_column_name = "fc",
+  log2_fc = TRUE,
   p_value_column_name = "p_value_adjust",
   labs_x = "log2(Fold change)",
   labs_y = "-log(p-adjust, 10)",
@@ -31,6 +32,7 @@ volcano_plot(
 \method{volcano_plot}{mass_dataset}(
   object,
   fc_column_name = "fc",
+  log2_fc = TRUE,
   p_value_column_name = "p_value_adjust",
   labs_x = "log2(Fold change)",
   labs_y = "-log(p-adjust, 10)",
@@ -53,6 +55,7 @@ volcano_plot(
 \method{volcano_plot}{data.frame}(
   object,
   fc_column_name = "fc",
+  log2_fc = TRUE,
   p_value_column_name = "p_value_adjust",
   labs_x = "log2(Fold change)",
   labs_y = "-log(p-adjust, 10)",
@@ -73,49 +76,66 @@ volcano_plot(
 )
 }
 \arguments{
-\item{object}{mass_dataset object or data.frame}
+\item{object}{An object containing the data to be plotted. Can be a `data.frame`,
+`mass_dataset` object, or other types for which methods are defined.}
 
-\item{fc_column_name}{fc_column_name}
+\item{fc_column_name}{The name of the column containing fold change values. 
+Defaults to `"fc"`.}
 
-\item{p_value_column_name}{p_value_column_name}
+\item{log2_fc}{Logical, indicating if fold change values should be log2 transformed.
+Defaults to `TRUE`.}
 
-\item{labs_x}{labs_x}
+\item{p_value_column_name}{The name of the column containing p-value adjustments. 
+Defaults to `"p_value_adjust"`.}
 
-\item{labs_y}{labs_y}
+\item{labs_x}{The label for the x-axis. Defaults to `"log2(Fold change)"`.}
 
-\item{fc_up_cutoff}{fc_up_cutoff}
+\item{labs_y}{The label for the y-axis. Defaults to `"-log(p-adjust, 10)"`.}
 
-\item{fc_down_cutoff}{fc_down_cutoff}
+\item{fc_up_cutoff}{The fold change cutoff for considering an expression level 
+significantly up-regulated. Defaults to `2`.}
 
-\item{p_value_cutoff}{p_value_cutoff}
+\item{fc_down_cutoff}{The fold change cutoff for considering an expression level 
+significantly down-regulated. Defaults to `0.5`.}
 
-\item{line_color}{line_color}
+\item{p_value_cutoff}{The p-value cutoff for significance. Defaults to `0.05`.}
 
-\item{up_color}{up_color}
+\item{line_color}{The color of the lines marking cutoffs. Defaults to `"red"`.}
 
-\item{down_color}{down_color}
+\item{up_color}{The color used for points representing up-regulated variables. 
+Defaults to `"#EE0000FF"`.}
 
-\item{no_color}{no_color}
+\item{down_color}{The color used for points representing down-regulated variables. 
+Defaults to `"#3B4992FF"`.}
 
-\item{point_size}{point_size}
+\item{no_color}{The color used for points not meeting significance criteria. 
+Defaults to `"#808180FF"`.}
 
-\item{point_alpha}{point_alpha}
+\item{point_size}{The base size of points in the plot. Defaults to `2`.}
 
-\item{point_size_scale}{point_size_scale}
+\item{point_alpha}{The transparency level of points in the plot. Defaults to `1`.}
 
-\item{line_type}{line_type}
+\item{point_size_scale}{A character string indicating if and how the size of points 
+should scale, typically based on significance. Optional.}
 
-\item{add_text}{add_text}
+\item{line_type}{The type of line to use for cutoff markers. Defaults to `1`.}
 
-\item{text_for}{text_for}
+\item{add_text}{Logical, indicating if labels should be added to significant points.
+Defaults to `FALSE`.}
 
-\item{text_from}{text_from}
+\item{text_for}{A character vector indicating which points to label based on their 
+`marker` status. Possible values are `"marker"`, `"UP"`, `"DOWN"`, or a combination 
+thereof. Defaults to `c("marker", "UP", "DOWN")`.}
+
+\item{text_from}{The name of the column containing labels for text annotations. 
+Required if `add_text` is `TRUE`.}
 }
 \value{
-ggplot2 object
+A ggplot object representing the volcano plot.
 }
 \description{
-Draw volcano plot.
+Creates a volcano plot for visualizing differential expression results, 
+highlighting significant changes in expression levels.
 }
 \examples{
 library(massdataset)

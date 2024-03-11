@@ -1,51 +1,67 @@
-#' @title volcano_plot
-#' @description Draw volcano plot.
+#' @title Volcano Plot Creation
+#' @description Creates a volcano plot for visualizing differential expression results, 
+#' highlighting significant changes in expression levels.
 #' @author Xiaotao Shen
 #' \email{shenxt1990@@outlook.com}
-#' @param object mass_dataset object or data.frame
-#' @param fc_column_name fc_column_name
-#' @param p_value_column_name p_value_column_name
-#' @param labs_x labs_x
-#' @param labs_y labs_y
-#' @param fc_up_cutoff fc_up_cutoff
-#' @param fc_down_cutoff fc_down_cutoff
-#' @param p_value_cutoff p_value_cutoff
-#' @param line_color line_color
-#' @param up_color up_color
-#' @param down_color down_color
-#' @param no_color no_color
-#' @param point_size point_size
-#' @param point_alpha point_alpha
-#' @param point_size_scale point_size_scale
-#' @param line_type line_type
-#' @param add_text add_text
-#' @param text_for text_for
-#' @param text_from text_from
-#' @return ggplot2 object
+#' @param object An object containing the data to be plotted. Can be a `data.frame`,
+#'   `mass_dataset` object, or other types for which methods are defined.
+#' @param fc_column_name The name of the column containing fold change values. 
+#'   Defaults to `"fc"`.
+#' @param log2_fc Logical, indicating if fold change values should be log2 transformed.
+#'   Defaults to `TRUE`.
+#' @param p_value_column_name The name of the column containing p-value adjustments. 
+#'   Defaults to `"p_value_adjust"`.
+#' @param labs_x The label for the x-axis. Defaults to `"log2(Fold change)"`.
+#' @param labs_y The label for the y-axis. Defaults to `"-log(p-adjust, 10)"`.
+#' @param fc_up_cutoff The fold change cutoff for considering an expression level 
+#'   significantly up-regulated. Defaults to `2`.
+#' @param fc_down_cutoff The fold change cutoff for considering an expression level 
+#'   significantly down-regulated. Defaults to `0.5`.
+#' @param p_value_cutoff The p-value cutoff for significance. Defaults to `0.05`.
+#' @param line_color The color of the lines marking cutoffs. Defaults to `"red"`.
+#' @param up_color The color used for points representing up-regulated variables. 
+#'   Defaults to `"#EE0000FF"`.
+#' @param down_color The color used for points representing down-regulated variables. 
+#'   Defaults to `"#3B4992FF"`.
+#' @param no_color The color used for points not meeting significance criteria. 
+#'   Defaults to `"#808180FF"`.
+#' @param point_size The base size of points in the plot. Defaults to `2`.
+#' @param point_alpha The transparency level of points in the plot. Defaults to `1`.
+#' @param point_size_scale A character string indicating if and how the size of points 
+#'   should scale, typically based on significance. Optional.
+#' @param line_type The type of line to use for cutoff markers. Defaults to `1`.
+#' @param add_text Logical, indicating if labels should be added to significant points.
+#'   Defaults to `FALSE`.
+#' @param text_for A character vector indicating which points to label based on their 
+#'   `marker` status. Possible values are `"marker"`, `"UP"`, `"DOWN"`, or a combination 
+#'   thereof. Defaults to `c("marker", "UP", "DOWN")`.
+#' @param text_from The name of the column containing labels for text annotations. 
+#'   Required if `add_text` is `TRUE`.
+#' @return A ggplot object representing the volcano plot.
 #' @export
 #' @examples
 #' library(massdataset)
 #' library(magrittr)
 #' library(dplyr)
-#' 
+#'
 #' data("liver_aging_pos")
 #' liver_aging_pos
-#' 
+#'
 #' w_78 =
 #'   liver_aging_pos %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   dplyr::filter(group == "78W") %>%
 #'   dplyr::pull(sample_id)
-#' 
+#'
 #' w_24 =
 #'   liver_aging_pos %>%
 #'   activate_mass_dataset(what = "sample_info") %>%
 #'   dplyr::filter(group == "24W") %>%
 #'   dplyr::pull(sample_id)
-#' 
+#'
 #' control_sample_id = w_24
 #' case_sample_id = w_78
-#' 
+#'
 #' liver_aging_pos =
 #'   mutate_fc(
 #'     object = liver_aging_pos,
@@ -53,7 +69,7 @@
 #'     case_sample_id = case_sample_id,
 #'     mean_median = "mean"
 #'   )
-#' 
+#'
 #' liver_aging_pos =
 #'   mutate_p_value(
 #'     object = liver_aging_pos,
@@ -62,7 +78,7 @@
 #'     method = "t.test",
 #'     p_adjust_methods = "BH"
 #'   )
-#' 
+#'
 #' object = liver_aging_pos
 #' volcano_plot(
 #'   object = object,
@@ -87,7 +103,7 @@
 #'   add_text = FALSE,
 #'   point_alpha = 0.5
 #' )
-#' 
+#'
 #' volcano_plot(
 #'   object = object,
 #'   fc_column_name = "fc",
@@ -106,6 +122,7 @@
 volcano_plot <-
   function(object,
            fc_column_name = "fc",
+           log2_fc = TRUE,
            p_value_column_name = "p_value_adjust",
            labs_x = "log2(Fold change)",
            labs_y = "-log(p-adjust, 10)",
@@ -134,6 +151,7 @@ volcano_plot <-
 volcano_plot.mass_dataset <-
   function(object,
            fc_column_name = "fc",
+           log2_fc = TRUE,
            p_value_column_name = "p_value_adjust",
            labs_x = "log2(Fold change)",
            labs_y = "-log(p-adjust, 10)",
@@ -171,6 +189,7 @@ volcano_plot.mass_dataset <-
     volcano_plot.default(
       object = variable_info,
       fc_column_name = fc_column_name,
+      log2_fc = log2_fc,
       p_value_column_name = p_value_column_name,
       labs_x = labs_x,
       labs_y = labs_y,
@@ -198,6 +217,7 @@ volcano_plot.mass_dataset <-
 volcano_plot.data.frame <-
   function(object,
            fc_column_name = "fc",
+           log2_fc = TRUE,
            p_value_column_name = "p_value_adjust",
            labs_x = "log2(Fold change)",
            labs_y = "-log(p-adjust, 10)",
@@ -218,6 +238,7 @@ volcano_plot.data.frame <-
     volcano_plot.default(
       object = object,
       fc_column_name = fc_column_name,
+      log2_fc = log2_fc,
       p_value_column_name = p_value_column_name,
       labs_x = labs_x,
       labs_y = labs_y,
@@ -242,6 +263,7 @@ volcano_plot.data.frame <-
 volcano_plot.default <-
   function(object,
            fc_column_name = "fc",
+           log2_fc = TRUE,
            p_value_column_name = "p_value_adjust",
            labs_x = "log2(Fold change)",
            labs_y = "-log(p-adjust, 10)",
@@ -273,19 +295,35 @@ volcano_plot.default <-
     variable_info <-
       object
     
-    variable_info <-
-      variable_info %>%
-      dplyr::mutate(log2_fc = log(get(fc_column_name), 2)) %>%
-      dplyr::mutate(log10_p = -log(get(p_value_column_name), 10)) %>%
-      dplyr::mutate(
-        marker = case_when(
-          log2_fc > log(fc_up_cutoff, 2) &
-            log10_p > -log(p_value_cutoff, 10) ~ "UP",
-          log2_fc < log(fc_down_cutoff, 2) &
-            log10_p > -log(p_value_cutoff, 10) ~ "DOWN",
-          TRUE ~ "NO"
+    if (log2_fc) {
+      variable_info <-
+        variable_info %>%
+        dplyr::mutate(log2_fc = log(get(fc_column_name), 2)) %>%
+        dplyr::mutate(log10_p = -log(get(p_value_column_name), 10)) %>%
+        dplyr::mutate(
+          marker = case_when(
+            log2_fc > log(fc_up_cutoff, 2) &
+              log10_p > -log(p_value_cutoff, 10) ~ "UP",
+            log2_fc < log(fc_down_cutoff, 2) &
+              log10_p > -log(p_value_cutoff, 10) ~ "DOWN",
+            TRUE ~ "NO"
+          )
         )
-      )
+    } else{
+      variable_info <-
+        variable_info %>%
+        dplyr::mutate(log2_fc = fc_column_name) %>%
+        dplyr::mutate(log10_p = -log(get(p_value_column_name), 10)) %>%
+        dplyr::mutate(
+          marker = case_when(
+            log2_fc > fc_up_cutoff &
+              log10_p > -log(p_value_cutoff, 10) ~ "UP",
+            log2_fc < fc_down_cutoff &
+              log10_p > -log(p_value_cutoff, 10) ~ "DOWN",
+            TRUE ~ "NO"
+          )
+        )
+    }
     
     plot =
       variable_info %>%

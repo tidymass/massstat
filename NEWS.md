@@ -17,3 +17,7 @@
 # massqc 1.0.5
 
 * volcano_plot support data.frame
+
+# massqc 1.0.6
+
+* add one new argumnet log2_fc for volcano_plot function
