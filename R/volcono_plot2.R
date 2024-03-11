@@ -312,7 +312,7 @@ volcano_plot.default <-
     } else{
       variable_info <-
         variable_info %>%
-        dplyr::mutate(log2_fc = fc_column_name) %>%
+        dplyr::mutate(log2_fc = get(fc_column_name)) %>%
         dplyr::mutate(log10_p = -log(get(p_value_column_name), 10)) %>%
         dplyr::mutate(
           marker = case_when(
